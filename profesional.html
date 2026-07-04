@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="./src/css/variables.css">
+    <link rel="stylesheet" href="./src/css/profesional.css">
+    <title>Nicolás Piraján | Modo Profesional</title>
+</head>
+
+<body>
+
+    <header class="pro-header">
+        <a href="./index.html" class="logo-container">
+            <img src="./src/assets/img/logo-nicolas-pirajan.jpeg" alt="Foto de perfil de Nicolás Piraján"
+                class="logo-img">
+            <span class="logo-nombre">Nicolas Piraján</span>
+        </a>
+
+        <ul class="pro-nav__links" role="list">
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#sobre-mi">Sobre mí</a></li>
+            <li><a href="#tecnologias">Tecnologías</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#experiencia">Experiencia</a></li>
+            <li><a href="#educacion">Educación</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+
+        <div class="pro-header__acciones">
+            <a href="./src/assets/cv-nicolas-pirajan.pdf" download class="btn btn--sm btn--verde">
+                <i class="fa-solid fa-download" aria-hidden="true"></i> CV
+            </a>
+            <button class="theme-toggle" aria-label="Cambiar tema" aria-pressed="false">
+                <div class="toggle-circle">
+                    <i class="fa-solid fa-moon" aria-hidden="true"></i>
+                </div>
+            </button>
+            <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+    <main>
+
+        <!-- ========================================
+             1. HERO
+        ========================================= -->
+        <section id="hero" class="hero-pro">
+            <div class="hero-pro__fondo" aria-hidden="true"></div>
+
+            <div class="hero-pro__texto">
+                <span class="hero-pro__saludo reveal">Hola, soy</span>
+                <h1 class="hero-pro__nombre reveal" style="transition-delay:.05s">Nicolás Piraján</h1>
+                <p class="hero-pro__cargo reveal" style="transition-delay:.1s">
+                    <span id="rol-rotativo">Desarrollador Full Stack Java</span><span class="hero-pro__cursor"
+                        aria-hidden="true"></span>
+                </p>
+                <p class="hero-pro__descripcion reveal" style="transition-delay:.15s">
+                    Estudiante de Ingeniería de Software y egresado del Bootcamp Generation Colombia.
+                    Construyo aplicaciones web con Java, Spring Boot y JavaScript, apasionado por
+                    el código limpio y las experiencias de usuario que realmente funcionan.
+                    Busco mi primera oportunidad profesional para aportar, crecer y seguir aprendiendo.
+                </p>
+                <div class="hero-pro__botones reveal" style="transition-delay:.2s">
+                    <a href="./src/assets/cv-nicolas-pirajan.pdf" download class="btn btn--verde">
+                        <i class="fa-solid fa-download" aria-hidden="true"></i> Descargar CV
+                    </a>
+                    <a href="#contacto" class="btn btn--outline">
+                        <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Contactarme
+                    </a>
+                    <a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer"
+                        class="btn btn--icono" aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener noreferrer"
+                        class="btn btn--icono" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-pro__foto-wrap reveal" style="transition-delay:.1s" aria-hidden="true">
+                <div class="hero-pro__foto-ring">
+                    <img src="./src/assets/img/logo-nicolas-pirajan.jpeg" alt="Foto de Nicolás Piraján"
+                        class="hero-pro__foto">
+                </div>
+                <!-- Decoración: puntos de código flotantes -->
+                <span class="hero-pro__deco hero-pro__deco--1">&lt;/&gt;</span>
+                <span class="hero-pro__deco hero-pro__deco--2">{ }</span>
+                <span class="hero-pro__deco hero-pro__deco--3">Java</span>
+            </div>
+
+            <a href="#sobre-mi" class="hero-pro__scroll-hint" aria-label="Bajar a la siguiente sección">
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
+        </section>
+
+
+        <!-- ========================================
+             2. SOBRE MÍ
+        ========================================= -->
+        <section id="sobre-mi" class="seccion seccion--alt">
+            <div class="seccion__inner">
+                <div class="seccion__encabezado reveal">
+                    <span class="tag-code">&lt;sobre-mi /&gt;</span>
+                    <h2>Sobre mí</h2>
+                </div>
+
+                <div class="sobre-mi__grid">
+                    <div class="sobre-mi__texto reveal">
+                        <p>
+                            Soy <strong>Nicolás Piraján</strong>, desarrollador Full Stack Java en formación y
+                            estudiante de
+                            <strong>Ingeniería de Software</strong>. Resido en Bogotá, Colombia, y me apasiona construir
+                            soluciones digitales que sean útiles, rápidas y fáciles de usar.
+                        </p>
+
+                        <p>
+                            Recientemente completé el <strong>Bootcamp Full Stack Java de Generation Colombia</strong>,
+                            donde participé en proyectos colaborativos aplicando metodologías ágiles como
+                            <strong>SCRUM</strong>.
+                            Durante ese proceso asumí distintos roles, como desarrollador, Scrum Master y administrador
+                            de
+                            repositorios, adaptándome a las necesidades de cada equipo.
+                        </p>
+
+                        <p>
+                            Disfruto enfrentar nuevos desafíos y aprender constantemente. Por eso he desarrollado
+                            proyectos
+                            como una Pokédex consumiendo la PokéAPI, he trabajado resolviendo conflictos de integración
+                            (merge conflicts) en repositorios colaborativos y diseñé este portafolio con una experiencia
+                            interactiva inspirada en un videojuego RPG, combinando creatividad y desarrollo web.
+                        </p>
+                    </div>
+                    <div class="sobre-mi__buscando reveal" style="transition-delay:.1s">
+                        <div class="buscando-card">
+                            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                            <h3>¿Qué busco?</h3>
+                            <p>
+                                Busco mi primera oportunidad profesional como desarrollador Junior,
+                                ya sea en desarrollo Backend con Java o como Full Stack. Mi objetivo
+                                es integrarme a un equipo donde pueda aportar valor, seguir aprendiendo
+                                y crecer tanto a nivel técnico como profesional.
+                            </p>
+                        </div>
+                        <div class="sobre-mi__stats">
+                            <div class="stat">
+                                <span class="stat__numero" data-contador="1">0</span>
+                                <span class="stat__label">Bootcamp Full Stack Java completado</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat__numero" data-contador="5">0</span>
+                                <span class="stat__label">Proyectos desarrollados</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat__numero">∞</span>
+                                <span class="stat__label">Aprendizaje continuo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="tecnologias" class="seccion">
+            <div class="seccion__inner">
+                <div class="seccion__encabezado reveal">
+                    <span class="tag-code">&lt;tecnologias /></span>
+                    <h2>Tecnologías</h2>
+                    <p class="seccion__descripcion">
+                        Estas son las tecnologías y herramientas con las que desarrollo aplicaciones,
+                        gestiono proyectos y trabajo de forma colaborativa. Continúo ampliando mis
+                        conocimientos para seguir creciendo como desarrollador Full Stack Java.
+                    </p>
+                </div>
+                <div class="tec-grupos">
+                    <div class="tec-grupo reveal">
+                        <h3 class="tec-grupo__titulo"><i class="fa-solid fa-display" aria-hidden="true"></i> Frontend
+                        </h3>
+                        <div class="carousel">
+                            <div class="carousel-track" data-direction="left" data-speed="0.7">
+                                <div class="tec-card">
+                                    <i class="devicon-html5-plain colored"></i>
+                                    <span>HTML5</span>
+                                </div>
+                                <div class="tec-card">
+                                    <i class="devicon-css3-plain colored"></i>
+                                    <span>CSS3</span>
+                                </div>
+                                <div class="tec-card">
+                                    <i class="devicon-javascript-plain colored"></i>
+                                    <span>JavaScript</span>
+                                </div>
+                                <div class="tec-card">
+                                    <i class="devicon-bootstrap-plain colored"></i>
+                                    <span>Bootstrap</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tec-grupo reveal" style="transition-delay:.05s">
+                        <h3 class="tec-grupo__titulo"><i class="fa-solid fa-server" aria-hidden="true"></i> Backend</h3>
+                        <div class="carousel">
+                            <div class="carousel-track" data-direction="right" data-speed="0.6">
+                                <div class="tec-card">
+                                    <i class="devicon-java-plain colored"></i>
+                                    <span>Java</span>
+                                </div>
+                                <div class="tec-card">
+                                    <i class="devicon-mysql-plain colored"></i>
+                                    <span>MySQL</span>
+                                </div>
+                                <div class="tec-card">
+                                    <i class="fa-solid fa-seedling"></i>
+                                    <span>Spring Boot <small>(Aprendiendo)</small></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tec-grupo reveal" style="transition-delay:.1s">
+                        <h3 class="tec-grupo__titulo"><i class="fa-solid fa-toolbox" aria-hidden="true"></i>
+                            Herramientas</h3>
+                        <div class="carousel">
+                            <div class="carousel-track" data-direction="left" data-speed="0.8">
+                                <div class="tec-card">
+                                    <i class="devicon-git-plain colored"></i>
+                                    <span>Git</span>
+                                </div>
+                                <div class="tec-card">
+                                    <i class="devicon-github-original"></i>
+                                    <span>GitHub</span>
+                                </div>
+                                <div class="tec-card">
+                                    <i class="devicon-intellij-plain colored"></i>
+                                    <span>IntelliJ IDEA</span>
+                                </div>
+                                <div class="tec-card">
+                                    <i class="devicon-vscode-plain colored"></i>
+                                    <span>VS Code</span>
+                                </div>
+                                <div class="tec-card">
+                                    <i class="devicon-figma-plain colored"></i>
+                                    <span>Figma</span>
+                                </div>
+                                <div class="tec-card">
+                                    <i class="fa-solid fa-users"></i>
+                                    <span>SCRUM</span>
+                                </div>
+                                <div class="tec-card">
+                                    <i class="fa-solid fa-terminal"></i>
+                                    <span>Git Bash</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="proyectos" class="seccion seccion--alt">
+            <div class="seccion__inner">
+                <div class="seccion__encabezado reveal">
+                    <span class="tag-code">&lt;proyectos /&gt;</span>
+                    <h2>Proyectos</h2>
+
+                    <p class="seccion__descripcion">
+                        Estos son algunos de los proyectos que he desarrollado durante mi formación
+                        académica y el Bootcamp Full Stack Java. Cada uno representa nuevos desafíos,
+                        tecnologías aprendidas y experiencia trabajando tanto de manera individual como
+                        colaborativa.
+                    </p>
+                </div>
+
+                <div class="proyectos-filtros reveal" role="group" aria-label="Filtrar proyectos por tecnología">
+                    <button type="button" class="filtro-pill activo" data-filtro="todos">Todos</button>
+                    <button type="button" class="filtro-pill" data-filtro="javascript">JavaScript</button>
+                    <button type="button" class="filtro-pill" data-filtro="pokéapi">PokéAPI</button>
+                    <button type="button" class="filtro-pill" data-filtro="localstorage">localStorage</button>
+                    <button type="button" class="filtro-pill" data-filtro="scrum">SCRUM</button>
+                    <button type="button" class="filtro-pill" data-filtro="git">Git</button>
+                </div>
+
+                <div class="proyectos-grid">
+                    <!-- Proyecto 1 -->
+                    <article class="proyecto-card reveal" data-tecnologias="html,css,javascript,pokéapi">
+                        <div class="proyecto-card__img proyecto-card__img--1" aria-hidden="true">
+                            <i class="fa-solid fa-dragon"></i>
+                        </div>
+                        <div class="proyecto-card__body">
+                            <h3>Pokédex Interactiva</h3>
+                            <p>
+                                Aplicación web que consume la PokéAPI para consultar información de
+                                Pokémon. Incluye navegación dinámica, versión shiny, descripciones
+                                en español y una interfaz inspirada en la Pokédex clásica.
+                            </p>
+                            <div class="proyecto-card__techs">
+                                <span class="tech-pill">HTML</span>
+                                <span class="tech-pill">CSS</span>
+                                <span class="tech-pill">JavaScript</span>
+                                <span class="tech-pill">PokéAPI</span>
+                            </div>
+                            <div class="proyecto-card__links">
+                                <a href="#" class="btn btn--sm btn--outline">
+                                    <i class="fa-brands fa-github"></i> GitHub
+                                </a>
+                                <a href="#" class="btn btn--sm btn--verde">
+                                    Demo
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Proyecto 2 -->
+                    <article class="proyecto-card reveal" data-tecnologias="html,css,javascript">
+                        <div class="proyecto-card__img proyecto-card__img--2" aria-hidden="true">
+                            <i class="fa-solid fa-tooth"></i>
+                        </div>
+                        <div class="proyecto-card__body">
+                            <h3>Oral White — Registro Dental</h3>
+                            <p>
+                                Interfaz web para el registro de pacientes de una clínica dental,
+                                con formulario moderno, validaciones, autenticación social y un
+                                diseño enfocado en la experiencia del usuario.
+                            </p>
+                            <div class="proyecto-card__techs">
+                                <span class="tech-pill">HTML</span>
+                                <span class="tech-pill">CSS</span>
+                                <span class="tech-pill">JavaScript</span>
+                            </div>
+                            <div class="proyecto-card__links">
+                                <a href="#" class="btn btn--sm btn--outline">
+                                    <i class="fa-brands fa-github"></i> GitHub
+                                </a>
+                                <a href="#" class="btn btn--sm btn--verde">
+                                    Demo
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Proyecto 3 -->
+                    <article class="proyecto-card reveal" data-tecnologias="javascript,pokéapi,localstorage,scrum">
+                        <div class="proyecto-card__img proyecto-card__img--3" aria-hidden="true">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="proyecto-card__body">
+                            <h3>Pokémon Favoritos</h3>
+                            <p>
+                                Proyecto colaborativo desarrollado bajo metodología Scrum para
+                                gestionar Pokémon favoritos utilizando localStorage. Participé en
+                                el desarrollo de funcionalidades y en la integración del código
+                                con el resto del equipo.
+                            </p>
+                            <div class="proyecto-card__techs">
+                                <span class="tech-pill">JavaScript</span>
+                                <span class="tech-pill">PokéAPI</span>
+                                <span class="tech-pill">localStorage</span>
+                                <span class="tech-pill">SCRUM</span>
+                            </div>
+                            <div class="proyecto-card__links">
+                                <a href="#" class="btn btn--sm btn--outline">
+                                    <i class="fa-brands fa-github"></i> GitHub
+                                </a>
+                                <a href="#" class="btn btn--sm btn--verde">
+                                    Demo
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Proyecto 4 -->
+                    <article class="proyecto-card reveal" data-tecnologias="html,css,git">
+                        <div class="proyecto-card__img proyecto-card__img--4" aria-hidden="true">
+                            <i class="fa-solid fa-newspaper"></i>
+                        </div>
+                        <div class="proyecto-card__body">
+                            <h3>Blog Top 10 Colombia</h3>
+                            <p>
+                                Proyecto colaborativo donde desempeñé el rol de Scrum Master,
+                                organizando el flujo de trabajo con GitHub Projects, administrando
+                                el repositorio y apoyando la resolución de conflictos de integración.
+                            </p>
+                            <div class="proyecto-card__techs">
+                                <span class="tech-pill">HTML</span>
+                                <span class="tech-pill">CSS</span>
+                                <span class="tech-pill">Git</span>
+                                <span class="tech-pill">GitHub Projects</span>
+                            </div>
+                            <div class="proyecto-card__links">
+                                <a href="#" class="btn btn--sm btn--outline">
+                                    <i class="fa-brands fa-github"></i> GitHub
+                                </a>
+                                <a href="#" class="btn btn--sm btn--verde">
+                                    Demo
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Proyecto 5 -->
+                    <article class="proyecto-card reveal" data-tecnologias="html,css,javascript,localstorage">
+                        <div class="proyecto-card__img proyecto-card__img--5" aria-hidden="true">
+                            <i class="fa-solid fa-list-check"></i>
+                        </div>
+                        <div class="proyecto-card__body">
+                            <h3>Task Manager</h3>
+                            <p>
+                                Aplicación para la gestión de tareas con operaciones CRUD,
+                                persistencia mediante localStorage y manipulación dinámica del DOM
+                                utilizando JavaScript puro.
+                            </p>
+                            <div class="proyecto-card__techs">
+                                <span class="tech-pill">HTML</span>
+                                <span class="tech-pill">CSS</span>
+                                <span class="tech-pill">JavaScript</span>
+                                <span class="tech-pill">localStorage</span>
+                            </div>
+                            <div class="proyecto-card__links">
+                                <a href="#" class="btn btn--sm btn--outline">
+                                    <i class="fa-brands fa-github"></i> GitHub
+                                </a>
+                                <a href="#" class="btn btn--sm btn--verde">
+                                    Demo
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Proyecto 6 -->
+                    <article class="proyecto-card reveal" data-tecnologias="html,css,javascript">
+                        <div class="proyecto-card__img proyecto-card__img--6" aria-hidden="true">
+                            <i class="fa-solid fa-gamepad"></i>
+                        </div>
+                        <div class="proyecto-card__body">
+                            <h3>Portafolio Personal</h3>
+                            <p>
+                                Portafolio web desarrollado desde cero con dos experiencias de
+                                navegación: un modo profesional para reclutadores y un modo
+                                aventura inspirado en videojuegos RPG, construido con HTML,
+                                CSS y JavaScript.
+                            </p>
+                            <div class="proyecto-card__techs">
+                                <span class="tech-pill">HTML</span>
+                                <span class="tech-pill">CSS</span>
+                                <span class="tech-pill">JavaScript</span>
+                                <span class="tech-pill">Pixel Art</span>
+                            </div>
+                            <div class="proyecto-card__links">
+                                <a href="#" class="btn btn--sm btn--outline">
+                                    <i class="fa-brands fa-github"></i> GitHub
+                                </a>
+                                <a href="./index.html" class="btn btn--sm btn--verde">
+                                    Ver
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <p class="proyectos-vacio" id="proyectos-vacio" hidden>
+                    No hay proyectos con esa tecnología todavía — prueba con otro filtro.
+                </p>
+            </div>
+        </section>
+
+
+        <section id="experiencia" class="seccion">
+            <div class="seccion__inner">
+                <div class="seccion__encabezado reveal">
+                    <span class="tag-code">&lt;trayectoria /&gt;</span>
+                    <h2>Experiencia y Formación</h2>
+                    <p class="seccion__descripcion">
+                        Mi trayectoria combina formación académica, desarrollo de proyectos y experiencia trabajando en
+                        equipos colaborativos mediante metodologías ágiles. Cada etapa ha fortalecido mis habilidades
+                        técnicas y de trabajo en equipo.
+                    </p>
+                </div>
+                <ol class="timeline" aria-label="Trayectoria profesional">
+                    <li class="timeline__item reveal">
+                        <div class="timeline__punto"></div>
+                        <div class="timeline__contenido">
+                            <span class="timeline__fecha">2026</span>
+                            <h3>Bootcamp Full Stack Java — Generation Colombia</h3>
+                            <p>
+                                Formación intensiva orientada al desarrollo Full Stack con Java. Participé en proyectos
+                                individuales y colaborativosutilizando Git, GitHub y Scrum, desempeñando diferentes
+                                roles como desarrollador, Scrum Master y administrador de repositorios.
+                            </p>
+                            <div class="timeline__techs">
+                                <span class="tech-pill">Java</span>
+                                <span class="tech-pill">HTML</span>
+                                <span class="tech-pill">CSS</span>
+                                <span class="tech-pill">JavaScript</span>
+                                <span class="tech-pill">Git</span>
+                                <span class="tech-pill">SCRUM</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline__item reveal" style="transition-delay:.05s">
+                        <div class="timeline__punto" aria-hidden="true"></div>
+                        <div class="timeline__contenido">
+                            <span class="timeline__fecha">Actualidad</span>
+                            <h3>Ingeniería de Software</h3>
+                            <p>
+                                Actualmente curso Ingeniería de Software en <strong>Uniempresarial – Fundación
+                                    Universitaria
+                                    Empresarial de la Cámara de Comercio de Bogotá</strong>, fortaleciendo mis
+                                conocimientos en
+                                programación, estructuras de datos, bases de datos, ingeniería de software y desarrollo
+                                de aplicaciones mediante un modelo de formación orientado al entorno empresarial.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="timeline__item reveal" style="transition-delay:.1s">
+                        <div class="timeline__punto"></div>
+                        <div class="timeline__contenido">
+                            <span class="timeline__fecha">Actualidad</span>
+                            <h3>Experiencia Profesional</h3>
+                            <p>
+                                Mi experiencia laboral me ha permitido desarrollar habilidades altamente transferibles
+                                al desarrollo de software, como trabajo en equipo, comunicación efectiva, resolución de
+                                problemas, organización y adaptación a entornos dinámicos.
+                            </p>
+                            <div class="timeline__techs">
+                                <span class="tech-pill">Trabajo en equipo</span>
+                                <span class="tech-pill">Comunicación</span>
+                                <span class="tech-pill">Resolución de problemas</span>
+                                <span class="tech-pill">Adaptabilidad</span>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+        <section id="educacion" class="seccion seccion--alt">
+            <div class="seccion__inner">
+                <div class="seccion__encabezado reveal">
+                    <span class="tag-code">&lt;educacion /&gt;</span>
+                    <h2>Educación</h2>
+                    <p class="seccion__descripcion">
+                        Mi formación combina estudios universitarios, capacitación intensiva y aprendizaje
+                        autodidacta, permitiéndome fortalecer continuamente mis conocimientos en desarrollo
+                        de software y tecnologías web.
+                    </p>
+                </div>
+
+                <ol class="timeline" aria-label="Formación académica">
+
+                    <li class="timeline__item reveal">
+                        <div class="timeline__punto" aria-hidden="true"></div>
+                        <div class="timeline__contenido">
+                            <span class="timeline__fecha">Actualidad</span>
+                            <h3>Ingeniería de Software</h3>
+                            <p>
+                                Actualmente curso Ingeniería de Software, fortaleciendo mis conocimientos en
+                                programación, estructuras de datos, bases de datos, ingeniería de software
+                                y desarrollo de aplicaciones.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li class="timeline__item reveal" style="transition-delay:.05s">
+                        <div class="timeline__punto" aria-hidden="true"></div>
+                        <div class="timeline__contenido">
+                            <span class="timeline__fecha">2026</span>
+                            <h3>Bootcamp Full Stack Java — Generation Colombia</h3>
+                            <p>
+                                Formación intensiva enfocada en desarrollo Full Stack con Java, trabajo
+                                colaborativo mediante Scrum, control de versiones con Git y construcción
+                                de proyectos utilizando HTML, CSS y JavaScript.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li class="timeline__item reveal" style="transition-delay:.1s">
+                        <div class="timeline__punto" aria-hidden="true"></div>
+                        <div class="timeline__contenido">
+                            <span class="timeline__fecha">Aprendizaje continuo</span>
+                            <h3>Formación autodidacta</h3>
+                            <p>
+                                Complemento mi aprendizaje mediante documentación oficial, cursos y proyectos
+                                personales, explorando nuevas tecnologías y fortaleciendo constantemente mis
+                                habilidades como desarrollador.
+                            </p>
+                        </div>
+                    </li>
+
+                </ol>
+            </div>
+        </section>
+        <section id="contacto" class="seccion">
+            <div class="seccion__inner">
+                <div class="seccion__encabezado reveal">
+                    <span class="tag-code">&lt;contacto /&gt;</span>
+                    <h2>Contacto</h2>
+                    <p class="seccion__descripcion">
+                        ¿Tienes una oportunidad laboral, una propuesta de colaboración o simplemente
+                        quieres ponerte en contacto conmigo? Estaré encantado de leerte.
+                    </p>
+                </div>
+                <div class="contacto-grid">
+                    <form class="contacto-form reveal" id="formulario-contacto" novalidate>
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo"
+                                autocomplete="name" required>
+                            <span class="form-error" id="error-nombre"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="correo">Correo electrónico</label>
+                            <input type="email" id="correo" name="correo" placeholder="tu@correo.com"
+                                autocomplete="email" required>
+                            <span class="form-error" id="error-correo"></span>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__encabezado">
+                                <label for="mensaje">Mensaje</label>
+                                <span class="form-contador" id="contador-mensaje">0 / 500</span>
+                            </div>
+                            <textarea id="mensaje" name="mensaje" rows="5" maxlength="500"
+                                placeholder="Cuéntame sobre tu proyecto, oportunidad o consulta..." required></textarea>
+                            <span class="form-error" id="error-mensaje"></span>
+                        </div>
+                        <button type="submit" class="btn btn--verde btn--full" id="btn-enviar">
+                            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+                            Enviar mensaje
+                        </button>
+                        <p class="form-success" id="form-exito" aria-live="polite"></p>
+                    </form>
+                    <aside class="contacto-info reveal" style="transition-delay:.1s">
+                        <h3>También puedes encontrarme en</h3>
+                        <p>
+                            Actualmente me encuentro disponible para oportunidades como
+                            <strong>Desarrollador Full Stack Java Junior</strong>.
+                        </p>
+                        <div class="contacto-links">
+                            <a href="https://github.com/Niikolas970" target="_blank" rel="noopener noreferrer"
+                                class="contacto-link">
+                                <i class="fa-brands fa-github fa-lg"></i>
+                                <div>
+                                    <strong>GitHub</strong>
+                                    <span>github.com/Niikolas970</span>
+                                </div>
+                            </a>
+                            <a href="https://www.linkedin.com/in/nicolas-alejandro-pirajan-rivera-dev/" target="_blank"
+                                rel="noopener noreferrer" class="contacto-link">
+                                <i class="fa-brands fa-linkedin fa-lg"></i>
+                                <div>
+                                    <strong>LinkedIn</strong>
+                                    <span>linkedin.com/in/nicolas-alejandro-pirajan-rivera-dev</span>
+                                </div>
+                            </a>
+                            <button type="button" class="contacto-link contacto-link--boton" id="copiar-correo"
+                                data-correo="nicolasalejandro2001@gmail.com">
+                                <i class="fa-solid fa-envelope fa-lg"></i>
+                                <div>
+                                    <strong>Correo electrónico</strong>
+                                    <span>nicolasalejandro2001@gmail.com</span>
+                                </div>
+                                <i class="fa-solid fa-copy contacto-link__copiar" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="pro-footer">
+        <div class="pro-footer__inner">
+            <div class="pro-footer__info">
+                <p class="pro-footer__nombre">© 2026 Nicolás Piraján</p>
+                <p class="pro-footer__rol">Desarrollador Full Stack Java</p>
+            </div>
+            <a href="./index.html" class="btn btn--sm btn--outline">
+                ← Volver al inicio
+            </a>
+            <div class="pro-footer__links">
+                <a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fa-brands fa-github fa-lg"></i>
+                </a>
+                <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener noreferrer"
+                    aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin fa-lg"></i>
+                </a>
+                <a href="mailto:tu@email.com" aria-label="Email">
+                    <i class="fa-solid fa-envelope fa-lg"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <button type="button" class="btn-subir" id="btn-subir" aria-label="Volver arriba">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="./src/js/profesional.js"></script>
+</body>
+
+</html>

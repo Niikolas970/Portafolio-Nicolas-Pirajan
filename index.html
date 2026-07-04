@@ -1,64 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="./src/css/main.css">
-    <title>Portafolio</title>
+    <title>Nicolás Piraján | Desarrollador Full Stack Java</title>
 </head>
 
 <body>
     <header>
         <div class="logo-container">
             <div class="logo">
-                <img src="/src/assets/img/logo-nicolas-pirajan.jpeg" alt="logo-nicolas-pirajan" class="logo-img">
+                <img src="/src/assets/img/logo-nicolas-pirajan.jpeg" alt="Foto de perfil de Nicolás Piraján"
+                    class="logo-img">
             </div>
-            <span class="logo-nombre">
-                Nicolas Pirajan
-            </span>
+            <span class="logo-nombre">Nicolas Piraján</span>
         </div>
-        <nav>
-            <i class="fa-brands fa-github fa-beat"></i>
-            <i class="fa-brands fa-linkedin fa-beat"></i>
-            <i class="fa-solid fa-envelope fa-beat"></i>
-            <div class="theme-toggle">
+
+        <nav aria-label="Redes sociales y configuración">
+            <a href="https://github.com/Niikolas970" target="_blank" rel="noopener noreferrer"
+                aria-label="GitHub de Nicolás">
+                <i class="fa-brands fa-github fa-beat"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/nicolas-alejandro-pirajan-rivera-dev/" target="_blank"
+                rel="noopener noreferrer" aria-label="LinkedIn de Nicolás">
+                <i class="fa-brands fa-linkedin fa-beat"></i>
+            </a>
+            <a href="mailto:tu@email.com" aria-label="Enviar correo a Nicolás">
+                <i class="fa-solid fa-envelope fa-beat"></i>
+            </a>
+            <button class="theme-toggle" aria-label="Cambiar tema" aria-pressed="false">
                 <div class="toggle-circle">
-                    <i class="fa-solid fa-moon"></i>
+                    <i class="fa-solid fa-moon" aria-hidden="true"></i>
                 </div>
-            </div>
+            </button>
         </nav>
-
-
     </header>
+
     <main>
-        <section class="hero">
-            <div class="hero-title">
-                <h1>Hola, soy Nicolás</h1>
-                <p class="desarrollador-software">Desarrollador Full Stack Java</p>
-                <p class="hero-description">Construyo aplicaciones web y experiencias <br>interactivas mientras continuo
-                    mi
-                    formacion academica</p>
-                <h2 class="formas-portafolio">Dos formas de explorar mi portafolio</h2>
-                <p class="formas-descripcion">Elige la experiencia que prefieras.</p>
+        <section class="hero" aria-label="Presentación">
+            <div class="hero-content">
+
+                <!-- Jerarquía tipográfica correcta: el nombre es el h1 -->
+                <p class="hero-saludo">Hola, soy</p>
+                <h1 class="hero-nombre">Nicolás Piraján</h1>
+                <p class="hero-rol">Desarrollador Full Stack Java</p>
+                <p class="hero-descripcion">
+                    Construyo aplicaciones web y experiencias interactivas
+                    mientras continúo mi formación académica.
+                </p>
+
+                <div class="hero-divider" aria-hidden="true"></div>
+
+                <h2 class="hero-modos-titulo">Dos formas de explorar mi portafolio</h2>
+                <p class="hero-modos-subtitulo">Elige la experiencia que prefieras.</p>
+
                 <div class="hero-modes">
-                    <div class="profesional-card">
-                        <i class="fa-solid fa-briefcase"></i>
-                        <i class="fa-solid fa-laptop"></i>
-                        <h3 class="modo-profesional">MODO PROFESIONAL</h3>
-                        <p>Vista tradicional reclutadores. <br>Mi experiencia, habilidades y proyectos</p>
-                        <a href="" class="tipo-boton-card">Entrar →</a>
+                    <div class="mode-card mode-card--profesional">
+                        <div class="mode-card__iconos" aria-hidden="true">
+                            <i class="fa-solid fa-briefcase"></i>
+                            <i class="fa-solid fa-laptop"></i>
+                        </div>
+                        <h3 class="mode-card__titulo">Modo Profesional</h3>
+                        <p class="mode-card__descripcion">
+                            Vista tradicional para reclutadores.
+                            Mi experiencia, habilidades y proyectos.
+                        </p>
+                        <a href="./profesional.html" class="mode-card__btn mode-card__btn--verde">
+                            Entrar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </a>
                     </div>
-                    <div class="aventura-card">
-                        <i class="fa-solid fa-gamepad"></i>
-                        <i class="fa-solid fa-compass"></i>
-                        <h3 class="modo-dinamico">MODO AVENTURA</h3>
-                        <p>Explora mi perfil a través de un mapa <br>RPG interactivo en 2D Top-down.</p>
-                        <a href="" class="tipo-boton-card">Explorar →</a>
+
+                    <div class="mode-card mode-card--aventura">
+                        <div class="mode-card__iconos" aria-hidden="true">
+                            <i class="fa-solid fa-gamepad"></i>
+                            <i class="fa-solid fa-compass"></i>
+                        </div>
+                        <h3 class="mode-card__titulo">Modo Aventura</h3>
+                        <p class="mode-card__descripcion">
+                            Explora mi perfil a través de un mapa
+                            RPG interactivo en 2D Top-down.
+                        </p>
+                        <a href="./aventura.html" class="mode-card__btn mode-card__btn--morado">
+                            Explorar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </a>
                     </div>
                 </div>
-                <p class="cambiar-modo-portafolio">Puedes cambiar entre ambos modos cuando quieras</p>
-                <div class="scroll-down-portafolio">
+
+                <p class="hero-nota">Puedes cambiar entre ambos modos cuando quieras</p>
+
+                <div class="scroll-indicator" aria-hidden="true">
                     <i class="fa-solid fa-angle-down fa-bounce"></i>
                     <i class="fa-solid fa-angle-down fa-bounce"></i>
                 </div>
@@ -66,9 +101,28 @@
             </div>
         </section>
     </main>
-    <footer>
 
+    <footer>
+        <div class="footer-info">
+            <p class="footer-copy">© 2026 Nicolás Piraján</p>
+            <p class="footer-rol">Desarrollador Full Stack Java</p>
+        </div>
+
+        <div class="footer-links">
+            <a href="https://github.com/Niikolas970" target="_blank" rel="noopener noreferrer"
+                aria-label="GitHub de Nicolás">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/nicolas-alejandro-pirajan-rivera-dev/" target="_blank" rel="noopener noreferrer"
+                aria-label="LinkedIn de Nicolás">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="mailto:tu@email.com" aria-label="Correo de Nicolás">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
     </footer>
+
     <script src="./src/js/main.js"></script>
 </body>
 

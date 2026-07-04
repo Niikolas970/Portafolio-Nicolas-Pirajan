@@ -1,88 +1,86 @@
+
 :root {
 
     /* ========= COLORES ========= */
 
-    --bg-principal: #0F172A;
-    --bg-secundario: #111827;
-    --bg-superficies: #1F2937;
+    --bg-principal:    #0F172A;
+    --bg-secundario:   #111827;
+    --bg-superficies:  #1F2937;
 
-    --verde-primario: #22C55E;
-    --verde-exito: #10B981;
-    --verde-claro: #34D399;
+    --verde-primario:  #22C55E;
+    --verde-exito:     #10B981;
+    --verde-claro:     #34D399;
 
     --morado-primario: #8B5CF6;
-    --morado-enfasis: #7C3AED;
-    --morado-claro: #A78BFA;
+    --morado-enfasis:  #7C3AED;
+    --morado-claro:    #A78BFA;
 
-    --rosa-detalles: #EC4899;
-    --ambar-advertencia: #F59E0B;
+    --rosa-detalles:      #EC4899;
+    --ambar-advertencia:  #F59E0B;
 
-    --texto-principal: #F8FAFC;
-    --texto-secundario: #94A3B8;
+    --texto-principal:    #F8FAFC;
+    --texto-secundario:   #94A3B8;
 
     /* ========= TIPOGRAFÍAS ========= */
 
     --font-titulos: 'Poppins', sans-serif;
-    --font-cuerpo: 'Inter', sans-serif;
-    --font-codigo: 'JetBrains Mono', monospace;
+    --font-cuerpo:  'Inter', sans-serif;
+    --font-codigo:  'JetBrains Mono', monospace;
 
-    /* ========= TAMAÑOS TEXTO ========= */
+    /* ========= ESCALA TIPOGRÁFICA ========= */
 
-    --text-xs: 0.75rem;      /* 12px */
-    --text-sm: 0.875rem;     /* 14px */
-    --text-md: 1rem;         /* 16px */
-    --text-lg: 1.25rem;      /* 20px */
-    --text-xl: 1.875rem;     /* 30px */
-    --text-2xl: 2.5rem;      /* 40px */
+    --text-xs:   0.75rem;    /* 12px */
+    --text-sm:   0.875rem;   /* 14px */
+    --text-md:   1rem;       /* 16px */
+    --text-lg:   1.25rem;    /* 20px */
+    --text-xl:   1.875rem;   /* 30px */
+    --text-2xl:  2.5rem;     /* 40px */
+    --text-3xl:  3.5rem;     /* 56px */
 
     /* ========= ESPACIADOS ========= */
 
-    --space-xs: 0.25rem;
-    --space-sm: 0.5rem;
-    --space-md: 1rem;
-    --space-lg: 1.5rem;
-    --space-xl: 2rem;
-    --space-2xl: 3rem;
+    --space-xs:   0.25rem;
+    --space-sm:   0.5rem;
+    --space-md:   1rem;
+    --space-lg:   1.5rem;
+    --space-xl:   2rem;
+    --space-2xl:  3rem;
 
     /* ========= BORDES ========= */
 
-    --radius-sm: 8px;
-    --radius-md: 16px;
-    --radius-lg: 24px;
+    --radius-sm:   8px;
+    --radius-md:   16px;
+    --radius-lg:   24px;
     --radius-full: 999px;
 
     /* ========= SOMBRAS ========= */
 
-    --shadow-sm: 0 2px 8px rgba(0,0,0,.15);
-    --shadow-md: 0 4px 15px rgba(0,0,0,.25);
-    --shadow-lg: 0 8px 25px rgba(0,0,0,.35);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, .15);
+    --shadow-md: 0 4px 15px rgba(0, 0, 0, .25);
+    --shadow-lg: 0 8px 25px rgba(0, 0, 0, .35);
+
+    /* Sombras de color para los cards — así no las repites en cada regla */
+    --shadow-verde:   0 0 20px rgba(34, 197, 94, .35);
+    --shadow-morado:  0 0 20px rgba(139, 92, 246, .35);
+    --shadow-ambar:   0 0 15px rgba(245, 158, 11, .4);
 
     /* ========= TRANSICIONES ========= */
 
-    --transition-fast: 0.2s ease;
+    --transition-fast:   0.2s ease;
     --transition-normal: 0.3s ease;
-    --transition-slow: 0.5s ease;
+    --transition-slow:   0.5s ease;
 
 }
+
+/* ===== MODO CLARO ===== */
 .light-mode {
 
-    --bg-principal: #F8FAFC;
-    --bg-secundario: #E2E8F0;
+    --bg-principal:   #F8FAFC;
+    --bg-secundario:  #E2E8F0;
     --bg-superficies: #FFFFFF;
 
-    --texto-principal: #0F172A;
-    --texto-secundario: #475569;
+    --texto-principal:   #0F172A;
+    --texto-secundario:  #475569;
 
-    /* Conservamos los colores de marca */
-
-    --verde-primario: #22C55E;
-    --verde-exito: #10B981;
-    --verde-claro: #34D399;
-
-    --morado-primario: #8B5CF6;
-    --morado-enfasis: #7C3AED;
-    --morado-claro: #A78BFA;
-
-    --rosa-detalles: #EC4899;
-    --ambar-advertencia: #F59E0B;
+    /* Los colores de marca no cambian */
 }
