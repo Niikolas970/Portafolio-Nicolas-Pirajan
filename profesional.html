@@ -15,11 +15,11 @@
 
 <body>
 
-    <!-- ===== NAV FIJA ===== -->
-    <nav class="pro-nav" aria-label="Navegación del portafolio">
-        <a href="./index.html" class="pro-nav__logo">
-            <img src="./src/assets/img/logo-nicolas-pirajan.jpeg" alt="Logo Nicolás Piraján" class="pro-nav__foto">
-            <span>NP</span>
+    <header class="pro-header">
+        <a href="./index.html" class="logo-container">
+            <img src="./src/assets/img/logo-nicolas-pirajan.jpeg" alt="Foto de perfil de Nicolás Piraján"
+                class="logo-img">
+            <span class="logo-nombre">Nicolas Piraján</span>
         </a>
 
         <ul class="pro-nav__links" role="list">
@@ -32,34 +32,42 @@
             <li><a href="#contacto">Contacto</a></li>
         </ul>
 
-        <div class="pro-nav__acciones">
+        <div class="pro-header__acciones">
             <a href="./src/assets/cv-nicolas-pirajan.pdf" download class="btn btn--sm btn--verde">
                 <i class="fa-solid fa-download" aria-hidden="true"></i> CV
             </a>
-            <!-- Menú hamburguesa para móvil -->
+            <button class="theme-toggle" aria-label="Cambiar tema" aria-pressed="false">
+                <div class="toggle-circle">
+                    <i class="fa-solid fa-moon" aria-hidden="true"></i>
+                </div>
+            </button>
             <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
-    </nav>
-
+    </header>
     <main>
 
         <!-- ========================================
              1. HERO
         ========================================= -->
         <section id="hero" class="hero-pro">
+            <div class="hero-pro__fondo" aria-hidden="true"></div>
+
             <div class="hero-pro__texto">
-                <span class="hero-pro__saludo">Hola, soy</span>
-                <h1 class="hero-pro__nombre">Nicolás Piraján</h1>
-                <p class="hero-pro__cargo">Desarrollador Full Stack Java</p>
-                <p class="hero-pro__descripcion">
+                <span class="hero-pro__saludo reveal">Hola, soy</span>
+                <h1 class="hero-pro__nombre reveal" style="transition-delay:.05s">Nicolás Piraján</h1>
+                <p class="hero-pro__cargo reveal" style="transition-delay:.1s">
+                    <span id="rol-rotativo">Desarrollador Full Stack Java</span><span class="hero-pro__cursor"
+                        aria-hidden="true"></span>
+                </p>
+                <p class="hero-pro__descripcion reveal" style="transition-delay:.15s">
                     Estudiante de Ingeniería de Software y egresado del Bootcamp Generation Colombia.
                     Construyo aplicaciones web con Java, Spring Boot y JavaScript, apasionado por
                     el código limpio y las experiencias de usuario que realmente funcionan.
                     Busco mi primera oportunidad profesional para aportar, crecer y seguir aprendiendo.
                 </p>
-                <div class="hero-pro__botones">
+                <div class="hero-pro__botones reveal" style="transition-delay:.2s">
                     <a href="./src/assets/cv-nicolas-pirajan.pdf" download class="btn btn--verde">
                         <i class="fa-solid fa-download" aria-hidden="true"></i> Descargar CV
                     </a>
@@ -77,7 +85,7 @@
                 </div>
             </div>
 
-            <div class="hero-pro__foto-wrap" aria-hidden="true">
+            <div class="hero-pro__foto-wrap reveal" style="transition-delay:.1s" aria-hidden="true">
                 <div class="hero-pro__foto-ring">
                     <img src="./src/assets/img/logo-nicolas-pirajan.jpeg" alt="Foto de Nicolás Piraján"
                         class="hero-pro__foto">
@@ -87,6 +95,10 @@
                 <span class="hero-pro__deco hero-pro__deco--2">{ }</span>
                 <span class="hero-pro__deco hero-pro__deco--3">Java</span>
             </div>
+
+            <a href="#sobre-mi" class="hero-pro__scroll-hint" aria-label="Bajar a la siguiente sección">
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
         </section>
 
 
@@ -95,13 +107,13 @@
         ========================================= -->
         <section id="sobre-mi" class="seccion seccion--alt">
             <div class="seccion__inner">
-                <div class="seccion__encabezado">
+                <div class="seccion__encabezado reveal">
                     <span class="tag-code">&lt;sobre-mi /&gt;</span>
                     <h2>Sobre mí</h2>
                 </div>
 
                 <div class="sobre-mi__grid">
-                    <div class="sobre-mi__texto">
+                    <div class="sobre-mi__texto reveal">
                         <p>
                             Soy <strong>Nicolás Piraján</strong>, desarrollador Full Stack Java en formación y
                             estudiante de
@@ -126,7 +138,7 @@
                             interactiva inspirada en un videojuego RPG, combinando creatividad y desarrollo web.
                         </p>
                     </div>
-                    <div class="sobre-mi__buscando">
+                    <div class="sobre-mi__buscando reveal" style="transition-delay:.1s">
                         <div class="buscando-card">
                             <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
                             <h3>¿Qué busco?</h3>
@@ -139,11 +151,11 @@
                         </div>
                         <div class="sobre-mi__stats">
                             <div class="stat">
-                                <span class="stat__numero">1</span>
+                                <span class="stat__numero" data-contador="1">0</span>
                                 <span class="stat__label">Bootcamp Full Stack Java completado</span>
                             </div>
                             <div class="stat">
-                                <span class="stat__numero">5+</span>
+                                <span class="stat__numero" data-contador="5">0</span>
                                 <span class="stat__label">Proyectos desarrollados</span>
                             </div>
                             <div class="stat">
@@ -157,8 +169,8 @@
         </section>
         <section id="tecnologias" class="seccion">
             <div class="seccion__inner">
-                <div class="seccion__encabezado">
-                    <span class="tag-code">&lt;tecnologias /&gt;</span>
+                <div class="seccion__encabezado reveal">
+                    <span class="tag-code">&lt;tecnologias /></span>
                     <h2>Tecnologías</h2>
                     <p class="seccion__descripcion">
                         Estas son las tecnologías y herramientas con las que desarrollo aplicaciones,
@@ -167,10 +179,11 @@
                     </p>
                 </div>
                 <div class="tec-grupos">
-                    <div class="tec-grupo">
-                        <h3 class="tec-grupo__titulo">Frontend</h3>
+                    <div class="tec-grupo reveal">
+                        <h3 class="tec-grupo__titulo"><i class="fa-solid fa-display" aria-hidden="true"></i> Frontend
+                        </h3>
                         <div class="carousel">
-                            <div class="carousel-track">
+                            <div class="carousel-track" data-direction="left" data-speed="0.7">
                                 <div class="tec-card">
                                     <i class="devicon-html5-plain colored"></i>
                                     <span>HTML5</span>
@@ -190,10 +203,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tec-grupo">
-                        <h3 class="tec-grupo__titulo">Backend</h3>
+                    <div class="tec-grupo reveal" style="transition-delay:.05s">
+                        <h3 class="tec-grupo__titulo"><i class="fa-solid fa-server" aria-hidden="true"></i> Backend</h3>
                         <div class="carousel">
-                            <div class="carousel-track">
+                            <div class="carousel-track" data-direction="right" data-speed="0.6">
                                 <div class="tec-card">
                                     <i class="devicon-java-plain colored"></i>
                                     <span>Java</span>
@@ -209,10 +222,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tec-grupo">
-                        <h3 class="tec-grupo__titulo">Herramientas</h3>
+                    <div class="tec-grupo reveal" style="transition-delay:.1s">
+                        <h3 class="tec-grupo__titulo"><i class="fa-solid fa-toolbox" aria-hidden="true"></i>
+                            Herramientas</h3>
                         <div class="carousel">
-                            <div class="carousel-track">
+                            <div class="carousel-track" data-direction="left" data-speed="0.8">
                                 <div class="tec-card">
                                     <i class="devicon-git-plain colored"></i>
                                     <span>Git</span>
@@ -249,7 +263,7 @@
         </section>
         <section id="proyectos" class="seccion seccion--alt">
             <div class="seccion__inner">
-                <div class="seccion__encabezado">
+                <div class="seccion__encabezado reveal">
                     <span class="tag-code">&lt;proyectos /&gt;</span>
                     <h2>Proyectos</h2>
 
@@ -260,9 +274,19 @@
                         colaborativa.
                     </p>
                 </div>
+
+                <div class="proyectos-filtros reveal" role="group" aria-label="Filtrar proyectos por tecnología">
+                    <button type="button" class="filtro-pill activo" data-filtro="todos">Todos</button>
+                    <button type="button" class="filtro-pill" data-filtro="javascript">JavaScript</button>
+                    <button type="button" class="filtro-pill" data-filtro="pokéapi">PokéAPI</button>
+                    <button type="button" class="filtro-pill" data-filtro="localstorage">localStorage</button>
+                    <button type="button" class="filtro-pill" data-filtro="scrum">SCRUM</button>
+                    <button type="button" class="filtro-pill" data-filtro="git">Git</button>
+                </div>
+
                 <div class="proyectos-grid">
                     <!-- Proyecto 1 -->
-                    <article class="proyecto-card">
+                    <article class="proyecto-card reveal" data-tecnologias="html,css,javascript,pokéapi">
                         <div class="proyecto-card__img proyecto-card__img--1" aria-hidden="true">
                             <i class="fa-solid fa-dragon"></i>
                         </div>
@@ -291,7 +315,7 @@
                         </div>
                     </article>
                     <!-- Proyecto 2 -->
-                    <article class="proyecto-card">
+                    <article class="proyecto-card reveal" data-tecnologias="html,css,javascript">
                         <div class="proyecto-card__img proyecto-card__img--2" aria-hidden="true">
                             <i class="fa-solid fa-tooth"></i>
                         </div>
@@ -319,7 +343,7 @@
                         </div>
                     </article>
                     <!-- Proyecto 3 -->
-                    <article class="proyecto-card">
+                    <article class="proyecto-card reveal" data-tecnologias="javascript,pokéapi,localstorage,scrum">
                         <div class="proyecto-card__img proyecto-card__img--3" aria-hidden="true">
                             <i class="fa-solid fa-star"></i>
                         </div>
@@ -349,7 +373,7 @@
                         </div>
                     </article>
                     <!-- Proyecto 4 -->
-                    <article class="proyecto-card">
+                    <article class="proyecto-card reveal" data-tecnologias="html,css,git">
                         <div class="proyecto-card__img proyecto-card__img--4" aria-hidden="true">
                             <i class="fa-solid fa-newspaper"></i>
                         </div>
@@ -378,7 +402,7 @@
                         </div>
                     </article>
                     <!-- Proyecto 5 -->
-                    <article class="proyecto-card">
+                    <article class="proyecto-card reveal" data-tecnologias="html,css,javascript,localstorage">
                         <div class="proyecto-card__img proyecto-card__img--5" aria-hidden="true">
                             <i class="fa-solid fa-list-check"></i>
                         </div>
@@ -407,7 +431,7 @@
                         </div>
                     </article>
                     <!-- Proyecto 6 -->
-                    <article class="proyecto-card">
+                    <article class="proyecto-card reveal" data-tecnologias="html,css,javascript">
                         <div class="proyecto-card__img proyecto-card__img--6" aria-hidden="true">
                             <i class="fa-solid fa-gamepad"></i>
                         </div>
@@ -437,13 +461,17 @@
                         </div>
                     </article>
                 </div>
+
+                <p class="proyectos-vacio" id="proyectos-vacio" hidden>
+                    No hay proyectos con esa tecnología todavía — prueba con otro filtro.
+                </p>
             </div>
         </section>
 
 
         <section id="experiencia" class="seccion">
             <div class="seccion__inner">
-                <div class="seccion__encabezado">
+                <div class="seccion__encabezado reveal">
                     <span class="tag-code">&lt;trayectoria /&gt;</span>
                     <h2>Experiencia y Formación</h2>
                     <p class="seccion__descripcion">
@@ -453,7 +481,7 @@
                     </p>
                 </div>
                 <ol class="timeline" aria-label="Trayectoria profesional">
-                    <li class="timeline__item">
+                    <li class="timeline__item reveal">
                         <div class="timeline__punto"></div>
                         <div class="timeline__contenido">
                             <span class="timeline__fecha">2026</span>
@@ -473,7 +501,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="timeline__item">
+                    <li class="timeline__item reveal" style="transition-delay:.05s">
                         <div class="timeline__punto" aria-hidden="true"></div>
                         <div class="timeline__contenido">
                             <span class="timeline__fecha">Actualidad</span>
@@ -488,7 +516,7 @@
                             </p>
                         </div>
                     </li>
-                    <li class="timeline__item">
+                    <li class="timeline__item reveal" style="transition-delay:.1s">
                         <div class="timeline__punto"></div>
                         <div class="timeline__contenido">
                             <span class="timeline__fecha">Actualidad</span>
@@ -511,7 +539,7 @@
         </section>
         <section id="educacion" class="seccion seccion--alt">
             <div class="seccion__inner">
-                <div class="seccion__encabezado">
+                <div class="seccion__encabezado reveal">
                     <span class="tag-code">&lt;educacion /&gt;</span>
                     <h2>Educación</h2>
                     <p class="seccion__descripcion">
@@ -523,7 +551,7 @@
 
                 <ol class="timeline" aria-label="Formación académica">
 
-                    <li class="timeline__item">
+                    <li class="timeline__item reveal">
                         <div class="timeline__punto" aria-hidden="true"></div>
                         <div class="timeline__contenido">
                             <span class="timeline__fecha">Actualidad</span>
@@ -536,7 +564,7 @@
                         </div>
                     </li>
 
-                    <li class="timeline__item">
+                    <li class="timeline__item reveal" style="transition-delay:.05s">
                         <div class="timeline__punto" aria-hidden="true"></div>
                         <div class="timeline__contenido">
                             <span class="timeline__fecha">2026</span>
@@ -549,7 +577,7 @@
                         </div>
                     </li>
 
-                    <li class="timeline__item">
+                    <li class="timeline__item reveal" style="transition-delay:.1s">
                         <div class="timeline__punto" aria-hidden="true"></div>
                         <div class="timeline__contenido">
                             <span class="timeline__fecha">Aprendizaje continuo</span>
@@ -567,7 +595,7 @@
         </section>
         <section id="contacto" class="seccion">
             <div class="seccion__inner">
-                <div class="seccion__encabezado">
+                <div class="seccion__encabezado reveal">
                     <span class="tag-code">&lt;contacto /&gt;</span>
                     <h2>Contacto</h2>
                     <p class="seccion__descripcion">
@@ -576,7 +604,7 @@
                     </p>
                 </div>
                 <div class="contacto-grid">
-                    <form class="contacto-form" id="formulario-contacto" novalidate>
+                    <form class="contacto-form reveal" id="formulario-contacto" novalidate>
                         <div class="form-group">
                             <label for="nombre">Nombre completo</label>
                             <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo"
@@ -590,18 +618,21 @@
                             <span class="form-error" id="error-correo"></span>
                         </div>
                         <div class="form-group">
-                            <label for="mensaje">Mensaje</label>
-                            <textarea id="mensaje" name="mensaje" rows="5"
+                            <div class="form-group__encabezado">
+                                <label for="mensaje">Mensaje</label>
+                                <span class="form-contador" id="contador-mensaje">0 / 500</span>
+                            </div>
+                            <textarea id="mensaje" name="mensaje" rows="5" maxlength="500"
                                 placeholder="Cuéntame sobre tu proyecto, oportunidad o consulta..." required></textarea>
                             <span class="form-error" id="error-mensaje"></span>
                         </div>
-                        <button type="submit" class="btn btn--verde btn--full">
+                        <button type="submit" class="btn btn--verde btn--full" id="btn-enviar">
                             <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
                             Enviar mensaje
                         </button>
                         <p class="form-success" id="form-exito" aria-live="polite"></p>
                     </form>
-                    <aside class="contacto-info">
+                    <aside class="contacto-info reveal" style="transition-delay:.1s">
                         <h3>También puedes encontrarme en</h3>
                         <p>
                             Actualmente me encuentro disponible para oportunidades como
@@ -624,13 +655,15 @@
                                     <span>linkedin.com/in/nicolas-alejandro-pirajan-rivera-dev</span>
                                 </div>
                             </a>
-                            <a href="mailto:TU_CORREO_AQUI" class="contacto-link">
+                            <button type="button" class="contacto-link contacto-link--boton" id="copiar-correo"
+                                data-correo="nicolasalejandro2001@gmail.com">
                                 <i class="fa-solid fa-envelope fa-lg"></i>
                                 <div>
                                     <strong>Correo electrónico</strong>
                                     <span>nicolasalejandro2001@gmail.com</span>
                                 </div>
-                            </a>
+                                <i class="fa-solid fa-copy contacto-link__copiar" aria-hidden="true"></i>
+                            </button>
                         </div>
                     </aside>
                 </div>
@@ -664,6 +697,10 @@
             </div>
         </div>
     </footer>
+
+    <button type="button" class="btn-subir" id="btn-subir" aria-label="Volver arriba">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
 
     <script src="./src/js/profesional.js"></script>
 </body>
