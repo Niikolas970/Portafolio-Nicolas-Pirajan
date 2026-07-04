@@ -980,49 +980,51 @@ ol {
 
 
 /* ===========================================
-   FOOTER
+   BOTÓN VOLVER ARRIBA (compartido)
    =========================================== */
 
-.pro-footer {
-    background-color: var(--bg-secundario);
-    border-top: 1px solid rgba(255, 255, 255, .06);
-    padding: 32px;
-}
-
-.pro-footer__inner {
-    max-width: 1100px;
-    margin: 0 auto;
+.btn-subir {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background-color: var(--verde-primario);
+    color: white;
+    border: none;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 24px;
-    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 900;
 }
 
-.pro-footer__nombre {
-    font-size: 0.9rem;
-    font-weight: 600;
+.btn-subir.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
 }
 
-.pro-footer__rol {
-    font-size: 0.75rem;
-    color: var(--texto-secundario);
-    margin-top: 4px;
-}
 
-.pro-footer__links {
-    display: flex;
-    gap: 20px;
-}
+/* ===========================================
+   BARRA DE PROGRESO DE SCROLL
+   =========================================== */
 
-.pro-footer__links a {
-    color: var(--texto-secundario);
-    transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.pro-footer__links a:hover {
-    color: var(--texto-principal);
-    transform: translateY(-3px);
+.progreso-scroll {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(to right, var(--verde-primario), var(--morado-primario));
+    z-index: 1100;
+    transition: width 0.1s ease-out;
 }
 
 
@@ -1131,7 +1133,8 @@ ol {
 }
 
 /* ===========================================
-   PRO-HEADER — navbar unificado (estilo index + links de sección)
+   PRO-HEADER — navbar unificado, oculto hasta llegar
+   a la sección #profesional (ver profesional.js)
    =========================================== */
 
 .pro-header {
@@ -1151,9 +1154,22 @@ ol {
     padding: var(--space-sm) var(--space-md);
     margin: var(--space-md);
 
+    /* Oculta por defecto: solo aparece dentro de #profesional */
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+
     transition:
+        transform var(--transition-normal),
+        opacity var(--transition-normal),
         background-color var(--transition-normal),
         box-shadow var(--transition-normal);
+}
+
+.pro-header.visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .pro-header:hover {
@@ -1166,8 +1182,6 @@ ol {
     gap: var(--space-sm);
     flex-shrink: 0;
 }
-
-
 
 .pro-header .pro-nav__links {
     display: flex;
@@ -1195,14 +1209,10 @@ ol {
     object-fit: cover;
     display: block;
 }
+
 .pro-header__acciones {
     display: flex;
     align-items: center;
     gap: var(--space-md);
     flex-shrink: 0;
-}
-
-/* Como el body ya tiene margin/padding para nav fija, compensamos el alto */
-main {
-    padding-top: 88px;
 }

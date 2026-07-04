@@ -1,15 +1,67 @@
-const nav = document.querySelector(".pro-nav");
-const navLinks = document.querySelectorAll(".pro-nav__links a[href^='#']");
-const secciones = document.querySelectorAll("section[id]");
+/* ===========================================
+   PROFESIONAL.JS
+   Lógica exclusiva de la sección #profesional:
+   navbar propia (mostrar/ocultar + scroll-spy), barra de
+   progreso, hamburguesa, reveal on scroll, rol rotativo,
+   contadores, filtros de proyectos, formulario de contacto,
+   copiar correo, botón subir y carrusel de tecnologías.
 
-if (nav) {
+   El modo claro/oscuro y el scroll suave de enlaces (#)
+   ahora viven en main.js para no duplicar lógica.
+   =========================================== */
+
+const proHeader = document.querySelector(".pro-header");
+const navLinks = document.querySelectorAll(".pro-header .pro-nav__links a[href^='#']");
+const seccionProfesional = document.getElementById("profesional");
+const secciones = seccionProfesional
+    ? seccionProfesional.querySelectorAll("section[id]")
+    : [];
+
+/* Mostrar / ocultar la navbar profesional.
+   Usamos IntersectionObserver en vez de comparar scrollY contra offsetTop:
+   así no depende de cálculos de posición que pueden desajustarse si
+   imágenes o el carrusel aún están cargando. Aparece apenas el usuario
+   empieza a ver #profesional y desaparece al volver al Hero inicial. */
+if (proHeader && seccionProfesional) {
+
     window.addEventListener("scroll", () => {
 
-        if (window.scrollY > 20) {
-            nav.classList.add("scrolled");
+        const inicioProfesional = seccionProfesional.offsetTop - 80;
+
+        if (window.scrollY >= inicioProfesional) {
+            proHeader.classList.add("visible");
         } else {
-            nav.classList.remove("scrolled");
+            proHeader.classList.remove("visible");
         }
+
+    }, { passive: true });
+
+}
+
+const heroProfesional = document.querySelector(".hero-pro");
+
+if (proHeader && heroProfesional) {
+
+    window.addEventListener("scroll", () => {
+
+        const inicioHero = heroProfesional.offsetTop - 80;
+
+        if (window.scrollY >= inicioHero) {
+            proHeader.classList.add("visible");
+        } else {
+            proHeader.classList.remove("visible");
+        }
+
+    }, { passive: true });
+
+}
+
+/* Sombra al hacer scroll + resaltado del link activo (scroll-spy) */
+if (proHeader) {
+
+    window.addEventListener("scroll", () => {
+
+        proHeader.classList.toggle("scrolled", window.scrollY > 20);
 
         let seccionActual = null;
 
@@ -22,31 +74,13 @@ if (nav) {
         });
 
         navLinks.forEach(link => {
-            link.classList.remove("activo");
-
-            if (link.getAttribute("href") === `#${seccionActual}`) {
-                link.classList.add("activo");
-            }
+            link.classList.toggle("activo", link.getAttribute("href") === `#${seccionActual}`);
         });
 
     }, { passive: true });
+
 }
 
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener("click", function (e) {
-
-        const destino = document.querySelector(this.getAttribute("href"));
-
-        if (destino) {
-            e.preventDefault();
-
-            destino.scrollIntoView({
-                behavior: "smooth"
-            });
-        }
-
-    });
-});
 
 const hamburger = document.querySelector(".hamburger");
 const menuLinks = document.querySelector(".pro-nav__links");
@@ -101,49 +135,6 @@ if (barraProgreso) {
 
 }
 
-
-/* ===========================================
-   MODO CLARO / OSCURO
-   =========================================== */
-
-const toggleBtn  = document.querySelector(".theme-toggle");
-const iconoTema  = document.querySelector(".toggle-circle i");
-
-// Si no existe el botón en la página, no hacemos nada
-if (toggleBtn && iconoTema) {
-
-    // Restaurar preferencia guardada (si el usuario ya eligió antes)
-    const temaGuardado = localStorage.getItem("tema");
-    if (temaGuardado === "light") {
-        activarLightMode();
-    }
-
-    toggleBtn.addEventListener("click", function () {
-        const esModoClaro = document.body.classList.contains("light-mode");
-
-        if (esModoClaro) {
-            desactivarLightMode();
-        } else {
-            activarLightMode();
-        }
-    });
-}
-
-function activarLightMode() {
-    document.body.classList.add("light-mode");
-    toggleBtn.classList.add("active");
-    toggleBtn.setAttribute("aria-pressed", "true");
-    iconoTema.classList.replace("fa-moon", "fa-sun");
-    localStorage.setItem("tema", "light");
-}
-
-function desactivarLightMode() {
-    document.body.classList.remove("light-mode");
-    toggleBtn.classList.remove("active");
-    toggleBtn.setAttribute("aria-pressed", "false");
-    iconoTema.classList.replace("fa-sun", "fa-moon");
-    localStorage.setItem("tema", "dark");
-}
 
 /* ===========================================
    REVEAL AL HACER SCROLL (Intersection Observer)
@@ -472,8 +463,6 @@ if (botonCopiarCorreo) {
 
         } catch (err) {
 
-            // Si el navegador bloquea el portapapeles, no rompemos nada:
-            // el enlace de correo sigue siendo visible para copiar a mano.
             console.warn("No se pudo copiar el correo automáticamente.", err);
 
         }
