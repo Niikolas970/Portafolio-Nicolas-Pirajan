@@ -1,3 +1,5 @@
+
+import { proyectos } from "./data/proyectos.js";
 /* ===========================================
    PROFESIONAL.JS
    Lógica exclusiva de la sección #profesional:
@@ -9,6 +11,8 @@
    El modo claro/oscuro y el scroll suave de enlaces (#)
    ahora viven en main.js para no duplicar lógica.
    =========================================== */
+
+
 
 const proHeader = document.querySelector(".pro-header");
 const navLinks = document.querySelectorAll(".pro-header .pro-nav__links a[href^='#']");
@@ -543,3 +547,76 @@ function iniciarCarruseles() {
 }
 
 iniciarCarruseles();
+
+
+const contenedor = document.getElementById("proyectos-grid");
+
+proyectos.forEach(function (proyecto) {
+
+    console.log(proyectos);
+    console.log(typeof proyectos);
+    console.log(Array.isArray(proyectos));
+
+    const tarjeta = crearTarjeta(proyecto);
+    contenedor.appendChild(tarjeta);
+});
+
+function crearTarjeta(proyecto) {
+
+    const tarjeta = document.createElement("article");
+
+    tarjeta.classList.add("proyecto-card");
+    /* html */
+
+    tarjeta.innerHTML = `
+    <div class="proyecto-card__img proyecto-card__img--1">
+    <i class="fa-solid fa-cart-shopping"></i>
+</div>
+
+<div class="proyecto-card__body">
+    <h3>${proyecto.nombre}</h3>
+    <p>
+        ${proyecto.descripcion}
+    </p>
+
+    <div class="proyecto-card__techs">
+    
+        ${proyecto.tecnologias.map(function (tecnologia) {
+        return `
+            <span class="tech-pill">
+                ${tecnologia}
+            </span>
+        `;
+
+    })
+
+        }
+        
+
+    </div>
+
+    <div class="proyecto-card__links">
+        <a href="#" class="btn btn--sm btn--outline">
+            <i class="fa-brands fa-github"></i>
+            Codigo
+        </a>
+        <a href="#" class="btn btn--sm btn--verde">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            Demo
+        </a>
+    </div>
+</div>
+    `;
+
+    console.log(
+        proyecto.tecnologias.map(function (tecnologia) {
+            return `
+            <span class="tech-pill">
+                ${tecnologia}
+            </span>
+        `;
+        })
+    );
+
+    return tarjeta;
+};
