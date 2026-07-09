@@ -1,16 +1,18 @@
 /* ===========================================
    RESPONSIVE
    Mobile first: base = mobile,
-   luego tablet (768px+), luego desktop (1200px+)
+   luego tablet (768px+), luego desktop (1200px+).
+   Todas las reglas responsive del proyecto viven aquí
+   (antes algunas estaban repetidas dentro de profesional.css).
    =========================================== */
 
+/* ===== HEADER / HERO (global.css) — base mobile ===== */
 
 header {
     margin: var(--space-sm);
     padding: var(--space-sm);
     border-radius: var(--radius-sm);
 }
-
 
 .logo-nombre {
     display: none;
@@ -21,9 +23,8 @@ nav {
     font-size: var(--text-md);
 }
 
-
 .hero {
-    padding: var(--space-xl) var(--space-md);
+    padding: var(--space-2xl) var(--space-md);
 }
 
 .hero-nombre {
@@ -38,7 +39,6 @@ nav {
     font-size: var(--text-xs);
 }
 
-
 .hero-modes {
     flex-direction: column;
     align-items: center;
@@ -49,7 +49,6 @@ nav {
     width: 100%;
     max-width: 320px;
 }
-
 
 footer {
     flex-direction: column;
@@ -63,13 +62,11 @@ footer {
 }
 
 
-
 @media (min-width: 768px) {
 
     header {
         margin: var(--space-md);
-        padding: var(--space-sm) var(--space-md);
-        border-radius: var(--radius-md);
+        padding: var(--space-sm) var(--space-lg);
     }
 
     .logo-nombre {
@@ -81,12 +78,11 @@ footer {
     }
 
     .hero {
-        padding: var(--space-2xl) var(--space-xl);
+        padding: var(--space-3xl) var(--space-xl);
     }
 
     .hero-nombre {
         font-size: var(--text-3xl);
-        /* 56px */
     }
 
     .hero-rol {
@@ -96,7 +92,6 @@ footer {
     .hero-descripcion {
         font-size: var(--text-sm);
     }
-
 
     .hero-modes {
         flex-direction: row;
@@ -109,20 +104,18 @@ footer {
         max-width: none;
     }
 
-    /* Footer en fila */
     footer {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         text-align: left;
-        padding: var(--space-xl) var(--space-xl);
+        padding: var(--space-xl);
     }
 
     .footer-links {
         justify-content: flex-end;
     }
 }
-
 
 
 @media (min-width: 1200px) {
@@ -132,7 +125,7 @@ footer {
     }
 
     .hero {
-        padding: var(--space-2xl) var(--space-2xl);
+        padding: var(--space-4xl);
     }
 
     .hero-nombre {
@@ -154,26 +147,41 @@ footer {
 }
 
 
-/* ===== ACCESIBILIDAD: reduce movimiento si el usuario lo prefiere ===== */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-    }
-}
+/* ===== NAV / MENÚ (profesional.css) — tablet hacia abajo ===== */
 
 @media (max-width: 1024px) {
 
-    .pro-header .pro-nav__links {
+    /* Nav sticky normal */
+    .pro-nav__links {
         display: none;
     }
 
     .hamburger {
         display: block;
+    }
+
+    .pro-nav__links.abierto {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: var(--bg-secundario);
+        padding: var(--space-md);
+        border-bottom: 1px solid var(--borde-sutil);
+        gap: var(--space-xs);
+        z-index: 999;
+    }
+
+    .pro-nav__links.abierto a {
+        padding: 12px 16px;
+        border-radius: var(--radius-sm);
+    }
+
+    /* Pro-header (nav que aparece al hacer scroll dentro de #profesional) */
+    .pro-header .pro-nav__links {
+        display: none;
     }
 
     .pro-header .pro-nav__links.abierto {
@@ -184,18 +192,57 @@ footer {
         left: var(--space-md);
         right: var(--space-md);
         background-color: var(--bg-secundario);
-        padding: 16px;
+        padding: var(--space-md);
         border-radius: var(--radius-md);
-        gap: 4px;
+        gap: var(--space-xs);
         z-index: 999;
     }
 
     .pro-header .pro-nav__links.abierto a {
         padding: 12px 16px;
-        border-radius: 8px;
+        border-radius: var(--radius-sm);
     }
 
     .logo-nombre {
+        display: none;
+    }
+
+    /* Grillas de contenido */
+    .proyectos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sobre-mi__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sobre-mi__stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .contacto-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+    }
+
+    /* Hero profesional apilado */
+    .hero-pro {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: var(--space-4xl);
+        gap: var(--space-2xl);
+    }
+
+    .hero-pro__botones {
+        justify-content: center;
+    }
+
+    .hero-pro__foto-ring {
+        width: 200px;
+        height: 200px;
+    }
+
+    .hero-pro__deco {
         display: none;
     }
 }
@@ -203,5 +250,38 @@ footer {
 @media (min-width: 1025px) {
     .hamburger {
         display: none;
+    }
+}
+
+
+/* Móvil */
+@media (max-width: 600px) {
+    .seccion {
+        padding: var(--space-3xl) var(--space-lg);
+    }
+
+    .pro-nav {
+        padding: var(--space-md);
+    }
+
+    .proyectos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sobre-mi__stats {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-pro__nombre {
+        font-size: 2.2rem;
+    }
+
+    .pro-footer__inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .pro-footer__links {
+        justify-content: center;
     }
 }

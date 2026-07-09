@@ -1,25 +1,54 @@
+/* ===========================================
+   VARIABLES.CSS
+   Fuente única de verdad para colores, tipografía,
+   espaciados, radios, sombras y transiciones.
+
+   Nota: se mantienen los nombres originales de las
+   variables (--verde-primario, --morado-primario, etc.)
+   aunque el color detrás cambió. Así evitamos tocar
+   clases en el HTML/JS y todo el proyecto (incluido
+   aventura.css) sigue funcionando igual.
+   =========================================== */
 
 :root {
 
-    /* ========= COLORES ========= */
+    /* ========= COLORES · FONDOS ========= */
+    /* Slate azulado oscuro, nunca negro puro (#000) */
 
-    --bg-principal:    #0F172A;
-    --bg-secundario:   #111827;
-    --bg-superficies:  #1F2937;
+    --bg-principal:    #0C1420;
+    --bg-secundario:   #111B29;
+    --bg-superficies:  #172433;
 
-    --verde-primario:  #22C55E;
-    --verde-exito:     #10B981;
-    --verde-claro:     #34D399;
+    /* ========= COLORES · MARCA ========= */
+    /* "verde" ahora es azul petróleo (acento primario) */
 
-    --morado-primario: #8B5CF6;
-    --morado-enfasis:  #7C3AED;
-    --morado-claro:    #A78BFA;
+    --verde-primario:  #1C7A8C;
+    --verde-exito:     #2E93A3;
+    --verde-claro:     #6FC2CF;
 
-    --rosa-detalles:      #EC4899;
-    --ambar-advertencia:  #F59E0B;
+    /* "morado" ahora es azul profundo / slate (acento secundario) */
 
-    --texto-principal:    #F8FAFC;
-    --texto-secundario:   #94A3B8;
+    --morado-primario: #2C4A73;
+    --morado-enfasis:  #21395C;
+    --morado-claro:    #5C7BA8;
+
+    /* Detalles: cian muy sutil y ámbar apagado (solo toggle de tema) */
+
+    --rosa-detalles:      #7FB9C2;
+    --ambar-advertencia:  #C9A467;
+
+    /* ========= COLORES · TEXTO ========= */
+
+    --texto-principal:    #F3F6F5;
+    --texto-secundario:   #93A4AE;
+
+    /* ========= COLORES · BORDES ========= */
+    /* Antes estaban sueltos como rgba(255,255,255,.08) en cada regla.
+       En modo claro un borde blanco es invisible, así que ahora
+       viven como variable y se re-definen en .light-mode */
+
+    --borde-sutil:  rgba(255, 255, 255, .08);
+    --borde-medio:  rgba(255, 255, 255, .14);
 
     /* ========= TIPOGRAFÍAS ========= */
 
@@ -38,6 +67,7 @@
     --text-3xl:  3.5rem;     /* 56px */
 
     /* ========= ESPACIADOS ========= */
+    /* Se agregan 3xl/4xl para dar más aire al hero y a las secciones */
 
     --space-xs:   0.25rem;
     --space-sm:   0.5rem;
@@ -45,8 +75,10 @@
     --space-lg:   1.5rem;
     --space-xl:   2rem;
     --space-2xl:  3rem;
+    --space-3xl:  4rem;
+    --space-4xl:  6rem;
 
-    /* ========= BORDES ========= */
+    /* ========= BORDES / RADIOS ========= */
 
     --radius-sm:   8px;
     --radius-md:   16px;
@@ -56,13 +88,14 @@
     /* ========= SOMBRAS ========= */
 
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, .15);
-    --shadow-md: 0 4px 15px rgba(0, 0, 0, .25);
-    --shadow-lg: 0 8px 25px rgba(0, 0, 0, .35);
+    --shadow-md: 0 4px 15px rgba(0, 0, 0, .22);
+    --shadow-lg: 0 8px 28px rgba(0, 0, 0, .30);
 
-    /* Sombras de color para los cards — así no las repites en cada regla */
-    --shadow-verde:   0 0 20px rgba(34, 197, 94, .35);
-    --shadow-morado:  0 0 20px rgba(139, 92, 246, .35);
-    --shadow-ambar:   0 0 15px rgba(245, 158, 11, .4);
+    /* Sombras de color, calculadas a partir de los acentos de marca */
+
+    --shadow-verde:   0 0 20px rgba(28, 122, 140, .30);
+    --shadow-morado:  0 0 20px rgba(44, 74, 115, .30);
+    --shadow-ambar:   0 0 15px rgba(201, 164, 103, .35);
 
     /* ========= TRANSICIONES ========= */
 
@@ -72,15 +105,28 @@
 
 }
 
-/* ===== MODO CLARO ===== */
+/* ===========================================
+   MODO CLARO
+   No es un simple "invert()": fondos cálidos,
+   texto grafito y bordes oscuros suaves para que
+   sigan siendo visibles sobre blanco.
+   =========================================== */
+
 .light-mode {
 
-    --bg-principal:   #F8FAFC;
-    --bg-secundario:  #E2E8F0;
+    --bg-principal:   #FAF8F4;
+    --bg-secundario:  #F1EDE6;
     --bg-superficies: #FFFFFF;
 
-    --texto-principal:   #0F172A;
-    --texto-secundario:  #475569;
+    --texto-principal:   #16212E;
+    --texto-secundario:  #5B6B76;
+
+    --borde-sutil:  rgba(15, 23, 32, .08);
+    --borde-medio:  rgba(15, 23, 32, .14);
+
+    --shadow-sm: 0 2px 8px rgba(15, 23, 32, .06);
+    --shadow-md: 0 4px 15px rgba(15, 23, 32, .08);
+    --shadow-lg: 0 8px 28px rgba(15, 23, 32, .10);
 
     /* Los colores de marca no cambian */
 }

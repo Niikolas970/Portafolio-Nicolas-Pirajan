@@ -1,4 +1,3 @@
-
 import { proyectos } from "./data/proyectos.js";
 /* ===========================================
    PROFESIONAL.JS
@@ -261,10 +260,9 @@ if ("IntersectionObserver" in window && contadores.length) {
    =========================================== */
 
 const filtros = document.querySelectorAll(".filtro-pill");
-const tarjetasProyectos = document.querySelectorAll(".proyecto-card");
 const mensajeVacio = document.getElementById("proyectos-vacio");
 
-if (filtros.length && tarjetasProyectos.length) {
+if (filtros.length) {
 
     filtros.forEach(filtro => {
 
@@ -275,6 +273,10 @@ if (filtros.length && tarjetasProyectos.length) {
 
             const seleccion = filtro.dataset.filtro;
             let visibles = 0;
+
+            // Se lee en el momento del click (no al cargar la página)
+            // porque las tarjetas de proyectos se crean dinámicamente.
+            const tarjetasProyectos = document.querySelectorAll(".proyecto-card");
 
             tarjetasProyectos.forEach(tarjeta => {
 
@@ -549,74 +551,99 @@ function iniciarCarruseles() {
 iniciarCarruseles();
 
 
-const contenedor = document.getElementById("proyectos-grid");
-
-proyectos.forEach(function (proyecto) {
-
-    console.log(proyectos);
-    console.log(typeof proyectos);
-    console.log(Array.isArray(proyectos));
-
-    const tarjeta = crearTarjeta(proyecto);
-    contenedor.appendChild(tarjeta);
-});
+/* ===========================================
+   PROYECTOS — RENDERIZADO DESDE DATA
+   =========================================== */
 
 function crearTarjeta(proyecto) {
 
     const tarjeta = document.createElement("article");
 
-    tarjeta.classList.add("proyecto-card");
-    /* html */
+    tarjeta.classList.add("proyecto-card", "reveal");
+
+    // Necesario para que los filtros (.filtro-pill) funcionen:
+    // antes nunca se seteaba y el filtro no encontraba nada.
+    tarjeta.dataset.tecnologias = proyecto.tecnologias.join(",");
+
+    const imagenHTML = proyecto.imagen
+        ? `<img src="${proyecto.imagen}" alt="${proyecto.nombre}" class="proyecto-card__img ${proyecto.color}">`
+        : `<div class="proyecto-card__img ${proyecto.color}">
+               <i class="${proyecto.icono}"></i>
+           </div>`;
+
+    // .join("") en vez de dejar el array crudo en el template:
+    // sin esto, JS convierte el array a texto uniendo con comas
+    // y quedaban comas sueltas entre cada tech-pill.
+    const techsHTML = proyecto.tecnologias
+        .map(tecnologia => `<span class="tech-pill">${tecnologia}</span>`)
+        .join("");
+
+    // Si no hay link cargado todavía, no se muestra (mejor que
+    // un botón roto apuntando a "#").
+    const githubHTML = proyecto.github
+        ? `<a href="${proyecto.github}" class="btn btn--sm btn--outline" target="_blank" rel="noopener">
+               <i class="fa-brands fa-github"></i> Código
+           </a>`
+        : "";
+
+    const demoHTML = proyecto.demo
+        ? `<a href="${proyecto.demo}" class="btn btn--sm btn--verde" target="_blank" rel="noopener">
+               <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo
+           </a>`
+        : "";
 
     tarjeta.innerHTML = `
-    <div class="proyecto-card__img proyecto-card__img--1">
-    <i class="fa-solid fa-cart-shopping"></i>
-</div>
-
-<div class="proyecto-card__body">
-    <h3>${proyecto.nombre}</h3>
-    <p>
-        ${proyecto.descripcion}
-    </p>
-
-    <div class="proyecto-card__techs">
-    
-        ${proyecto.tecnologias.map(function (tecnologia) {
-        return `
-            <span class="tech-pill">
-                ${tecnologia}
-            </span>
-        `;
-
-    })
-
-        }
-        
-
-    </div>
-
-    <div class="proyecto-card__links">
-        <a href="#" class="btn btn--sm btn--outline">
-            <i class="fa-brands fa-github"></i>
-            Codigo
-        </a>
-        <a href="#" class="btn btn--sm btn--verde">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            Demo
-        </a>
-    </div>
-</div>
+        ${imagenHTML}
+        <div class="proyecto-card__body">
+            <h3>${proyecto.nombre}</h3>
+            <p>${proyecto.descripcion}</p>
+            <div class="proyecto-card__techs">${techsHTML}</div>
+            <div class="proyecto-card__links">${githubHTML}${demoHTML}</div>
+        </div>
     `;
 
-    console.log(
-        proyecto.tecnologias.map(function (tecnologia) {
-            return `
-            <span class="tech-pill">
-                ${tecnologia}
-            </span>
-        `;
-        })
-    );
-
     return tarjeta;
-};
+}
+
+function renderizarProyectos() {
+
+    const contenedor = document.getElementById("proyectos-grid");
+
+    if (!contenedor) return;
+
+    // Evita duplicar tarjetas si esta función llega a correr dos veces.
+    contenedor.innerHTML = "";
+
+    const fragmento = document.createDocumentFragment();
+
+    proyectos.forEach(proyecto => {
+        fragmento.appendChild(crearTarjeta(proyecto));
+    });
+
+    contenedor.appendChild(fragmento);
+
+
+    const tarjetasNuevas = contenedor.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window && tarjetasNuevas.length) {
+
+        const observadorProyectos = new IntersectionObserver((entradas) => {
+
+            entradas.forEach(entrada => {
+                if (entrada.isIntersecting) {
+                    entrada.target.classList.add("visible");
+                }
+            });
+
+        }, { threshold: 0.15, rootMargin: "0px 0px -60px 0px" });
+
+        tarjetasNuevas.forEach(el => observadorProyectos.observe(el));
+
+    } else {
+
+        tarjetasNuevas.forEach(el => el.classList.add("visible"));
+
+    }
+
+}
+renderizarProyectos();

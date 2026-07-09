@@ -1,6 +1,9 @@
 /* ===========================================
-   GLOBAL — reset, base, header, hero
+   GLOBAL.CSS
+   Reset, base, header, hero y footer.
    =========================================== */
+
+/* ===== RESET ===== */
 
 *,
 *::before,
@@ -15,11 +18,13 @@ body {
     color: var(--texto-principal);
     font-family: var(--font-cuerpo);
     font-size: var(--text-md);
+    line-height: 1.6;
     /* Evitamos "transition: all" en body por rendimiento.
        Solo transicionamos lo que realmente cambia: colores */
     transition:
         background-color var(--transition-normal),
         color var(--transition-normal);
+    animation: fadeIn 0.6s ease forwards;
 }
 
 h1,
@@ -37,6 +42,42 @@ a {
     text-decoration: none;
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ===== ACCESIBILIDAD — FOCO VISIBLE POR TECLADO ===== */
+
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.theme-toggle:focus-visible,
+.hamburger:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--verde-primario);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+}
+
 /* ===== HEADER ===== */
 
 header {
@@ -45,8 +86,8 @@ header {
     align-items: center;
     background-color: var(--bg-secundario);
     border-radius: var(--radius-md);
-    padding: var(--space-sm) var(--space-md);
-    margin: var(--space-md);
+    padding: var(--space-sm) var(--space-lg);
+    margin: var(--space-lg);
     /* espacio del borde de pantalla */
     transition:
         background-color var(--transition-normal),
@@ -76,13 +117,14 @@ header:hover {
     font-family: var(--font-titulos);
     font-weight: 600;
     font-size: var(--text-md);
+    letter-spacing: 0.01em;
 }
 
 /* Nav */
 nav {
     display: flex;
     align-items: center;
-    gap: var(--space-md);
+    gap: var(--space-lg);
 }
 
 nav a {
@@ -95,13 +137,13 @@ nav a:hover {
     color: var(--texto-principal);
 }
 
-/* Toggle de tema */
+/* Toggle de tema (única definición del proyecto) */
 .theme-toggle {
     width: 60px;
     height: 30px;
     background-color: var(--bg-superficies);
     border-radius: var(--radius-full);
-    border: 1px solid rgba(255, 255, 255, .1);
+    border: 1px solid var(--borde-medio);
     display: flex;
     align-items: center;
     padding: 3px;
@@ -148,7 +190,7 @@ nav a:hover {
 .hero {
     display: flex;
     justify-content: center;
-    padding: var(--space-2xl) var(--space-md);
+    padding: var(--space-4xl) var(--space-md);
 }
 
 .hero-content {
@@ -161,13 +203,15 @@ nav a:hover {
     font-size: var(--text-md);
     color: var(--texto-secundario);
     margin-bottom: var(--space-xs);
+    letter-spacing: 0.02em;
 }
 
 .hero-nombre {
     font-size: var(--text-3xl);
     font-weight: 800;
+    letter-spacing: -0.01em;
     /* El nombre en gradient — el "momento firma" de la página */
-    background: linear-gradient(135deg, var(--verde-primario), var(--morado-primario));
+    background: linear-gradient(135deg, var(--verde-primario), var(--morado-claro));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -178,23 +222,23 @@ nav a:hover {
     font-size: var(--text-lg);
     font-weight: 600;
     color: var(--texto-principal);
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-md);
 }
 
 .hero-descripcion {
     font-size: var(--text-sm);
     color: var(--texto-secundario);
     line-height: 1.7;
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-2xl);
 }
 
 /* Separador visual sutil */
 .hero-divider {
     width: 60px;
     height: 2px;
-    background: linear-gradient(to right, var(--verde-primario), var(--morado-primario));
+    background: linear-gradient(to right, var(--verde-primario), var(--morado-claro));
     border-radius: var(--radius-full);
-    margin: 0 auto var(--space-xl);
+    margin: 0 auto var(--space-2xl);
 }
 
 .hero-modos-titulo {
@@ -206,7 +250,7 @@ nav a:hover {
 .hero-modos-subtitulo {
     font-size: var(--text-sm);
     color: var(--texto-secundario);
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-2xl);
 }
 
 /* Cards de modo */
@@ -215,13 +259,13 @@ nav a:hover {
     justify-content: center;
     gap: var(--space-xl);
     flex-wrap: wrap;
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-2xl);
 }
 
 .mode-card {
     width: 280px;
     background-color: var(--bg-superficies);
-    border: 1px solid rgba(255, 255, 255, .08);
+    border: 1px solid var(--borde-sutil);
     border-radius: var(--radius-md);
     padding: var(--space-xl);
     text-align: left;
@@ -232,7 +276,7 @@ nav a:hover {
 }
 
 .mode-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
 }
 
 /* Cada card con su color propio */
@@ -242,7 +286,7 @@ nav a:hover {
 }
 
 .mode-card--aventura:hover {
-    border-color: var(--morado-primario);
+    border-color: var(--morado-claro);
     box-shadow: var(--shadow-morado);
 }
 
@@ -258,7 +302,7 @@ nav a:hover {
 }
 
 .mode-card--aventura .mode-card__iconos {
-    color: var(--morado-primario);
+    color: var(--morado-claro);
 }
 
 .mode-card__titulo {
@@ -289,7 +333,7 @@ nav a:hover {
 }
 
 .mode-card__btn:hover {
-    opacity: 0.85;
+    opacity: 0.88;
     transform: translateX(3px);
 }
 
@@ -326,30 +370,16 @@ nav a:hover {
     opacity: 0.5;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(12px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-body {
-    animation: fadeIn 0.6s ease forwards;
-}
+/* ===== FOOTER ===== */
 
 footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: var(--bg-secundario);
-    border-top: 1px solid rgba(255, 255, 255, .06);
+    border-top: 1px solid var(--borde-sutil);
     padding: var(--space-xl) var(--space-2xl);
-    margin-top: var(--space-2xl);
+    margin-top: var(--space-3xl);
     transition: background-color var(--transition-normal);
 }
 
