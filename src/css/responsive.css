@@ -179,7 +179,11 @@ footer {
         border-radius: var(--radius-sm);
     }
 
-    /* Pro-header (nav que aparece al hacer scroll dentro de #profesional) */
+    /* Pro-header (nav que aparece al hacer scroll dentro de #profesional).
+       position: absolute en vez de un "top" fijo en píxeles: como
+       .pro-header ya crea su propio contenedor de posicionamiento
+       (tiene transform), el menú siempre cae justo debajo del header
+       real, sea cual sea su altura en cada celular. */
     .pro-header .pro-nav__links {
         display: none;
     }
@@ -187,15 +191,16 @@ footer {
     .pro-header .pro-nav__links.abierto {
         display: flex;
         flex-direction: column;
-        position: fixed;
-        top: 76px;
-        left: var(--space-md);
-        right: var(--space-md);
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
         background-color: var(--bg-secundario);
         padding: var(--space-md);
         border-radius: var(--radius-md);
         gap: var(--space-xs);
         z-index: 999;
+        box-shadow: var(--shadow-md);
     }
 
     .pro-header .pro-nav__links.abierto a {
@@ -225,12 +230,20 @@ footer {
         gap: var(--space-2xl);
     }
 
-    /* Hero profesional apilado */
+    /* Hero profesional apilado.
+       Antes usaba flex-direction: column-reverse, pero eso invertía
+       TODOS los hijos, incluida la flechita de scroll (hero-pro__scroll-hint),
+       que terminaba apareciendo primero en vez de al final.
+       Con "order" solo movemos la foto arriba del texto, sin tocar el resto. */
     .hero-pro {
-        flex-direction: column-reverse;
+        flex-direction: column;
         text-align: center;
         padding-top: var(--space-4xl);
         gap: var(--space-2xl);
+    }
+
+    .hero-pro__foto-wrap {
+        order: -1;
     }
 
     .hero-pro__botones {
@@ -266,6 +279,14 @@ footer {
 
     .proyectos-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* En 1 columna la tarjeta ocupa todo el ancho de pantalla, así que
+       140px (pensado para 3 tarjetas angostas por fila) queda una tira
+       muy ancha y baja. Le damos más alto para que la imagen/video
+       respire y no se vea recortado. */
+    .proyecto-card__media {
+        height: 200px;
     }
 
     .sobre-mi__stats {

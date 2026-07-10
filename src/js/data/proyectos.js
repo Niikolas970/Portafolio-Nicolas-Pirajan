@@ -11,7 +11,7 @@ export const proyectos = [
         demo: "https://niikolas970.github.io/proyecto-pokedex/"
     },
     {
-        nombre: "Oral White — Registro Dental",
+        nombre: "Oral Luanm — Registro Dental",
         descripcion: "Interfaz web para el registro de pacientes de una clínica dental. Incorpora formularios con validaciones, autenticación social simulada y una experiencia de usuario enfocada en la claridad, accesibilidad y facilidad de uso.",
         imagen: "",
         video: "./src/assets/video/pokedex-demo.mp4",
@@ -19,7 +19,7 @@ export const proyectos = [
         color: "proyecto-card__img--2",
         tecnologias: ["html", "css", "javascript"],
         github: "https://github.com/larum99/Oral-LUANM-frontend",
-        demo: ""
+        demo: "https://niikolas970.github.io/Proyecto-Oral-Luanm/"
     },
     {
         nombre: "Pokémon Favoritos",
