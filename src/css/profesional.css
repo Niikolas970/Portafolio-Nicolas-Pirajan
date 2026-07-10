@@ -283,6 +283,23 @@ ol {
     margin-bottom: var(--space-lg);
 }
 
+/* Cursor parpadeante junto al rol rotativo (#rol-rotativo) */
+.hero-pro__cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    margin-left: 2px;
+    background-color: var(--verde-primario);
+    vertical-align: text-bottom;
+    animation: parpadeo 1s steps(1) infinite;
+}
+
+@keyframes parpadeo {
+    50% {
+        opacity: 0;
+    }
+}
+
 .hero-pro__descripcion {
     font-size: var(--text-sm);
     color: var(--texto-secundario);
@@ -573,20 +590,71 @@ ol {
 }
 
 .proyecto-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-6px) scale(1.01);
     box-shadow: var(--shadow-lg);
 }
 
-/* Imagen / placeholder con gradiente propio por proyecto.
-   Tonos derivados de la paleta (petróleo / azul profundo / slate)
-   en vez de colores saturados sueltos */
-.proyecto-card__img {
+/* Wrapper de media: contiene la portada (imagen/ícono) y, si existe,
+   el video que aparece en hover con crossfade */
+.proyecto-card__media {
+    position: relative;
     height: 140px;
+    overflow: hidden;
+}
+
+.proyecto-card__media .proyecto-card__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: var(--text-2xl);
     color: white;
+    object-fit: cover;
+    transition: opacity var(--transition-normal);
+}
+
+.proyecto-card__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity var(--transition-normal), filter var(--transition-normal);
+}
+
+/* Clase que profesional.js agrega/quita en mouseenter/mouseleave */
+.proyecto-card__media--reproduciendo .proyecto-card__img {
+    opacity: 0;
+}
+
+.proyecto-card__media--reproduciendo .proyecto-card__video {
+    opacity: 1;
+    filter: brightness(1.08);
+}
+
+/* Overlay "▶ Vista previa" mientras se reproduce el video */
+.proyecto-card__overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 6px 12px;
+    font-size: var(--text-xs);
+    color: white;
+    background: linear-gradient(to top, rgba(12, 20, 32, .65), transparent);
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity var(--transition-normal), transform var(--transition-normal);
+    pointer-events: none;
+}
+
+.proyecto-card__media--reproduciendo .proyecto-card__overlay {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .proyecto-card__img--1 {
@@ -856,14 +924,20 @@ ol {
     min-height: 1em;
 }
 
-/* Contador de caracteres del mensaje (id="contador-mensaje" / clase homónima) */
-.contador-mensaje {
-    font-size: var(--text-xs);
-    color: var(--texto-secundario);
-    text-align: right;
+/* Encabezado del textarea: label + contador en la misma fila */
+.form-group__encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
 }
 
-.contador-mensaje.limite {
+/* Contador de caracteres del mensaje (id="contador-mensaje", clase "form-contador") */
+.form-contador {
+    font-size: var(--text-xs);
+    color: var(--texto-secundario);
+}
+
+.form-contador.limite {
     color: var(--ambar-advertencia);
     font-weight: 600;
 }
@@ -902,6 +976,28 @@ ol {
 .contacto-link:hover {
     border-color: var(--verde-primario);
     transform: translateX(4px);
+}
+
+/* .contacto-link normalmente es un <a>, pero el botón de copiar correo
+   es un <button> real: sin este reset, el navegador le mete su propio
+   font, background y cursor por defecto y rompe el layout heredado. */
+.contacto-link--boton {
+    width: 100%;
+    background: none;
+    border: 1px solid var(--borde-sutil);
+    font-family: var(--font-cuerpo);
+    text-align: left;
+    cursor: pointer;
+}
+
+.contacto-link__copiar {
+    margin-left: auto;
+    color: var(--texto-secundario);
+    transition: color var(--transition-fast);
+}
+
+.contacto-link--boton:hover .contacto-link__copiar {
+    color: var(--verde-primario);
 }
 
 .contacto-link i {

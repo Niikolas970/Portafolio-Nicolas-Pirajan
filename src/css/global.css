@@ -400,7 +400,7 @@ footer {
     gap: var(--space-lg);
 }
 
-.footer-links a {
+j .footer-links a {
     font-size: var(--text-xl);
     color: var(--texto-secundario);
     transition: color var(--transition-fast), transform var(--transition-fast);

@@ -565,11 +565,24 @@ function crearTarjeta(proyecto) {
     // antes nunca se seteaba y el filtro no encontraba nada.
     tarjeta.dataset.tecnologias = proyecto.tecnologias.join(",");
 
-    const imagenHTML = proyecto.imagen
+    const tieneVideo = Boolean(proyecto.video);
+    const tieneImagen = Boolean(proyecto.imagen);
+
+    // Portada: imagen si existe; si no, el ícono de siempre.
+    // Si hay video, esta portada actúa como "primer frame" antes del hover.
+    const portadaHTML = tieneImagen
         ? `<img src="${proyecto.imagen}" alt="${proyecto.nombre}" class="proyecto-card__img ${proyecto.color}">`
         : `<div class="proyecto-card__img ${proyecto.color}">
                <i class="${proyecto.icono}"></i>
            </div>`;
+
+    // El video no lleva "src" todavía — se asigna recién en el primer
+    // hover (más abajo) para no descargarlo si el usuario nunca pasa
+    // el mouse por la tarjeta.
+    const videoHTML = tieneVideo
+        ? `<video class="proyecto-card__video" muted loop playsinline preload="none"></video>
+           <div class="proyecto-card__overlay">▶ Vista previa</div>`
+        : "";
 
     // .join("") en vez de dejar el array crudo en el template:
     // sin esto, JS convierte el array a texto uniendo con comas
@@ -593,7 +606,10 @@ function crearTarjeta(proyecto) {
         : "";
 
     tarjeta.innerHTML = `
-        ${imagenHTML}
+        <div class="proyecto-card__media">
+            ${portadaHTML}
+            ${videoHTML}
+        </div>
         <div class="proyecto-card__body">
             <h3>${proyecto.nombre}</h3>
             <p>${proyecto.descripcion}</p>
@@ -601,6 +617,38 @@ function crearTarjeta(proyecto) {
             <div class="proyecto-card__links">${githubHTML}${demoHTML}</div>
         </div>
     `;
+
+    // Crossfade + reproducción del video solo si el proyecto tiene uno.
+    if (tieneVideo) {
+
+        const media = tarjeta.querySelector(".proyecto-card__media");
+        const video = tarjeta.querySelector(".proyecto-card__video");
+
+        tarjeta.addEventListener("mouseenter", () => {
+
+            // Carga perezosa: el archivo mp4 recién se pide en el
+            // primer hover, no al construir la tarjeta.
+            if (!video.src) {
+                video.src = proyecto.video;
+            }
+
+            media.classList.add("proyecto-card__media--reproduciendo");
+
+            // play() devuelve una promesa que puede rechazar si el
+            // navegador bloquea el autoplay; lo ignoramos sin romper nada.
+            video.play().catch(() => {});
+
+        });
+
+        tarjeta.addEventListener("mouseleave", () => {
+
+            media.classList.remove("proyecto-card__media--reproduciendo");
+            video.pause();
+            video.currentTime = 0;
+
+        });
+
+    }
 
     return tarjeta;
 }
@@ -622,7 +670,8 @@ function renderizarProyectos() {
 
     contenedor.appendChild(fragmento);
 
-
+    // Las tarjetas se crean DESPUÉS de que el observer de "reveal"
+    // ya escaneó la página, así que hay que sumarlas a mano.
     const tarjetasNuevas = contenedor.querySelectorAll(".reveal");
 
     if ("IntersectionObserver" in window && tarjetasNuevas.length) {
@@ -646,4 +695,5 @@ function renderizarProyectos() {
     }
 
 }
+
 renderizarProyectos();
