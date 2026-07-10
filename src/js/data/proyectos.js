@@ -13,24 +13,13 @@ export const proyectos = [
     {
         nombre: "Oral Luanm — Registro Dental",
         descripcion: "Interfaz web para el registro de pacientes de una clínica dental. Incorpora formularios con validaciones, autenticación social simulada y una experiencia de usuario enfocada en la claridad, accesibilidad y facilidad de uso.",
-        imagen: "",
-        video: "./src/assets/video/pokedex-demo.mp4",
+        imagen: "src/assets/img/Oral-Luanm-Proyect.png",
+        video: "",
         icono: "fa-solid fa-tooth",
         color: "proyecto-card__img--2",
         tecnologias: ["html", "css", "javascript"],
         github: "https://github.com/larum99/Oral-LUANM-frontend",
         demo: "https://niikolas970.github.io/Proyecto-Oral-Luanm/"
-    },
-    {
-        nombre: "Pokémon Favoritos",
-        descripcion: "Proyecto colaborativo desarrollado bajo metodología Scrum para gestionar una colección de Pokémon favoritos utilizando localStorage. Participé en el desarrollo de funcionalidades, la integración del código mediante Git y la colaboración continua con el equipo.",
-        imagen: "",
-        video: "./src/assets/video/pokedex-demo.mp4",
-        icono: "fa-solid fa-star",
-        color: "proyecto-card__img--3",
-        tecnologias: ["javascript", "localstorage", "git", "scrum"],
-        github: "",
-        demo: ""
     },
     {
         nombre: "Blog Top 10 Colombia",
@@ -41,18 +30,7 @@ export const proyectos = [
         color: "proyecto-card__img--4",
         tecnologias: ["html", "css", "git", "github", "scrum"],
         github: "",
-        demo: ""
-    },
-    {
-        nombre: "Task Manager",
-        descripcion: "Aplicación web para la gestión de tareas con operaciones CRUD, almacenamiento local mediante localStorage y manipulación dinámica del DOM utilizando JavaScript puro para ofrecer una experiencia interactiva.",
-        imagen: "",
-        video: "./src/assets/video/pokedex-demo.mp4",
-        icono: "fa-solid fa-list-check",
-        color: "proyecto-card__img--5",
-        tecnologias: ["html", "css", "javascript", "localstorage"],
-        github: "",
-        demo: ""
+        demo: "https://niikolas970.github.io/TIFC2DEV-SDPF6-Simulaci-n-de-Proyecto-SCRUM/index.html"
     },
     {
         nombre: "Portafolio Personal",
