@@ -636,7 +636,8 @@ ol {
     transition: opacity var(--transition-normal);
 }
 
-.proyecto-card__video {
+.proyecto-card__video,
+.proyecto-card__preview {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -651,7 +652,8 @@ ol {
     opacity: 0;
 }
 
-.proyecto-card__media--reproduciendo .proyecto-card__video {
+.proyecto-card__media--reproduciendo .proyecto-card__video,
+.proyecto-card__media--reproduciendo .proyecto-card__preview {
     opacity: 1;
     filter: brightness(1.08);
 }

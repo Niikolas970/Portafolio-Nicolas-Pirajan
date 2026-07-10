@@ -568,20 +568,39 @@ function crearTarjeta(proyecto) {
     const tieneVideo = Boolean(proyecto.video);
     const tieneImagen = Boolean(proyecto.imagen);
 
-    // Portada: imagen si existe; si no, el ícono de siempre.
-    // Si hay video, esta portada actúa como "primer frame" antes del hover.
-    const portadaHTML = tieneImagen
+    // Portada (lo que se ve SIEMPRE, antes del hover):
+    // - Si hay video, la imagen (si existe) actúa de poster/portada.
+    // - Si NO hay video, la portada es el ícono: la imagen pasa a ser
+    //   la capa que se revela en el hover (mismo trato que el video).
+    const portadaEsImagen = tieneVideo && tieneImagen;
+
+    const portadaHTML = portadaEsImagen
         ? `<img src="${proyecto.imagen}" alt="${proyecto.nombre}" class="proyecto-card__img ${proyecto.color}">`
         : `<div class="proyecto-card__img ${proyecto.color}">
                <i class="${proyecto.icono}"></i>
            </div>`;
 
-    // El video no lleva "src" todavía — se asigna recién en el primer
-    // hover (más abajo) para no descargarlo si el usuario nunca pasa
-    // el mouse por la tarjeta.
-    const videoHTML = tieneVideo
-        ? `<video class="proyecto-card__video" muted loop playsinline preload="none"></video>
-           <div class="proyecto-card__overlay">▶ Vista previa</div>`
+    // Capa que se revela en el hover: video si existe; si no, la
+    // imagen (siempre que no haya sido ya usada como portada).
+    let capaRevelableHTML = "";
+
+    if (tieneVideo) {
+
+        // El video no lleva "src" todavía — se asigna recién en el
+        // primer hover (más abajo) para no descargarlo de más.
+        // Si hay imagen, la usamos de "poster" mientras el video carga.
+        const posterAttr = tieneImagen ? ` poster="${proyecto.imagen}"` : "";
+
+        capaRevelableHTML = `<video class="proyecto-card__video" muted loop playsinline preload="none"${posterAttr}></video>`;
+
+    } else if (tieneImagen) {
+
+        capaRevelableHTML = `<img class="proyecto-card__preview" src="${proyecto.imagen}" alt="${proyecto.nombre} — vista previa" loading="lazy">`;
+
+    }
+
+    const overlayHTML = capaRevelableHTML
+        ? `<div class="proyecto-card__overlay">▶ Vista previa</div>`
         : "";
 
     // .join("") en vez de dejar el array crudo en el template:
@@ -608,7 +627,8 @@ function crearTarjeta(proyecto) {
     tarjeta.innerHTML = `
         <div class="proyecto-card__media">
             ${portadaHTML}
-            ${videoHTML}
+            ${capaRevelableHTML}
+            ${overlayHTML}
         </div>
         <div class="proyecto-card__body">
             <h3>${proyecto.nombre}</h3>
@@ -618,33 +638,41 @@ function crearTarjeta(proyecto) {
         </div>
     `;
 
-    // Crossfade + reproducción del video solo si el proyecto tiene uno.
-    if (tieneVideo) {
+    // Crossfade en el hover: aplica tanto si la capa revelable es un
+    // video como si es una imagen. Solo el video necesita play/pause.
+    if (capaRevelableHTML) {
 
         const media = tarjeta.querySelector(".proyecto-card__media");
-        const video = tarjeta.querySelector(".proyecto-card__video");
+        const video = tarjeta.querySelector(".proyecto-card__video"); // null si es imagen
 
         tarjeta.addEventListener("mouseenter", () => {
 
-            // Carga perezosa: el archivo mp4 recién se pide en el
-            // primer hover, no al construir la tarjeta.
-            if (!video.src) {
-                video.src = proyecto.video;
+            if (video) {
+
+                // Carga perezosa: el archivo mp4 recién se pide en el
+                // primer hover, no al construir la tarjeta.
+                if (!video.src) {
+                    video.src = proyecto.video;
+                }
+
+                // play() devuelve una promesa que puede rechazar si el
+                // navegador bloquea el autoplay; lo ignoramos sin romper nada.
+                video.play().catch(() => {});
+
             }
 
             media.classList.add("proyecto-card__media--reproduciendo");
-
-            // play() devuelve una promesa que puede rechazar si el
-            // navegador bloquea el autoplay; lo ignoramos sin romper nada.
-            video.play().catch(() => {});
 
         });
 
         tarjeta.addEventListener("mouseleave", () => {
 
             media.classList.remove("proyecto-card__media--reproduciendo");
-            video.pause();
-            video.currentTime = 0;
+
+            if (video) {
+                video.pause();
+                video.currentTime = 0;
+            }
 
         });
 

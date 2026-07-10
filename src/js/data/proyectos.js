@@ -35,8 +35,8 @@ export const proyectos = [
     {
         nombre: "Blog Top 10 Colombia",
         descripcion: "Proyecto colaborativo en el que desempeñé el rol de Scrum Master, coordinando tareas mediante GitHub Projects, gestionando el repositorio y apoyando la resolución de conflictos durante la integración del código.",
-        imagen: "",
-        video: "./src/assets/video/pokedex-demo.mp4",
+        imagen: "src/assets/img/Blog-Scrum.png",
+        video: "",
         icono: "fa-solid fa-newspaper",
         color: "proyecto-card__img--4",
         tecnologias: ["html", "css", "git", "github", "scrum"],
