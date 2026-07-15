@@ -1,60 +1,161 @@
 @use "../../../styles/abstracts/variables" as *;
 
+// Tipografías del sistema — Plus Jakarta Sans para marca/títulos, Inter para el resto
+$font-display: "Plus Jakarta Sans", "Inter", sans-serif;
+$font-body: "Inter", sans-serif;
 
 .navbar {
     position: sticky;
     top: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: $z-navbar;
 
-    width: 100%;
-
-    background-color: rgba(16,34,53,0.75);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    // Glassmorphism real: mezcla el color de superficie del tema con transparencia,
+    // en vez de un rgba fijo que rompía en light mode
+    background-color: color-mix(in srgb, var(--color-surface) 70%, transparent);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
 
     border-bottom: 1px solid var(--color-border);
+
+    // Transición premium tipo Vercel/Linear: cubic-bezier suave, no "ease" plano
+    transition: background-color $transition-normal cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow $transition-normal cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.navbar__container{
+.navbar__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     max-width: $container-width;
-    min-height: 80px;
+    min-height: 72px;
 
     margin: 0 auto;
     padding: 0 $space-lg;
 }
 
-.navbar__brand{
+.navbar__brand {
+    font-family: $font-display;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
 
+    color: var(--color-title);
+    text-decoration: none;
+
+    display: inline-flex;
+    align-items: center;
+
+    transition: color $transition-fast, opacity $transition-fast;
+
+    &:hover {
+        color: var(--color-primary);
+        opacity: 0.9;
+    }
 }
 
-.navbar__menu{
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-}
-
-.navbar__item{
-
-
-}
-
-.navbar__link{
-
-}
-
-.navbar__actions{
+.navbar__menu {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: $space-lg;
+    list-style: none;
+
+    font-family: $font-body;
 }
 
-.navbar__social{
+.navbar__item {
+    position: relative;
+}
+
+.navbar__link {
+    position: relative;
+    display: inline-block;
+
+    padding: $space-xs 0;
+
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+
+    color: var(--color-text-muted);
+    text-decoration: none;
+
+    transition: color $transition-fast ease;
+
+    // Hover elegante estilo Linear: el texto se aclara, sin saltos ni "pop" bruscos
+    &:hover {
+        color: var(--color-title);
+    }
+
+    // Línea inferior animada — nace del centro y crece hacia los costados
+    &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -2px;
+
+        width: 0;
+        height: 1.5px;
+
+        background-color: var(--color-primary);
+        border-radius: $radius-full;
+
+        transition: width $transition-normal cubic-bezier(0.16, 1, 0.3, 1),
+                    left $transition-normal cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    &:hover::after {
+        left: 0;
+        width: 100%;
+    }
+}
+
+.navbar__actions {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+
+    // Separador sutil entre el menú/social y el ThemeToggle, como en Raycast
+    padding-left: $space-md;
+    border-left: 1px solid var(--color-border);
+}
+
+.navbar__social {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    width: 36px;
+    height: 36px;
+    border-radius: $radius-full;
+
+    color: var(--color-text-muted);
+    background-color: transparent;
+
+    transition: color $transition-fast ease,
+                background-color $transition-fast ease,
+                transform $transition-fast ease;
+
+    &:hover {
+        color: var(--color-title);
+        background-color: color-mix(in srgb, var(--color-text) 8%, transparent);
+        transform: translateY(-1px);
+    }
+}
+
+// Responsive básico solo de espaciado — sin hamburguesa ni JS
+@media (max-width: $tablet) {
+    .navbar__container {
+        padding: 0 $space-md;
+    }
+
+    .navbar__menu {
+        gap: $space-md;
+    }
+
+    .navbar__actions {
+        gap: $space-sm;
+        padding-left: $space-sm;
+    }
 }

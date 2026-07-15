@@ -1,0 +1,182 @@
+@use "./variables" as *;
+
+/* ===========================
+   FAMILIAS TIPOGRÁFICAS
+=========================== */
+
+$font-display: "Plus Jakarta Sans", -apple-system, sans-serif;
+$font-body: "Inter", -apple-system, sans-serif;
+
+/* ===========================
+   ESCALA TIPOGRÁFICA (fluida)
+   clamp(mínimo, preferido, máximo)
+=========================== */
+
+$fs-h1: clamp(2.25rem, 1.8rem + 2vw, 3.5rem);
+$fs-h2: clamp(1.75rem, 1.5rem + 1.2vw, 2.5rem);
+$fs-h3: clamp(1.375rem, 1.2rem + 0.8vw, 1.75rem);
+$fs-h4: clamp(1.125rem, 1rem + 0.4vw, 1.375rem);
+$fs-h5: 1.125rem;
+$fs-h6: 1rem;
+
+$fs-body: 1rem;
+$fs-body-sm: 0.875rem;
+$fs-button: 0.9375rem;
+$fs-menu: 0.9rem;
+$fs-input: 0.95rem;
+
+/* ===========================
+   BASE
+=========================== */
+
+html {
+    font-size: 100%; // respeta la config de accesibilidad del navegador
+}
+
+body {
+    font-family: $font-body;
+    font-size: $fs-body;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+
+    color: var(--color-text);
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* ===========================
+   TÍTULOS
+=========================== */
+
+h1, .h1 {
+    font-family: $font-display;
+    font-size: $fs-h1;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--color-title);
+}
+
+h2, .h2 {
+    font-family: $font-display;
+    font-size: $fs-h2;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: var(--color-title);
+}
+
+h3, .h3 {
+    font-family: $font-display;
+    font-size: $fs-h3;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--color-title);
+}
+
+h4, .h4 {
+    font-family: $font-display;
+    font-size: $fs-h4;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    color: var(--color-title);
+}
+
+h5, .h5 {
+    font-family: $font-display;
+    font-size: $fs-h5;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--color-title);
+}
+
+h6, .h6 {
+    font-family: $font-display;
+    font-size: $fs-h6;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--color-title);
+}
+
+/* ===========================
+   LOGO / MARCA
+=========================== */
+
+.text-logo {
+    font-family: $font-display;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--color-title);
+}
+
+/* ===========================
+   TEXTO / PÁRRAFOS
+=========================== */
+
+p, .text-body {
+    font-family: $font-body;
+    font-size: $fs-body;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--color-text);
+}
+
+.text-body-sm,
+small {
+    font-family: $font-body;
+    font-size: $fs-body-sm;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+}
+
+/* ===========================
+   BOTONES
+=========================== */
+
+button, .text-button {
+    font-family: $font-body;
+    font-size: $fs-button;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1;
+}
+
+/* ===========================
+   MENÚ / NAVEGACIÓN
+=========================== */
+
+.text-menu {
+    font-family: $font-body;
+    font-size: $fs-menu;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+/* ===========================
+   INPUTS
+=========================== */
+
+input, textarea, select, .text-input {
+    font-family: $font-body;
+    font-size: $fs-input;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+}
+
+/* ===========================
+   ENLACES
+=========================== */
+
+a {
+    font-family: inherit;
+    color: inherit;
+    text-decoration: none;
+}
