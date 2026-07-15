@@ -5,8 +5,9 @@ import "./Navbar.scss";
 
 function Navbar() {
     return (
-        <nav className="navbar">
-            <div className="navbar__container">
+        <header className="navbar">
+
+            <nav className="navbar__container">
 
                 {/* Logo */}
                 <a className="navbar__brand" href="#hero">
@@ -32,7 +33,6 @@ function Navbar() {
 
                 {/* Acciones */}
                 <div className="navbar__actions">
-
                     {socialLinks.map((item) => {
                         const Icon = item.icon;
 
@@ -51,11 +51,11 @@ function Navbar() {
                     })}
 
                     <ThemeToggle />
-
                 </div>
 
-            </div>
-        </nav>
+            </nav>
+
+        </header>
     );
 }
 

@@ -1,0 +1,49 @@
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    max-width: 1200px;
+    min-height: 80px;
+
+    margin: 0 auto;
+    padding: 0 2rem; 
+}
+
+.navbar__brand{
+
+}
+
+.navbar__menu{
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.navbar__item{
+
+
+}
+
+.navbar__link{
+
+}
+
+.navbar__actions{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar__social{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

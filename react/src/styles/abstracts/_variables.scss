@@ -1,0 +1,53 @@
+
+/* ===========================
+   BREAKPOINTS
+=========================== */
+
+$mobile: 576px;
+$tablet: 768px;
+$laptop: 1024px;
+$desktop: 1280px;
+
+/* ===========================
+   ESPACIADOS
+=========================== */
+
+$space-xs: .25rem;
+$space-sm: .5rem;
+$space-md: 1rem;
+$space-lg: 2rem;
+$space-xl: 4rem;
+$space-2xl: 6rem;
+
+/* ===========================
+   BORDES
+=========================== */
+
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-lg: 18px;
+$radius-xl: 28px;
+$radius-full: 999px;
+
+/* ===========================
+   TRANSICIONES
+=========================== */
+
+$transition-fast: .2s ease;
+$transition-normal: .35s ease;
+$transition-slow: .5s ease;
+
+/* ===========================
+   Z-INDEX
+=========================== */
+
+$z-navbar: 1000;
+$z-dropdown: 1100;
+$z-modal: 1200;
+$z-toast: 1300;
+
+/* ===========================
+   CONTENEDOR
+=========================== */
+
+$container-width: 1200px;
