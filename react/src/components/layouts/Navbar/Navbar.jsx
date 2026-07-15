@@ -78,7 +78,7 @@ function Navbar() {
                             className="navbar__item"
                             key={item.id}
                         >
-                            
+                            <a
                                 className={`navbar__link ${activeHref === item.href ? "navbar__link--active" : ""}`}
                                 href={item.href}
                                 onClick={handleLinkClick}
@@ -95,7 +95,7 @@ function Navbar() {
                         const Icon = item.icon;
 
                         return (
-                            
+                            <a
                                 className="navbar__social"
                                 key={item.id}
                                 href={item.href}

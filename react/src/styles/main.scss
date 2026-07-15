@@ -4,6 +4,7 @@
 
 @use "./abstracts/variables";
 @use "./abstracts/mixins";
+@use "../variables" as *;
 
 /* ===========================
    BASE

@@ -1,0 +1,212 @@
+@use "../../../styles/abstracts/variables" as *;
+@use "../../../styles/base/typography" as *;
+
+.projects {
+    width: 100%;
+}
+
+.projects__container {
+    max-width: $container-width;
+    margin: 0 auto;
+    padding: $space-2xl $space-lg;
+}
+
+.projects__header {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+
+    max-width: 480px;
+    margin-bottom: $space-xl;
+}
+
+.projects__eyebrow {
+    font-family: $font-body;
+    font-size: $fs-menu;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    color: var(--color-primary);
+}
+
+.projects__title {
+    margin: 0;
+    color: var(--color-title);
+}
+
+.projects__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-lg;
+}
+
+@keyframes project-card-in {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+
+    border-radius: $radius-lg;
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+
+    background-color: color-mix(in srgb, var(--color-surface) 55%, transparent);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    animation: project-card-in $transition-slow ease both;
+
+    transition: transform $transition-normal cubic-bezier(0.16, 1, 0.3, 1),
+                border-color $transition-normal ease,
+                box-shadow $transition-normal ease;
+
+    &:hover {
+        transform: translateY(-6px);
+        border-color: color-mix(in srgb, var(--color-primary) 40%, var(--color-border));
+        box-shadow: var(--shadow-lg);
+    }
+}
+
+.project-card__media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+
+    background-color: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface));
+}
+
+.project-card__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition: transform $transition-slow ease;
+}
+
+.project-card:hover .project-card__img {
+    transform: scale(1.06);
+}
+
+.project-card__fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    color: var(--color-primary);
+}
+
+.project-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+
+    padding: $space-lg;
+}
+
+.project-card__title {
+    margin: 0;
+    color: var(--color-title);
+}
+
+.project-card__description {
+    margin: 0;
+    color: var(--color-text-muted);
+}
+
+.project-card__techs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-xs;
+
+    list-style: none;
+    margin: $space-xs 0 0;
+    padding: 0;
+}
+
+.project-card__tech {
+    font-family: $font-body;
+    font-size: $fs-body-sm;
+    font-weight: 500;
+
+    padding: $space-xs $space-sm;
+    border-radius: $radius-full;
+    border: 1px solid var(--color-border);
+
+    color: var(--color-text);
+}
+
+.project-card__links {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    margin-top: $space-sm;
+}
+
+.project-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-xs;
+
+    font-family: $font-body;
+    font-size: $fs-body-sm;
+    font-weight: 500;
+
+    padding: $space-xs $space-md;
+    border-radius: $radius-md;
+    border: 1px solid var(--color-border);
+
+    color: var(--color-text);
+    text-decoration: none;
+
+    transition: color $transition-fast ease,
+                border-color $transition-fast ease,
+                background-color $transition-fast ease;
+
+    &:hover {
+        color: var(--color-title);
+        border-color: var(--color-primary);
+        background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
+    }
+}
+
+.project-card__link--primary {
+    color: var(--color-bg);
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+
+    &:hover {
+        color: var(--color-bg);
+        background-color: var(--color-primary-hover);
+        border-color: var(--color-primary-hover);
+    }
+}
+
+@media (max-width: $laptop) {
+    .projects__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: $tablet) {
+    .projects__container {
+        padding: $space-xl $space-md;
+    }
+
+    .projects__grid {
+        grid-template-columns: 1fr;
+    }
+}
