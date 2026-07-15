@@ -1,5 +1,7 @@
-import "./Navbar.scss";
 import navigation from "../../../data/navigation";
+import socialLinks from "../../../data/socialLinks";
+
+import "./Navbar.scss";
 
 function Navbar() {
     return (
@@ -18,7 +20,22 @@ function Navbar() {
                     </li>
                 ))}
             </ul>
-
+            <div className="navbar__actions">
+                {socialLinks.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                        <a
+                            key={item.id}
+                            href={item.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={item.label}
+                        >
+                            <Icon size={20} />
+                        </a>
+                    );
+                })}
+            </div>
         </nav>
     );
 }
