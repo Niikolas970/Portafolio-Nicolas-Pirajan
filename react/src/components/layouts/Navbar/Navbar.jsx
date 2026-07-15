@@ -1,12 +1,24 @@
+import "./Navbar.scss";
+import navigation from "../../../data/navigation";
+
 function Navbar() {
     return (
         <nav className="navbar">
-            <div className="navbar_logo">
-                <span>&lt;</span>
-                <span>Nicolás</span>
-                <span>/&gt;</span>
+            <div className="navbar__logo">
+                <a href="#hero">
+                    &lt; Nicolás /&gt;
+                </a>
             </div>
-            
+            <ul className="navbar__menu">
+                {navigation.map((item) => (
+                    <li key={item.id}>
+                        <a href={item.href}>
+                            {item.label}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+
         </nav>
     );
 }
