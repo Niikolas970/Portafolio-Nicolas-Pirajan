@@ -1,6 +1,6 @@
 import navigation from "../../../data/navigation";
 import socialLinks from "../../../data/socialLinks";
-
+import ThemeToggle from "../../ui/ThemeToggle/ThemeToggle";
 import "./Navbar.scss";
 
 function Navbar() {
@@ -35,6 +35,7 @@ function Navbar() {
                         </a>
                     );
                 })}
+                <ThemeToggle/>
             </div>
         </nav>
     );
