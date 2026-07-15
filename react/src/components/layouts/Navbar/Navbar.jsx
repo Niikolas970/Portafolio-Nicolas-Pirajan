@@ -1,7 +1,12 @@
 function Navbar() {
     return (
-        <nav>
-            <h2>Navbar</h2>
+        <nav className="navbar">
+            <div className="navbar_logo">
+                <span>&lt;</span>
+                <span>Nicolás</span>
+                <span>/&gt;</span>
+            </div>
+            
         </nav>
     );
 }
