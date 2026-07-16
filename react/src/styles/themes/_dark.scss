@@ -1,18 +1,83 @@
 :root,
 :root[data-theme="dark"] {
 
-    --color-bg: #07131F;
-    --color-surface: #0E2235;
+    --color-bg: #070D14;
+    --color-surface: #101C2A;
 
     --color-primary: #22D3EE;
-    --color-primary-hover: #67E8F9;
+    --color-primary-hover: #7DD3FC;
 
     --color-title: #F8FAFC;
     --color-text: #CBD5E1;
     --color-text-muted: #94A3B8;
 
-    --color-border: rgba(148, 163, 184, .18);
+    --color-border: rgba(255,255,255,.07);
 
-    --shadow-lg: 0 20px 50px rgba(0, 0, 0, .35);
+    --gradient-primary:
+        linear-gradient(
+            90deg,
+            #22D3EE,
+            #3B82F6,
+            #8B5CF6
+        );
 
+    --shadow-lg:
+        0 24px 70px rgba(0, 0, 0, .48),
+        0 0 0 1px rgba(255, 255, 255, .03),
+        0 0 40px rgba(34, 211, 238, .06);
+
+}
+
+body {
+    background:
+        radial-gradient(circle at 16% 10%, rgba(34, 211, 238, .16), transparent 30rem),
+        radial-gradient(circle at 84% 18%, rgba(139, 92, 246, .14), transparent 34rem),
+        radial-gradient(circle at 50% 110%, rgba(59, 130, 246, .10), transparent 38rem),
+        var(--color-bg);
+    background-attachment: fixed;
+}
+
+:root[data-theme="dark"] .navbar,
+:root[data-theme="dark"] .about__container,
+:root[data-theme="dark"] .experience__container,
+:root[data-theme="dark"] .contact__container,
+:root[data-theme="dark"] .about__card,
+:root[data-theme="dark"] .skills__carousel,
+:root[data-theme="dark"] .project-card,
+:root[data-theme="dark"] .experience__content,
+:root[data-theme="dark"] .education__content,
+:root[data-theme="dark"] .contact__form,
+:root[data-theme="dark"] .contact__info,
+:root[data-theme="dark"] .stat-counter,
+:root[data-theme="dark"] .hero__tech-chip,
+:root[data-theme="dark"] .theme-toggle__sphere {
+    background-color: rgba(16, 28, 42, .72);
+    border-color: rgba(255, 255, 255, .07);
+    box-shadow: var(--shadow-lg);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    backdrop-filter: blur(18px) saturate(140%);
+}
+
+:root[data-theme="dark"] .hero__btn--primario,
+:root[data-theme="dark"] .contact__submit,
+:root[data-theme="dark"] .navbar__cv-btn,
+:root[data-theme="dark"] .project-card__link--primary {
+    background: var(--gradient-primary);
+    box-shadow: 0 0 28px rgba(34, 211, 238, .18);
+}
+
+:root[data-theme="dark"] .hero__foto-ring {
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, .04),
+        0 28px 80px rgba(0, 0, 0, .45),
+        0 0 70px rgba(34, 211, 238, .12);
+}
+
+:root[data-theme="dark"] .project-card:hover,
+:root[data-theme="dark"] .contact__link:hover,
+:root[data-theme="dark"] .hero__btn--outline:hover,
+:root[data-theme="dark"] .hero__btn--icono:hover {
+    box-shadow:
+        0 22px 60px rgba(0, 0, 0, .42),
+        0 0 34px rgba(34, 211, 238, .10);
 }

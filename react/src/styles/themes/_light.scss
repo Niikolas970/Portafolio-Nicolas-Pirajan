@@ -1,18 +1,19 @@
-// _light.scss
 :root[data-theme="light"] {
 
-    --color-bg: #F8FAFC;
-    --color-surface: #FFFFFF;
+    --color-bg: #F3F6FB;
+    --color-surface: #FCFDFE;
 
-    --color-primary: #0891B2;
-    --color-primary-hover: #06B6D4;
+    --color-primary: #2563EB;
+    --color-primary-hover: #3B82F6;
 
     --color-title: #0F172A;
-    --color-text: #334155;
+    --color-text: #475569;
     --color-text-muted: #64748B;
 
-    --color-border: rgba(15, 23, 42, .08);
+    --color-border: rgba(15,23,42,.06);
 
-    --shadow-lg: 0 20px 50px rgba(15, 23, 42, .08);
+    --shadow-lg:
+        0 12px 30px rgba(15,23,42,.05),
+        0 2px 8px rgba(15,23,42,.03);
 
 }
