@@ -11,9 +11,11 @@
     gap: $space-xl;
 
     max-width: $container-width;
-    margin: 0 auto;
-    padding: $space-xl $space-lg $space-2xl;
-    min-height: 75vh;
+    margin: $space-xl auto;
+    padding: $space-xl $space-lg;
+    min-height: 80vh;
+    border-radius: $radius-xl;
+    overflow: hidden;
 }
 
 .hero__fondo {

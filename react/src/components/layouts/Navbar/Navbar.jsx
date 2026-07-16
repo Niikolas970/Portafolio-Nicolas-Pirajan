@@ -50,7 +50,7 @@ function Navbar() {
         <header className={"navbar" + (scrolled ? " navbar--scrolled" : "")}>
             <a href="#hero" className="navbar__logo">
                 <img
-                    src="/assets/img/logo-nicolas-pirajan.jpeg"
+                    src="src/assets/images/logo-nicolas-pirajan.jpeg"
                     alt="Foto de perfil de Nicolás Piraján"
                     className="navbar__logo-img"
                 />

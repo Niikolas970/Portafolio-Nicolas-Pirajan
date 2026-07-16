@@ -1,6 +1,7 @@
 import { Gamepad2, Stethoscope, Newspaper, Layers } from "lucide-react";
 import oralLuanmImg from "../assets/images/Oral-Luanm-Proyect.png";
 import blogScrumImg from "../assets/images/Blog-Scrum.png";
+import videoPokeApi from "../assets/videos/video-pokemon.mp4"
 
 const projects = [
     {
@@ -9,6 +10,7 @@ const projects = [
         description:
             "Aplicación web que consume la PokéAPI para mostrar información detallada de cada Pokémon, con búsqueda y versiones shiny.",
         image: null,
+        video: videoPokeApi,
         icon: Gamepad2,
         techs: ["HTML", "CSS", "JavaScript", "API REST"],
         github: "https://github.com/Niikolas970/proyecto-pokedex",
@@ -20,6 +22,7 @@ const projects = [
         description:
             "Interfaz web para el registro de pacientes de una clínica dental, con formularios validados y enfoque en accesibilidad.",
         image: oralLuanmImg,
+        video: null,
         icon: Stethoscope,
         techs: ["HTML", "CSS", "JavaScript"],
         github: "https://github.com/larum99/Oral-LUANM-frontend",
@@ -31,6 +34,7 @@ const projects = [
         description:
             "Proyecto colaborativo donde desempeñé el rol de Scrum Master, coordinando tareas y gestionando el repositorio del equipo.",
         image: blogScrumImg,
+        video: null,
         icon: Newspaper,
         techs: ["HTML", "CSS", "Git", "Scrum"],
         github: null,
@@ -42,6 +46,7 @@ const projects = [
         description:
             "Portafolio con arquitectura modular en HTML, CSS y JavaScript, con un modo profesional y un modo aventura tipo RPG.",
         image: null,
+        video: null,
         icon: Layers,
         techs: ["HTML", "CSS", "JavaScript"],
         github: null,

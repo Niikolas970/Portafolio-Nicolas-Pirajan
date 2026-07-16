@@ -16,21 +16,54 @@ function Projects() {
                 <div className="projects__grid">
                     {projects.map((project) => {
                         const Icon = project.icon;
+                        const hasVideo = Boolean(project.video);
+                        const hasImage = Boolean(project.image);
 
                         return (
                             <article className="project-card" key={project.id}>
 
-                                <div className="project-card__media">
-                                    {project.image ? (
+                                <div
+                                    className={
+                                        "project-card__media" +
+                                        (hasVideo ? " project-card__media--video" : "") +
+                                        (!hasVideo && hasImage ? " project-card__media--image-hover" : "")
+                                    }
+                                    onMouseEnter={hasVideo ? (event) => {
+                                        const video = event.currentTarget.querySelector("video");
+
+                                        if (video) {
+                                            video.play();
+                                        }
+                                    } : undefined}
+                                    onMouseLeave={hasVideo ? (event) => {
+                                        const video = event.currentTarget.querySelector("video");
+
+                                        if (video) {
+                                            video.pause();
+                                            video.currentTime = 0;
+                                        }
+                                    } : undefined}
+                                >
+                                    <div className="project-card__fallback">
+                                        <Icon size={32} />
+                                    </div>
+
+                                    {hasImage && (
                                         <img
                                             className="project-card__img"
                                             src={project.image}
                                             alt={project.title}
                                         />
-                                    ) : (
-                                        <div className="project-card__fallback">
-                                            <Icon size={32} />
-                                        </div>
+                                    )}
+
+                                    {hasVideo && (
+                                        <video
+                                            className="project-card__video"
+                                            src={project.video}
+                                            muted
+                                            loop
+                                            playsInline
+                                        />
                                     )}
                                 </div>
 
