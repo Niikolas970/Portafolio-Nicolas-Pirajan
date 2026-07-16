@@ -1,3 +1,4 @@
+// Skills.scss
 @use "../../../styles/abstracts/variables" as *;
 @use "../../../styles/base/typography" as *;
 
@@ -36,22 +37,15 @@
 }
 
 .skills__groups {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: $space-lg;
 }
 
 .skills__group {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     gap: $space-md;
-
-    padding: $space-lg;
-    border-radius: $radius-lg;
-    border: 1px solid var(--color-border);
-
-    background-color: color-mix(in srgb, var(--color-surface) 50%, transparent);
 }
 
 .skills__group-title {
@@ -63,43 +57,100 @@
     color: var(--color-title);
 }
 
-.skills__list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: $space-sm;
+/* ===== CARRUSEL ===== */
 
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
+.skills__carousel {
+    overflow: hidden;
+
+    padding: $space-md 0;
+    border-radius: $radius-lg;
+    border: 1px solid var(--color-border);
+
+    background-color: var(--color-surface);
+    background-color: color-mix(in srgb, var(--color-surface) 50%, transparent);
+
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        black $space-lg,
+        black calc(100% - #{$space-lg}),
+        transparent
+    );
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        black $space-lg,
+        black calc(100% - #{$space-lg}),
+        transparent
+    );
 }
 
-.skills__item {
+.skills__track {
+    display: flex;
+    gap: $space-md;
+    width: max-content;
+
+    animation-duration: var(--carousel-speed);
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    .skills__carousel:hover & {
+        animation-play-state: paused;
+    }
+}
+
+.skills__track--left {
+    animation-name: skills-scroll-left;
+}
+
+.skills__track--right {
+    animation-name: skills-scroll-right;
+}
+
+@keyframes skills-scroll-left {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes skills-scroll-right {
+    from {
+        transform: translateX(-50%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.skills__card {
     display: inline-flex;
     align-items: center;
     gap: $space-xs;
+    flex-shrink: 0;
 
     font-family: $font-body;
     font-size: $fs-body-sm;
     font-weight: 500;
 
-    padding: $space-xs $space-md;
+    padding: $space-sm $space-md;
     border-radius: $radius-full;
     border: 1px solid var(--color-border);
 
     color: var(--color-text);
-}
-
-.skills__item small {
-    margin-left: $space-xs;
+    background-color: var(--color-bg);
 }
 
 @media (max-width: $tablet) {
     .skills__container {
         padding: $space-xl $space-md;
     }
+}
 
-    .skills__groups {
-        grid-template-columns: 1fr;
+@media (prefers-reduced-motion: reduce) {
+    .skills__track {
+        animation: none;
     }
 }

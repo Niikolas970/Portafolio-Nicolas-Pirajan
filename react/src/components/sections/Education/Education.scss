@@ -84,6 +84,7 @@
     border-radius: $radius-lg;
     border: 1px solid var(--color-border);
 
+    background-color: var(--color-surface);
     background-color: color-mix(in srgb, var(--color-surface) 50%, transparent);
 }
 

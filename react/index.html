@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 
 <head>
 
@@ -30,6 +30,13 @@
         name="theme-color"
         content="#07131F"
     >
+
+    <script>
+        (function () {
+            var tema = localStorage.getItem("tema");
+            document.documentElement.setAttribute("data-theme", tema === "light" ? "light" : "dark");
+        }());
+    </script>
 
     <!-- Open Graph -->
 

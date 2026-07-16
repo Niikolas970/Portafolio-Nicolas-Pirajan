@@ -51,6 +51,7 @@
     border-radius: $radius-lg;
     border: 1px solid var(--color-border);
 
+    background-color: var(--color-surface);
     background-color: color-mix(in srgb, var(--color-surface) 50%, transparent);
 }
 
@@ -64,6 +65,7 @@
     border-radius: $radius-md;
 
     color: var(--color-primary);
+    background-color: transparent;
     background-color: color-mix(in srgb, var(--color-primary) 12%, transparent);
 }
 
@@ -119,4 +121,30 @@
     .about__card--tech {
         grid-column: span 1;
     }
+}
+
+.about__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-md;
+
+    grid-column: 1 / -1;
+    margin-top: $space-md;
+}
+
+@media (max-width: $tablet) {
+    .about__stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+.about__container {
+    // secciones "alt": fondo difuminado tipo tarjeta
+    background-color: var(--color-surface);
+    background-color: color-mix(in srgb, var(--color-surface) 40%, transparent);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: $radius-lg;
+    margin-top: $space-lg;
+    margin-bottom: $space-lg;
 }

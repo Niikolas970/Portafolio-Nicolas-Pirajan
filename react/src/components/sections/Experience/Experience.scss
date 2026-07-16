@@ -84,6 +84,7 @@
     border-radius: $radius-lg;
     border: 1px solid var(--color-border);
 
+    background-color: var(--color-surface);
     background-color: color-mix(in srgb, var(--color-surface) 50%, transparent);
 }
 
@@ -129,4 +130,15 @@
     .experience__container {
         padding: $space-xl $space-md;
     }
+}
+
+.experience__container {
+    // secciones "alt": fondo difuminado tipo tarjeta
+    background-color: var(--color-surface);
+    background-color: color-mix(in srgb, var(--color-surface) 40%, transparent);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: $radius-lg;
+    margin-top: $space-lg;
+    margin-bottom: $space-lg;
 }

@@ -4,14 +4,6 @@
 
 @use "./abstracts/variables";
 @use "./abstracts/mixins";
-@use "../variables" as *;
-
-/* ===========================
-   BASE
-=========================== */
-
-@use "./base/reset";
-@use "./base/typography";
 
 /* ===========================
    TEMAS
@@ -19,4 +11,12 @@
 
 @use "./themes/dark";
 @use "./themes/light";
+
+/* ===========================
+   BASE
+=========================== */
+
+@use "./base/reset";
+@use "./base/typography";
+@use "./abstracts/section-surface";
 

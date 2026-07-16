@@ -1,8 +1,9 @@
+// About.jsx
 import { User, Code2, Search, Sparkles, GraduationCap, School } from "lucide-react";
 import "./About.scss";
 
-// SOLUCIÓN: Usamos las constantes específicas que exportamos desde techStack
-import { technologies } from "../../../data/techStack";
+import stats from "../../../data/stats";
+import StatCounter from "../../ui/StatCounter/StatCounter";
 
 function About() {
     return (
@@ -94,22 +95,15 @@ function About() {
                         </p>
                     </div>
 
-                    <div className="about__card about__card--tech">
-                        <h3 className="about__card-title">Tecnologías</h3>
-                        <ul className="about__tech-list">
-                            {/* Cambiado techStack.map por technologies.map */}
-                            {technologies.map((tech) => {
-                                const Icon = tech.icon;
-
-                                return (
-                                    // Usamos tech.name como key única ya que no hay ID en la lista de tecnologías
-                                    <li className="about__tech-item" key={tech.name}>
-                                        <Icon size={16} />
-                                        <span>{tech.name}</span>
-                                    </li>
-                                );
-                            })}
-                        </ul>
+                    <div className="about__stats">
+                        {stats.map((stat) => (
+                            <StatCounter
+                                key={stat.id}
+                                value={stat.value}
+                                symbol={stat.symbol}
+                                label={stat.label}
+                            />
+                        ))}
                     </div>
 
                 </div>

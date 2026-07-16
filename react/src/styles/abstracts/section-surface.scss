@@ -1,0 +1,7 @@
+.section-surface {
+    background-color: var(--color-surface);
+    background-color: color-mix(in srgb, var(--color-surface) 55%, transparent);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-border);
+}
