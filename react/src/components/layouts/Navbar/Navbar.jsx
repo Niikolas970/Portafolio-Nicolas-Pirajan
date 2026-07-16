@@ -1,129 +1,100 @@
-import { useState, useEffect, useRef } from "react";
-import navigation from "../../../data/navigation";
-import socialLinks from "../../../data/socialLinks";
+// Navbar.jsx
+import { useState, useEffect } from "react";
+import { Menu, X, Download } from "lucide-react";
 import ThemeToggle from "../../ui/ThemeToggle/ThemeToggle";
 import "./Navbar.scss";
 
-function Navbar() {
-    // Scroll inteligente: oculta el navbar al bajar, lo muestra al subir
-    const [hidden, setHidden] = useState(false);
-    // Le agrega un poco de fondo/sombra extra cuando ya scrolleaste
-    const [scrolled, setScrolled] = useState(false);
-    // Menú hamburguesa (mobile)
-    const [menuOpen, setMenuOpen] = useState(false);
-    // Indicador de sección activa
-    const [activeHref, setActiveHref] = useState(navigation[0]?.href || "");
+const NAV_LINKS = [
+    { href: "#hero", label: "Inicio" },
+    { href: "#about", label: "Sobre mí" },
+    { href: "#skills", label: "Tecnologías" },
+    { href: "#projects", label: "Proyectos" },
+    { href: "#experience", label: "Experiencia" },
+    { href: "#education", label: "Educación" },
+    { href: "#contact", label: "Contacto" },
+];
 
-    const lastScrollY = useRef(0);
+function Navbar() {
+    const [menuAbierto, setMenuAbierto] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    const [seccionActiva, setSeccionActiva] = useState("");
 
     useEffect(() => {
         function handleScroll() {
-            const currentScrollY = window.scrollY;
+            setScrolled(window.scrollY > 20);
 
-            // Si bajás y ya pasaste los 100px, se oculta
-            if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
-                setHidden(true);
-            } else {
-                setHidden(false);
-            }
+            const secciones = document.querySelectorAll("section[id]");
+            let actual = "";
 
-            setScrolled(currentScrollY > 20);
-            lastScrollY.current = currentScrollY;
+            secciones.forEach((seccion) => {
+                const offsetTop = seccion.offsetTop - 100;
+                if (window.scrollY >= offsetTop) {
+                    actual = seccion.id;
+                }
+            });
+
+            setSeccionActiva(actual);
         }
 
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        handleScroll();
+
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Indicador de página activa: detecta qué sección está visible
-    useEffect(() => {
-        const sections = navigation
-            .map((item) => document.querySelector(item.href))
-            .filter(Boolean);
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setActiveHref(`#${entry.target.id}`);
-                    }
-                });
-            },
-            { rootMargin: "-50% 0px -50% 0px" } // se activa cuando la sección pasa por el medio de la pantalla
-        );
-
-        sections.forEach((section) => observer.observe(section));
-        return () => observer.disconnect();
-    }, []);
-
-    // Cierra el menú mobile si el usuario clickea un link
     function handleLinkClick() {
-        setMenuOpen(false);
+        setMenuAbierto(false);
     }
 
     return (
-        <header className={`navbar ${hidden ? "navbar--hidden" : ""} ${scrolled ? "navbar--scrolled" : ""}`}>
+        <header className={"navbar" + (scrolled ? " navbar--scrolled" : "")}>
+            <a href="#hero" className="navbar__logo">
+                <img
+                    src="/assets/img/logo-nicolas-pirajan.jpeg"
+                    alt="Foto de perfil de Nicolás Piraján"
+                    className="navbar__logo-img"
+                />
+                <span className="navbar__logo-name">Nicolas Piraján</span>
+            </a>
 
-            <nav className="navbar__container">
+            <ul className={"navbar__links" + (menuAbierto ? " navbar__links--abierto" : "")}>
+                {NAV_LINKS.map((link) => (
+                    <li key={link.href}>
+                        <a
+                            href={link.href}
+                            className={
+                                seccionActiva === link.href.slice(1) ? "activo" : ""
+                            }
+                            onClick={handleLinkClick}
+                        >
+                            {link.label}
+                        </a>
+                    </li>
+                ))}
+            </ul>
 
-                {/* Logo */}
-                <a className="navbar__brand" href="#hero">
-                    &lt; Nicolás /&gt;
+            <div className="navbar__actions">
+                <a
+                    href="/assets/docs/cv-nicolas-pirajan.pdf"
+                    download
+                    className="navbar__cv-btn"
+                >
+                    <Download size={16} />
+                    CV
                 </a>
 
-                {/* Menú */}
-                <ul className={`navbar__menu ${menuOpen ? "navbar__menu--open" : ""}`}>
-                    {navigation.map((item) => (
-                        <li
-                            className="navbar__item"
-                            key={item.id}
-                        >
-                            <a
-                                className={`navbar__link ${activeHref === item.href ? "navbar__link--active" : ""}`}
-                                href={item.href}
-                                onClick={handleLinkClick}
-                            >
-                                {item.label}
-                            </a>
-                        </li>
-                    ))}
-                </ul>
+                <ThemeToggle />
 
-                {/* Acciones */}
-                <div className="navbar__actions">
-                    {socialLinks.map((item) => {
-                        const Icon = item.icon;
-
-                        return (
-                            <a
-                                className="navbar__social"
-                                key={item.id}
-                                href={item.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label={item.label}
-                            >
-                                <Icon size={20} />
-                            </a>
-                        );
-                    })}
-
-                    <ThemeToggle />
-
-                    {/* Botón hamburguesa (solo se ve en mobile por CSS) */}
-                    <button
-                        className={`navbar__toggle ${menuOpen ? "navbar__toggle--active" : ""}`}
-                        onClick={() => setMenuOpen(!menuOpen)}
-                        aria-label="Abrir menú"
-                    >
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                </div>
-
-            </nav>
-
+                <button
+                    type="button"
+                    className="navbar__hamburger"
+                    aria-label={menuAbierto ? "Cerrar menú" : "Abrir menú"}
+                    aria-expanded={menuAbierto}
+                    onClick={() => setMenuAbierto((prev) => !prev)}
+                >
+                    {menuAbierto ? <X size={22} /> : <Menu size={22} />}
+                </button>
+            </div>
         </header>
     );
 }

@@ -1,87 +1,129 @@
-import socialLinks from "../../../data/socialLinks";
-import perfilImg from "../../../assets/images/Nicolas-developer.jpeg";
-import cvPdf from "../../../assets/docs/cv-nicolas-pirajan.pdf";
+// Hero.jsx
+import { useState, useEffect, useRef } from "react";
+import { Download, Send, ChevronDown } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { SiReact, SiSpring, SiMysql, SiGit, SiJavascript } from "react-icons/si";
+import { FaJava } from "react-icons/fa6";
+import hero from "../../../data/hero";
+import contact from "../../../data/contact";
 import "./Hero.scss";
 
+const ROLE_INTERVAL = 3200;
+const ROLE_FADE = 300;
+
+const TECH_ORBIT = [
+    { name: "React", icon: SiReact, position: "top" },
+    { name: "Java", icon: FaJava, position: "top-right" },
+    { name: "Spring Boot", icon: SiSpring, position: "right" },
+    { name: "MySQL", icon: SiMysql, position: "bottom" },
+    { name: "Git", icon: SiGit, position: "bottom-left" },
+    { name: "JavaScript", icon: SiJavascript, position: "left" },
+];
+
 function Hero() {
+    const [indiceRol, setIndiceRol] = useState(0);
+    const [visible, setVisible] = useState(true);
+    const intervaloRef = useRef(null);
+
+    useEffect(() => {
+        const prefiereReducido = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        if (prefiereReducido) return;
+
+        intervaloRef.current = setInterval(() => {
+            setVisible(false);
+
+            setTimeout(() => {
+                setIndiceRol((prev) => (prev + 1) % hero.roles.length);
+                setVisible(true);
+            }, ROLE_FADE);
+        }, ROLE_INTERVAL);
+
+        return () => clearInterval(intervaloRef.current);
+    }, []);
+
     return (
         <section className="hero" id="hero">
-            <div className="hero__container">
+            <div className="hero__fondo" aria-hidden="true"></div>
 
-                <div className="hero__content">
-
-                    <span className="hero__eyebrow">
-                        Hola, soy
+            <div className="hero__texto">
+                <span className="hero__saludo">{hero.greeting}</span>
+                <h1 className="hero__nombre">{hero.name}</h1>
+                <p className="hero__cargo">
+                    <span
+                        className="hero__rol"
+                        style={{ opacity: visible ? 1 : 0 }}
+                    >
+                        {hero.roles[indiceRol]}
                     </span>
+                    <span className="hero__cursor" aria-hidden="true"></span>
+                </p>
+                <p className="hero__descripcion">{hero.description}</p>
 
-                    <h1 className="hero__title">
-                        Nicolás Piraján
-                    </h1>
+                <div className="hero__botones">
+                    <a href={hero.cvUrl} download className="hero__btn hero__btn--primario">
+                        <Download size={18} />
+                        Descargar CV
+                    </a>
 
-                    <p className="hero__role">
-                        Desarrollador Full Stack Java
-                    </p>
+                    <a href="#contact" className="hero__btn hero__btn--outline">
+                        <Send size={18} />
+                        Contactarme
+                    </a>
 
-                    <p className="hero__description">
-                        Estudiante de Ingeniería de Software y egresado del Bootcamp
-                        Generation Colombia. Construyo aplicaciones web con Java,
-                        Spring Boot y JavaScript, apasionado por el código limpio y
-                        las experiencias de usuario que realmente funcionan. Busco mi
-                        primera oportunidad profesional para aportar, crecer y seguir
-                        aprendiendo.
-                    </p>
+                    <a
+                        href={contact.github.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hero__btn hero__btn--icono"
+                        aria-label="GitHub"
+                    >
+                        <FaGithub size={18} />
+                    </a>
 
-                    <div className="hero__actions">
-                        <a
-                            className="hero__btn hero__btn--primary"
-                            href={cvPdf}
-                            download
-                        >
-                            Descargar CV
-                        </a>
-
-                        <a
-                            className="hero__btn hero__btn--secondary"
-                            href="#contact"
-                        >
-                            Contactarme
-                        </a>
-                    </div>
-
-                    <div className="hero__socials">
-                        {socialLinks.map((item) => {
-                            const Icon = item.icon;
-
-                            return (
-                                <a
-                                    className="hero__social"
-                                    key={item.id}
-                                    href={item.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label={item.label}
-                                >
-                                    <Icon size={20} />
-                                </a>
-                            );
-                        })}
-                    </div>
-
+                    <a
+                        href={contact.linkedin.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hero__btn hero__btn--icono"
+                        aria-label="LinkedIn"
+                    >
+                        <FaLinkedin size={18} />
+                    </a>
                 </div>
-
-                <div className="hero__visual">
-                    <div className="hero__visual-glow"></div>
-
-                    <div className="hero__visual-frame">
-                        <img
-                            className="hero__visual-img"
-                            src={perfilImg}
-                            alt="Nicolás Pirajan - Full Stack Java Developer"
-                        />
-                    </div>
-                </div>
-
             </div>
+
+            <div className="hero__foto-wrap" aria-hidden="true">
+                <div className="hero__glow"></div>
+                <div className="hero__ring hero__ring--outer"></div>
+                <div className="hero__ring hero__ring--inner"></div>
+
+                <div className="hero__foto-ring">
+                    <img
+                        src={hero.photo}
+                        alt="Foto de Nicolás Piraján"
+                        className="hero__foto"
+                    />
+                </div>
+
+                {TECH_ORBIT.map((tech) => {
+                    const Icon = tech.icon;
+                    return (
+                        <span
+                            className={`hero__tech-chip hero__tech-chip--${tech.position}`}
+                            key={tech.name}
+                        >
+                            <Icon size={18} />
+                        </span>
+                    );
+                })}
+            </div>
+
+            <a href="#about" className="hero__scroll-hint" aria-label="Bajar a la siguiente sección">
+                <ChevronDown size={20} />
+            </a>
         </section>
     );
 }

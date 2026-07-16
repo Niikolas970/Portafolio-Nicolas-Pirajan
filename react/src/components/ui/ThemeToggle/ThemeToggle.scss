@@ -1,0 +1,283 @@
+// ThemeToggle.scss
+@use "../../../styles/abstracts/variables" as *;
+
+.theme-toggle {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: none;
+    border-radius: $radius-full;
+
+    background: transparent;
+    cursor: pointer;
+}
+
+.theme-toggle__sphere {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+    border-radius: $radius-full;
+    border: 1px solid var(--color-border);
+
+    background: color-mix(in srgb, var(--color-surface) 60%, transparent);
+    backdrop-filter: blur(6px);
+
+    overflow: visible;
+    transition: border-color $transition-fast;
+
+    animation: sphere-breathe 4s ease-in-out infinite;
+
+    .theme-toggle:hover & {
+        border-color: var(--color-primary);
+    }
+
+    .theme-toggle:active & {
+        animation-play-state: paused;
+    }
+}
+
+@keyframes sphere-breathe {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.03);
+    }
+}
+
+/* ===== ÍCONO (sol / luna) — absorbido y re-emergido ===== */
+
+.theme-toggle__icon {
+    position: relative;
+    z-index: 4;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--color-primary);
+    filter: drop-shadow(0 0 0 transparent);
+}
+
+.theme-toggle__icon--warp {
+    animation: icon-warp var(--toggle-duration) cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes icon-warp {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+        filter: blur(0);
+    }
+    38% {
+        transform: scale(0.15) rotate(-25deg);
+        opacity: 0;
+        filter: blur(2px);
+    }
+    50% {
+        transform: scale(0);
+        opacity: 0;
+        filter: blur(0);
+    }
+    62% {
+        transform: scale(0.15) rotate(20deg);
+        opacity: 0;
+        filter: blur(2px);
+    }
+    75% {
+        transform: scale(1.12) rotate(0deg);
+        opacity: 1;
+        filter: blur(0);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+/* ===== PORTAL — dos anillos contra-rotando (::before / ::after) ===== */
+
+.theme-toggle__portal {
+    position: absolute;
+    z-index: 1;
+
+    width: 34px;
+    height: 34px;
+    border-radius: $radius-full;
+
+    animation: portal-life var(--toggle-duration) ease forwards;
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: $radius-full;
+
+        background: conic-gradient(
+            from 0deg,
+            transparent 0deg,
+            var(--color-primary) 90deg,
+            transparent 180deg,
+            var(--color-primary) 270deg,
+            transparent 360deg
+        );
+
+        -webkit-mask: radial-gradient(
+            farthest-side,
+            transparent calc(100% - 1.5px),
+            #000 calc(100% - 1.5px)
+        );
+        mask: radial-gradient(
+            farthest-side,
+            transparent calc(100% - 1.5px),
+            #000 calc(100% - 1.5px)
+        );
+    }
+
+    &::before {
+        animation: ring-spin-cw var(--toggle-duration) linear forwards;
+    }
+
+    &::after {
+        inset: 4px;
+        animation: ring-spin-ccw var(--toggle-duration) linear forwards;
+        opacity: 0.6;
+    }
+}
+
+@keyframes portal-life {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    18% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    70% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(1.15);
+        opacity: 0;
+    }
+}
+
+@keyframes ring-spin-cw {
+    from {
+        rotate: 0deg;
+    }
+    to {
+        rotate: 450deg;
+    }
+}
+
+@keyframes ring-spin-ccw {
+    from {
+        rotate: 0deg;
+    }
+    to {
+        rotate: -250deg;
+    }
+}
+
+/* ===== DESTELLO — flash blanco, muy corto, justo en el vacío ===== */
+
+.theme-toggle__flash {
+    position: absolute;
+    z-index: 2;
+
+    width: 40px;
+    height: 40px;
+    border-radius: $radius-full;
+
+    background: radial-gradient(
+        circle,
+        #fff 0%,
+        var(--color-primary) 40%,
+        transparent 70%
+    );
+
+    opacity: 0;
+    animation: flash-burst var(--toggle-duration) ease forwards;
+}
+
+@keyframes flash-burst {
+    0%, 46% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.95;
+    }
+    58% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+}
+
+/* ===== HALO final — rastro de energía que persiste al cerrar ===== */
+
+.theme-toggle__glow {
+    position: absolute;
+    z-index: 0;
+
+    width: 40px;
+    height: 40px;
+    border-radius: $radius-full;
+
+    background: var(--color-primary);
+    filter: blur(14px);
+
+    opacity: 0;
+    animation: glow-linger var(--toggle-duration) ease forwards;
+}
+
+@keyframes glow-linger {
+    0%, 45% {
+        opacity: 0;
+        transform: scale(1);
+    }
+    55% {
+        opacity: 0.4;
+        transform: scale(1.05);
+    }
+    85% {
+        opacity: 0.5;
+        transform: scale(1.15);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.3);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .theme-toggle__sphere,
+    .theme-toggle__icon--warp,
+    .theme-toggle__portal,
+    .theme-toggle__portal::before,
+    .theme-toggle__portal::after,
+    .theme-toggle__glow,
+    .theme-toggle__flash {
+        animation: none !important;
+    }
+}

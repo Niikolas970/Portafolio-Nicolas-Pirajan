@@ -1,17 +1,8 @@
-:root[data-theme="dark"] {
-
-    --color-bg: #07131F;
-    --color-surface: #102235;
-
-    --color-primary: #06B6D4;
-    --color-primary-hover: #0891B2;
-
+[data-theme="dark"] {
+    --color-background: #0F172A;
+    --color-surface: #162033;
     --color-title: #F8FAFC;
-    --color-text: #D6E4EC;
-    --color-text-muted: #9DB4C3;
-
-    --color-border: rgba(255,255,255,.08);
-
-    --shadow-lg: 0 20px 50px rgba(0,0,0,.35);
-
+    --color-text: #CBD5E1;
+    --color-border: #334155;
+    --color-primary: #3B82F6;
 }

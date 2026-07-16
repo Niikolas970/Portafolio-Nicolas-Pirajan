@@ -9,6 +9,7 @@ import Blog from "../../components/sections/Blog/Blog";
 import Contact from "../../components/sections/Contact/Contact";
 
 import Footer from "../../components/layouts/Footer/Footer";
+import Education from "../../components/sections/Education/Education";
 
 function Home() {
     return (
@@ -25,7 +26,7 @@ function Home() {
 
             <Experience />
 
-            <Blog />
+            <Education/>
 
             <Contact />
 

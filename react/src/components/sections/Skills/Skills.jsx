@@ -22,7 +22,7 @@ function Skills() {
                                     .filter((tech) => tech.category === category.id)
                                     .map((tech) => (
                                         <li className="skills__item" key={tech.name}>
-                                            <i className={tech.icon} aria-hidden="true"></i>
+                                            <tech.icon aria-hidden="true" />
                                             <span>
                                                 {tech.name}
                                                 {tech.nota && <small> {tech.nota}</small>}

@@ -1,0 +1,112 @@
+@use "../../../styles/abstracts/variables" as *;
+@use "../../../styles/base/typography" as *;
+
+.education {
+    width: 100%;
+}
+
+.education__container {
+    max-width: $container-width;
+    margin: 0 auto;
+    padding: $space-2xl $space-lg;
+}
+
+.education__header {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+
+    max-width: 480px;
+    margin-bottom: $space-xl;
+}
+
+.education__eyebrow {
+    font-family: $font-body;
+    font-size: $fs-menu;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    color: var(--color-primary);
+}
+
+.education__title {
+    margin: 0;
+    color: var(--color-title);
+}
+
+.education__timeline {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: $space-xl;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 5px;
+
+        width: 2px;
+        background-color: var(--color-border);
+    }
+}
+
+.education__item {
+    position: relative;
+    padding-left: $space-xl;
+}
+
+.education__point {
+    position: absolute;
+    top: 6px;
+    left: 0;
+
+    width: 12px;
+    height: 12px;
+    border-radius: $radius-full;
+
+    background-color: var(--color-primary);
+}
+
+.education__content {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+
+    padding: $space-lg;
+    border-radius: $radius-lg;
+    border: 1px solid var(--color-border);
+
+    background-color: color-mix(in srgb, var(--color-surface) 50%, transparent);
+}
+
+.education__date {
+    font-family: $font-body;
+    font-size: $fs-body-sm;
+    font-weight: 500;
+
+    color: var(--color-primary);
+}
+
+.education__item-title {
+    margin: 0;
+    color: var(--color-title);
+}
+
+.education__item-text {
+    margin: 0;
+    color: var(--color-text-muted);
+}
+
+@media (max-width: $tablet) {
+    .education__container {
+        padding: $space-xl $space-md;
+    }
+}
