@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Download } from "lucide-react";
 import ThemeToggle from "../../ui/ThemeToggle/ThemeToggle";
+import logo from "../../../assets/images/logo-nicolas-pirajan.jpeg";
 import "./Navbar.scss";
 
 const NAV_LINKS = [
@@ -50,7 +51,7 @@ function Navbar() {
         <header className={"navbar" + (scrolled ? " navbar--scrolled" : "")}>
             <a href="#hero" className="navbar__logo">
                 <img
-                    src="src/assets/images/logo-nicolas-pirajan.jpeg"
+                    src={logo}
                     alt="Foto de perfil de Nicolás Piraján"
                     className="navbar__logo-img"
                 />
