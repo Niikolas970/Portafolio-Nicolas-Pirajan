@@ -76,7 +76,7 @@ function Navbar() {
 
             <div className="navbar__actions">
                 <a
-                    href="/assets/docs/cv-nicolas-pirajan.pdf"
+                    href={`${import.meta.env.BASE_URL}docs/cv-nicolas-pirajan.pdf`}
                     download
                     className="navbar__cv-btn"
                 >
