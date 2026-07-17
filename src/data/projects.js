@@ -37,7 +37,7 @@ const projects = [
         video: null,
         icon: Newspaper,
         techs: ["HTML", "CSS", "Git", "Scrum"],
-        github: null,
+        github: "https://github.com/Niikolas970/TIFC2DEV-SDPF6-Simulaci-n-de-Proyecto-SCRUM.git",
         demo: "https://niikolas970.github.io/TIFC2DEV-SDPF6-Simulaci-n-de-Proyecto-SCRUM/index.html",
     },
     {
@@ -49,7 +49,7 @@ const projects = [
         video: null,
         icon: Layers,
         techs: ["HTML", "CSS", "JavaScript"],
-        github: null,
+        github: "https://github.com/Niikolas970/Portafolio-Nicolas-Pirajan.git",
         demo: null,
     },
 ];
