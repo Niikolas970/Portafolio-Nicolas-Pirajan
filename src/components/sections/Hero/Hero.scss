@@ -85,7 +85,10 @@
     .hero__cargo,
     .hero__descripcion,
     .hero__botones,
-    .hero__foto-wrap {
+    .hero__foto-wrap,
+    .hero__cursor,
+    .hero__tech-chip,
+    .hero__scroll-hint {
         animation: none;
     }
 }
@@ -330,61 +333,6 @@
 
 
 
-.hero__tech-chip--top-right {
-    top: 14%;
-    right: -18px;
-    animation-delay: 1.1s;
-}
-
-.hero__tech-chip--right {
-    top: 50%;
-    right: -26px;
-    transform: translateY(-50%);
-    animation-delay: 2.2s;
-}
-
-
-
-.hero__tech-chip--bottom-left {
-    bottom: 14%;
-    left: -18px;
-    animation-delay: 4.4s;
-}
-
-.hero__tech-chip--left {
-    top: 50%;
-    left: -26px;
-    transform: translateY(-50%);
-    animation-delay: 5.5s;
-}
-
-@keyframes chip-float {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-8px);
-    }
-}
-
-.hero__tech-chip--top,
-.hero__tech-chip--bottom {
-    @keyframes chip-float {
-
-        0%,
-        100% {
-            transform: translateX(-50%) translateY(0);
-        }
-
-        50% {
-            transform: translateX(-50%) translateY(-8px);
-        }
-    }
-}
-
 .hero__tech-chip--top {
     top: -14px;
     left: 20%;
@@ -526,5 +474,15 @@
     .hero__tech-chip {
         width: 36px;
         height: 36px;
+    }
+
+    .hero__tech-chip--top-right,
+    .hero__tech-chip--right {
+        right: -10px;
+    }
+
+    .hero__tech-chip--bottom-left,
+    .hero__tech-chip--left {
+        left: -10px;
     }
 }

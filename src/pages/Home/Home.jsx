@@ -16,31 +16,33 @@ function Home() {
         <>
             <Navbar />
 
-            <Hero />
+            <main>
+                <Hero />
 
-            <Reveal>
-                <About />
-            </Reveal>
+                <Reveal>
+                    <About />
+                </Reveal>
 
-            <Reveal>
-                <Skills />
-            </Reveal>
+                <Reveal>
+                    <Skills />
+                </Reveal>
 
-            <Reveal>
-                <Projects />
-            </Reveal>
+                <Reveal>
+                    <Projects />
+                </Reveal>
 
-            <Reveal>
-                <Experience />
-            </Reveal>
+                <Reveal>
+                    <Experience />
+                </Reveal>
 
-            <Reveal>
-                <Education/>
-            </Reveal>
+                <Reveal>
+                    <Education/>
+                </Reveal>
 
-            <Reveal>
-                <Contact />
-            </Reveal>
+                <Reveal>
+                    <Contact />
+                </Reveal>
+            </main>
 
             <Reveal>
                 <Footer />

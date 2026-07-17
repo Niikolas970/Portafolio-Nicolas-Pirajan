@@ -285,3 +285,9 @@
         grid-template-columns: 1fr;
     }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .project-card {
+        animation: none;
+    }
+}

@@ -53,6 +53,7 @@ function Projects() {
                                             className="project-card__img"
                                             src={project.image}
                                             alt={project.title}
+                                            loading="lazy"
                                         />
                                     )}
 
@@ -63,6 +64,7 @@ function Projects() {
                                             muted
                                             loop
                                             playsInline
+                                            preload="none"
                                         />
                                     )}
                                 </div>

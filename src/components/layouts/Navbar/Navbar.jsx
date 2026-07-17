@@ -81,7 +81,7 @@ function Navbar() {
                     className="navbar__cv-btn"
                 >
                     <Download size={16} />
-                    CV
+                    <span>CV</span>
                 </a>
 
                 <ThemeToggle />
