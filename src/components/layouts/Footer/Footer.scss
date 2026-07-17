@@ -58,11 +58,18 @@
 
     color: var(--color-text);
 
-    transition: border-color 0.2s ease, color 0.2s ease;
+    transition: border-color $transition-normal ease,
+                color $transition-normal ease,
+                transform $transition-fast ease;
 
     &:hover {
         border-color: var(--color-primary);
         color: var(--color-primary);
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        transform: scale(0.95);
     }
 }
 

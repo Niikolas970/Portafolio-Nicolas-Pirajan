@@ -9,6 +9,7 @@ import Contact from "../../components/sections/Contact/Contact";
 
 import Footer from "../../components/layouts/Footer/Footer";
 import Education from "../../components/sections/Education/Education";
+import Reveal from "../../components/ui/Reveal/Reveal";
 
 function Home() {
     return (
@@ -17,19 +18,33 @@ function Home() {
 
             <Hero />
 
-            <About />
+            <Reveal>
+                <About />
+            </Reveal>
 
-            <Skills />
+            <Reveal>
+                <Skills />
+            </Reveal>
 
-            <Projects />
+            <Reveal>
+                <Projects />
+            </Reveal>
 
-            <Experience />
+            <Reveal>
+                <Experience />
+            </Reveal>
 
-            <Education/>
+            <Reveal>
+                <Education/>
+            </Reveal>
 
-            <Contact />
+            <Reveal>
+                <Contact />
+            </Reveal>
 
-            <Footer />
+            <Reveal>
+                <Footer />
+            </Reveal>
         </>
     );
 }

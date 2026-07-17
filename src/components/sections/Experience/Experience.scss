@@ -86,6 +86,16 @@
 
     background-color: var(--color-surface);
     background-color: color-mix(in srgb, var(--color-surface) 50%, transparent);
+
+    transition: transform $transition-normal cubic-bezier(0.16, 1, 0.3, 1),
+                border-color $transition-normal ease,
+                box-shadow $transition-normal ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        border-color: color-mix(in srgb, var(--color-primary) 35%, var(--color-border));
+        box-shadow: var(--shadow-lg);
+    }
 }
 
 .experience__date {

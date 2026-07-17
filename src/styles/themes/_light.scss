@@ -26,6 +26,15 @@
 
 }
 
+:root[data-theme="light"] body {
+    background:
+        radial-gradient(circle at 16% 10%, rgba(37, 99, 235, .05), transparent 30rem),
+        radial-gradient(circle at 84% 18%, rgba(139, 92, 246, .04), transparent 34rem),
+        radial-gradient(circle at 50% 110%, rgba(59, 130, 246, .04), transparent 38rem),
+        var(--color-bg);
+    background-attachment: fixed;
+}
+
 :root[data-theme="light"] .navbar,
 :root[data-theme="light"] .about__container,
 :root[data-theme="light"] .experience__container,

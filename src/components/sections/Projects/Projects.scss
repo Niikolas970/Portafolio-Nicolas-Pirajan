@@ -69,10 +69,11 @@
 
     transition: transform $transition-normal cubic-bezier(0.16, 1, 0.3, 1),
                 border-color $transition-normal ease,
-                box-shadow $transition-normal ease;
+                box-shadow $transition-normal ease,
+                background-color $transition-normal ease;
 
     &:hover {
-        transform: translateY(-6px);
+        transform: translateY(-4px);
         border-color: color-mix(in srgb, var(--color-primary) 40%, var(--color-border));
         box-shadow: var(--shadow-lg);
     }
@@ -212,15 +213,21 @@
     color: var(--color-text);
     text-decoration: none;
 
-    transition: color $transition-fast ease,
-                border-color $transition-fast ease,
-                background-color $transition-fast ease;
+    transition: color $transition-normal ease,
+                border-color $transition-normal ease,
+                background-color $transition-normal ease,
+                transform $transition-fast ease;
 
     &:hover {
         color: var(--color-title);
         border-color: var(--color-primary);
         background-color: transparent;
         background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        transform: scale(0.97);
     }
 }
 

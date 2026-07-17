@@ -155,10 +155,18 @@
     background-color: var(--color-primary);
 
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color $transition-normal ease,
+                transform $transition-fast ease,
+                box-shadow $transition-normal ease;
 
     &:hover:not(:disabled) {
         background-color: var(--color-primary-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px color-mix(in srgb, var(--color-primary) 28%, transparent);
+    }
+
+    &:active:not(:disabled) {
+        transform: scale(0.97);
     }
 
     &:disabled {
@@ -225,7 +233,13 @@
 
     font-family: $font-body;
     cursor: pointer;
-    transition: border-color 0.2s ease, background-color 0.2s ease;
+    transition: border-color $transition-normal ease,
+                background-color $transition-normal ease,
+                transform $transition-fast ease;
+
+    &:active {
+        transform: scale(0.98);
+    }
 
     div {
         display: flex;

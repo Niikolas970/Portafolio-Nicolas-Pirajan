@@ -29,16 +29,73 @@
             transparent 60%);
 }
 
+@keyframes hero-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .hero__texto {
     display: flex;
     flex-direction: column;
     gap: $space-sm;
 }
 
+.hero__saludo,
+.hero__nombre,
+.hero__cargo,
+.hero__descripcion,
+.hero__botones,
+.hero__foto-wrap {
+    animation: hero-fade-in .7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero__saludo {
+    animation-delay: .05s;
+}
+
+.hero__nombre {
+    animation-delay: .12s;
+}
+
+.hero__cargo {
+    animation-delay: .19s;
+}
+
+.hero__descripcion {
+    animation-delay: .26s;
+}
+
+.hero__botones {
+    animation-delay: .33s;
+}
+
+.hero__foto-wrap {
+    animation-delay: .18s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero__saludo,
+    .hero__nombre,
+    .hero__cargo,
+    .hero__descripcion,
+    .hero__botones,
+    .hero__foto-wrap {
+        animation: none;
+    }
+}
+
 .hero__saludo {
     font-family: $font-body;
     font-size: $fs-body-sm;
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: .03em;
+    text-transform: uppercase;
 
     color: var(--color-primary);
 }
@@ -46,6 +103,7 @@
 .hero__nombre {
     margin: 0;
     color: var(--color-title);
+    letter-spacing: -0.01em;
 }
 
 .hero__cargo {
@@ -92,6 +150,7 @@
     margin: 0;
 
     color: var(--color-text-muted);
+    line-height: 1.65;
 }
 
 .hero__botones {
@@ -118,15 +177,26 @@
 
     text-decoration: none;
     cursor: pointer;
-    transition: background-color $transition-fast, border-color $transition-fast, color $transition-fast;
+    transition: background-color $transition-normal ease,
+                border-color $transition-normal ease,
+                color $transition-normal ease,
+                transform $transition-fast ease,
+                box-shadow $transition-normal ease;
+
+    &:active {
+        transform: scale(0.97);
+    }
 }
 
 .hero__btn--primario {
     color: var(--color-bg);
     background-color: var(--color-primary);
+    box-shadow: 0 8px 20px color-mix(in srgb, var(--color-primary) 30%, transparent);
 
     &:hover {
         background-color: var(--color-primary-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 14px 32px color-mix(in srgb, var(--color-primary) 38%, transparent);
     }
 }
 
@@ -141,6 +211,8 @@
     &:hover {
         border-color: var(--color-primary);
         color: var(--color-primary);
+        transform: translateY(-2px);
+        box-shadow: 0 12px 26px rgba(0, 0, 0, .08);
     }
 }
 
@@ -156,6 +228,8 @@
     &:hover {
         border-color: var(--color-primary);
         color: var(--color-primary);
+        transform: translateY(-2px);
+        box-shadow: 0 12px 26px rgba(0, 0, 0, .08);
     }
 }
 
@@ -246,6 +320,12 @@
     box-shadow: var(--shadow-lg);
 
     animation: chip-float 7s ease-in-out infinite;
+    transition: color $transition-fast ease, box-shadow $transition-fast ease;
+
+    &:hover {
+        color: var(--color-primary-hover);
+        box-shadow: var(--shadow-lg), 0 0 0 1px color-mix(in srgb, var(--color-primary) 35%, transparent);
+    }
 }
 
 
