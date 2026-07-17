@@ -15,17 +15,18 @@
     padding: $space-sm $space-lg;
 
     background-color: var(--color-bg);
-    background-color: color-mix(in srgb, var(--color-bg) 85%, transparent);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    background-color: color-mix(in srgb, var(--color-bg) 78%, transparent);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    backdrop-filter: blur(16px) saturate(160%);
     border-bottom: 1px solid transparent;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06);
 
-    transition: border-color $transition-fast, box-shadow $transition-fast;
+    transition: border-color $transition-fast, box-shadow $transition-fast, background-color $transition-fast;
 }
 
 .navbar--scrolled {
     border-bottom-color: var(--color-border);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, .06);
 }
 
 .navbar__logo {

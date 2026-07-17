@@ -133,7 +133,10 @@
 .hero__btn--outline {
     color: var(--color-title);
     border-color: var(--color-border);
-    background-color: transparent;
+    background-color: var(--color-surface);
+    background-color: color-mix(in srgb, var(--color-surface) 45%, transparent);
+    -webkit-backdrop-filter: blur(10px) saturate(150%);
+    backdrop-filter: blur(10px) saturate(150%);
 
     &:hover {
         border-color: var(--color-primary);
@@ -145,7 +148,10 @@
     padding: $space-sm;
     border-color: var(--color-border);
     color: var(--color-title);
-    background-color: transparent;
+    background-color: var(--color-surface);
+    background-color: color-mix(in srgb, var(--color-surface) 45%, transparent);
+    -webkit-backdrop-filter: blur(10px) saturate(150%);
+    backdrop-filter: blur(10px) saturate(150%);
 
     &:hover {
         border-color: var(--color-primary);
