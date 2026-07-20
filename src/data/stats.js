@@ -2,18 +2,18 @@ const stats = [
     {
         id: 1,
         value: 1,
-        label: "Bootcamp Full Stack Java completado",
+        label: "stats.bootcamp",
     },
     {
         id: 2,
         value: 5,
-        label: "Proyectos desarrollados",
+        label: "stats.projects",
     },
     {
         id: 3,
         value: null,
         symbol: "∞",
-        label: "Aprendizaje continuo",
+        label: "stats.learning",
     },
 ];
 

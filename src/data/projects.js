@@ -6,9 +6,8 @@ import videoPokeApi from "../assets/videos/video-pokemon.mp4"
 const projects = [
     {
         id: 1,
-        title: "Pokédex Interactiva",
-        description:
-            "Aplicación web que consume la PokéAPI para mostrar información detallada de cada Pokémon, con búsqueda y versiones shiny.",
+        title: "projects.items.pokedex.title",
+        description: "projects.items.pokedex.description",
         image: null,
         video: videoPokeApi,
         icon: Gamepad2,
@@ -18,9 +17,8 @@ const projects = [
     },
     {
         id: 2,
-        title: "Oral Luanm — Registro Dental",
-        description:
-            "Interfaz web para el registro de pacientes de una clínica dental, con formularios validados y enfoque en accesibilidad.",
+        title: "projects.items.oralLuanm.title",
+        description: "projects.items.oralLuanm.description",
         image: oralLuanmImg,
         video: null,
         icon: Stethoscope,
@@ -30,9 +28,8 @@ const projects = [
     },
     {
         id: 3,
-        title: "Blog Top 10 Colombia",
-        description:
-            "Proyecto colaborativo donde desempeñé el rol de Scrum Master, coordinando tareas y gestionando el repositorio del equipo.",
+        title: "projects.items.blog.title",
+        description: "projects.items.blog.description",
         image: blogScrumImg,
         video: null,
         icon: Newspaper,
@@ -42,9 +39,8 @@ const projects = [
     },
     {
         id: 4,
-        title: "Portafolio Personal",
-        description:
-            "Portafolio con arquitectura modular en HTML, CSS y JavaScript, con un modo profesional y un modo aventura tipo RPG.",
+        title: "projects.items.portfolio.title",
+        description: "projects.items.portfolio.description",
         image: null,
         video: null,
         icon: Layers,

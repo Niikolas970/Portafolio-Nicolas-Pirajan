@@ -1,0 +1,187 @@
+{
+    "nav": {
+        "home": "Home",
+        "about": "About",
+        "skills": "Skills",
+        "projects": "Projects",
+        "experience": "Experience",
+        "education": "Education",
+        "contact": "Contact"
+    },
+    "navbar": {
+        "cv": "CV",
+        "openMenu": "Open menu",
+        "closeMenu": "Close menu",
+        "langSwitch": "Switch language"
+    },
+    "theme": {
+        "toggle": "Toggle theme"
+    },
+    "hero": {
+        "greeting": "Hi, I'm",
+        "roles": [
+            "Full Stack Java Developer",
+            "Backend Java Developer",
+            "Software Engineering Student",
+            "Clean code enthusiast"
+        ],
+        "description": "Software Engineering student and Generation Colombia Bootcamp graduate. I build web applications with Java, Spring Boot and JavaScript, passionate about clean code and user experiences that actually work. Looking for my first professional opportunity to contribute, grow and keep learning.",
+        "downloadCv": "Download CV",
+        "contactMe": "Contact me",
+        "githubAria": "GitHub",
+        "linkedinAria": "LinkedIn",
+        "scrollHintAria": "Scroll to the next section"
+    },
+    "about": {
+        "eyebrow": "About me",
+        "title": "The short version, no fluff",
+        "cards": {
+            "who": {
+                "title": "Who am I?",
+                "text": "I'm Nicolás Piraján, a Full Stack Java developer in training and Software Engineering student based in Bogotá, Colombia. I'm passionate about building digital solutions that are useful, fast and easy to use."
+            },
+            "what": {
+                "title": "What do I do?",
+                "text": "I design and build full web applications: backend with Java and Spring Boot, frontend with React."
+            },
+            "looking": {
+                "title": "What am I looking for?",
+                "text": "My first professional opportunity as a Junior developer, whether in Backend with Java or Full Stack, on a team where I can add value, keep learning and grow technically and professionally."
+            },
+            "story": {
+                "title": "My story",
+                "text": "I enjoy taking on new challenges and constantly learning: I built a Pokédex consuming the PokéAPI, resolved merge conflicts in collaborative repositories, and designed this portfolio with an interactive experience inspired by an RPG video game."
+            },
+            "bootcamp": {
+                "title": "Generation Bootcamp",
+                "text": "I completed the Full Stack Java Bootcamp by Generation Colombia, where I took part in individual and collaborative projects applying Git, GitHub and SCRUM, taking on roles as developer, Scrum Master and repository administrator."
+            },
+            "degree": {
+                "title": "Software Engineering",
+                "text": "I'm currently studying Software Engineering at Uniempresarial – Fundación Universitaria Empresarial de la Cámara de Comercio de Bogotá, strengthening my knowledge of programming, data structures, databases and software engineering."
+            }
+        }
+    },
+    "stats": {
+        "bootcamp": "Full Stack Java Bootcamp completed",
+        "projects": "Projects built",
+        "learning": "Continuous learning"
+    },
+    "skills": {
+        "eyebrow": "Skills",
+        "title": "Technologies",
+        "learning": "(Learning)"
+    },
+    "techCategories": {
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "tools": "Tools"
+    },
+    "technologies": {
+        "teamwork": "Teamwork"
+    },
+    "projects": {
+        "eyebrow": "Projects",
+        "title": "Things I've built",
+        "codeLabel": "Code",
+        "demoLabel": "Demo",
+        "githubAria": "{{title}} repository",
+        "demoAria": "{{title}} demo",
+        "items": {
+            "pokedex": {
+                "title": "Interactive Pokédex",
+                "description": "Web app that consumes the PokéAPI to show detailed information for each Pokémon, with search and shiny versions."
+            },
+            "oralLuanm": {
+                "title": "Oral Luanm — Dental Records",
+                "description": "Web interface for registering patients at a dental clinic, with validated forms and an accessibility focus."
+            },
+            "blog": {
+                "title": "Top 10 Colombia Blog",
+                "description": "Collaborative project where I took on the Scrum Master role, coordinating tasks and managing the team's repository."
+            },
+            "portfolio": {
+                "title": "Personal Portfolio",
+                "description": "Portfolio with a modular architecture in HTML, CSS and JavaScript, featuring a professional mode and an RPG-style adventure mode."
+            }
+        }
+    },
+    "experience": {
+        "eyebrow": "Experience",
+        "title": "Experience & Education",
+        "items": {
+            "bootcamp": {
+                "title": "Full Stack Java Bootcamp — Generation Colombia",
+                "description": "Intensive training focused on Full Stack development with Java. I took part in individual and collaborative projects using Git, GitHub and Scrum, taking on different roles such as developer, Scrum Master and repository administrator.",
+                "techs": ["Java", "HTML", "CSS", "JavaScript", "Git", "SCRUM"]
+            },
+            "degree": {
+                "title": "Software Engineering",
+                "description": "Currently studying Software Engineering at Uniempresarial – Fundación Universitaria Empresarial de la Cámara de Comercio de Bogotá, strengthening my knowledge of programming, data structures, databases, software engineering and application development through a business-oriented training model."
+            },
+            "professional": {
+                "title": "Professional Experience",
+                "description": "My work experience has allowed me to develop skills that are highly transferable to software development, such as teamwork, effective communication, problem solving, organization and adapting to dynamic environments.",
+                "techs": ["Teamwork", "Communication", "Problem solving", "Adaptability"]
+            }
+        }
+    },
+    "education": {
+        "eyebrow": "Education",
+        "title": "Education",
+        "items": {
+            "current": {
+                "title": "Software Engineering",
+                "description": "Currently studying Software Engineering, strengthening my knowledge of programming, data structures, databases, software engineering and application development."
+            },
+            "bootcamp": {
+                "title": "Full Stack Java Bootcamp — Generation Colombia",
+                "description": "Intensive training focused on Full Stack development with Java, collaborative work through Scrum, version control with Git and building projects using HTML, CSS and JavaScript."
+            },
+            "selfTaught": {
+                "title": "Self-taught learning",
+                "description": "I complement my learning with official documentation, courses and personal projects, exploring new technologies and constantly strengthening my skills as a developer."
+            }
+        }
+    },
+    "common": {
+        "present": "Present",
+        "continuousLearning": "Continuous learning"
+    },
+    "contact": {
+        "eyebrow": "Contact",
+        "heading": "Contact",
+        "description": "Do you have a job opportunity, a collaboration proposal, or just want to get in touch? I'd be glad to hear from you.",
+        "availability": "I'm currently available for opportunities as a Junior Full Stack Java Developer.",
+        "form": {
+            "nameLabel": "Full name",
+            "namePlaceholder": "Your full name",
+            "emailLabel": "Email",
+            "emailPlaceholder": "you@email.com",
+            "messageLabel": "Message",
+            "messagePlaceholder": "Tell me about your project, opportunity or question...",
+            "send": "Send message",
+            "sending": "Sending...",
+            "success": "✓ Message sent. I'll get back to you as soon as possible!",
+            "errors": {
+                "nameEmpty": "Please enter your name.",
+                "nameShort": "The name is too short.",
+                "nameLong": "The name is too long.",
+                "emailInvalid": "Enter a valid email.",
+                "messageEmpty": "The message can't be empty.",
+                "messageShort": "The message must be at least 10 characters long.",
+                "messageLong": "The message can't exceed 500 characters."
+            }
+        },
+        "alsoFindMe": "You can also find me on",
+        "githubLabel": "GitHub",
+        "linkedinLabel": "LinkedIn",
+        "emailLabel": "Email"
+    },
+    "footer": {
+        "role": "Full Stack Java Developer",
+        "githubAria": "Nicolás's GitHub",
+        "linkedinAria": "Nicolás's LinkedIn",
+        "emailAria": "Nicolás's email"
+    }
+}

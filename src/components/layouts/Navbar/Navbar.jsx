@@ -1,21 +1,23 @@
 // Navbar.jsx
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Menu, X, Download } from "lucide-react";
 import ThemeToggle from "../../ui/ThemeToggle/ThemeToggle";
 import logo from "../../../assets/images/logo-nicolas-pirajan.jpeg";
 import "./Navbar.scss";
 
 const NAV_LINKS = [
-    { href: "#hero", label: "Inicio" },
-    { href: "#about", label: "Sobre mí" },
-    { href: "#skills", label: "Tecnologías" },
-    { href: "#projects", label: "Proyectos" },
-    { href: "#experience", label: "Experiencia" },
-    { href: "#education", label: "Educación" },
-    { href: "#contact", label: "Contacto" },
+    { href: "#hero", labelKey: "nav.home" },
+    { href: "#about", labelKey: "nav.about" },
+    { href: "#skills", labelKey: "nav.skills" },
+    { href: "#projects", labelKey: "nav.projects" },
+    { href: "#experience", labelKey: "nav.experience" },
+    { href: "#education", labelKey: "nav.education" },
+    { href: "#contact", labelKey: "nav.contact" },
 ];
 
 function Navbar() {
+    const { t, i18n } = useTranslation();
     const [menuAbierto, setMenuAbierto] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [seccionActiva, setSeccionActiva] = useState("");
@@ -47,6 +49,10 @@ function Navbar() {
         setMenuAbierto(false);
     }
 
+    function handleCambiarIdioma() {
+        i18n.changeLanguage(i18n.language === "es" ? "en" : "es");
+    }
+
     return (
         <header className={"navbar" + (scrolled ? " navbar--scrolled" : "")}>
             <a href="#hero" className="navbar__logo">
@@ -68,7 +74,7 @@ function Navbar() {
                             }
                             onClick={handleLinkClick}
                         >
-                            {link.label}
+                            {t(link.labelKey)}
                         </a>
                     </li>
                 ))}
@@ -81,15 +87,24 @@ function Navbar() {
                     className="navbar__cv-btn"
                 >
                     <Download size={16} />
-                    <span>CV</span>
+                    <span>{t("navbar.cv")}</span>
                 </a>
+
+                <button
+                    type="button"
+                    className="navbar__lang-btn"
+                    onClick={handleCambiarIdioma}
+                    aria-label={t("navbar.langSwitch")}
+                >
+                    {i18n.language === "es" ? "EN" : "ES"}
+                </button>
 
                 <ThemeToggle />
 
                 <button
                     type="button"
                     className="navbar__hamburger"
-                    aria-label={menuAbierto ? "Cerrar menú" : "Abrir menú"}
+                    aria-label={menuAbierto ? t("navbar.closeMenu") : t("navbar.openMenu")}
                     aria-expanded={menuAbierto}
                     onClick={() => setMenuAbierto((prev) => !prev)}
                 >

@@ -7,21 +7,21 @@ import {
 const techCategories = [
     {
         id: "frontend",
-        title: "Frontend",
+        title: "techCategories.frontend",
         icon: FaCode,
         direction: "left",
         speed: 28,
     },
     {
         id: "backend",
-        title: "Backend",
+        title: "techCategories.backend",
         icon: FaServer,
         direction: "right",
         speed: 32,
     },
     {
         id: "tools",
-        title: "Herramientas",
+        title: "techCategories.tools",
         icon: FaToolbox,
         direction: "left",
         speed: 24,

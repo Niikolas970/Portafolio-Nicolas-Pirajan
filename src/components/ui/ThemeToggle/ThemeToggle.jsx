@@ -1,5 +1,6 @@
 // ThemeToggle.jsx
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { Moon, Sun } from "lucide-react";
 import "./ThemeToggle.scss";
 
@@ -18,6 +19,7 @@ function aplicarTemaAlDocumento(tema) {
 }
 
 function ThemeToggle() {
+    const { t } = useTranslation();
     const [tema, setTema] = useState(getTemaGuardado);
     const [isAnimating, setIsAnimating] = useState(false);
     const timeoutSwap = useRef(null);
@@ -56,7 +58,7 @@ function ThemeToggle() {
             type="button"
             className="theme-toggle"
             onClick={handleToggle}
-            aria-label="Cambiar tema"
+            aria-label={t("theme.toggle")}
             aria-pressed={tema === "light"}
             style={{ "--toggle-duration": `${ANIMATION_DURATION}ms` }}
         >

@@ -121,7 +121,8 @@ const technologies = [
     },
     {
         id: 15,
-        name: "Trabajo en Equipo",
+        name: "technologies.teamwork",
+        nameKey: true,
         icon: FaUsers,
         category: "tools",
     },

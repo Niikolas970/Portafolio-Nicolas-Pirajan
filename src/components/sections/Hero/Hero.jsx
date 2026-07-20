@@ -1,5 +1,5 @@
-// Hero.jsx
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { Download, Send, ChevronDown } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiReact, SiSpring, SiMysql, SiGit, SiJavascript } from "react-icons/si";
@@ -21,6 +21,8 @@ const TECH_ORBIT = [
 ];
 
 function Hero() {
+    const { t } = useTranslation();
+    const roles = t(hero.roles, { returnObjects: true });
     const [indiceRol, setIndiceRol] = useState(0);
     const [visible, setVisible] = useState(true);
     const intervaloRef = useRef(null);
@@ -36,41 +38,41 @@ function Hero() {
             setVisible(false);
 
             setTimeout(() => {
-                setIndiceRol((prev) => (prev + 1) % hero.roles.length);
+                setIndiceRol((prev) => (prev + 1) % roles.length);
                 setVisible(true);
             }, ROLE_FADE);
         }, ROLE_INTERVAL);
 
         return () => clearInterval(intervaloRef.current);
-    }, []);
+    }, [roles.length]);
 
     return (
         <section className="hero" id="hero">
             <div className="hero__fondo" aria-hidden="true"></div>
 
             <div className="hero__texto">
-                <span className="hero__saludo">{hero.greeting}</span>
+                <span className="hero__saludo">{t(hero.greeting)}</span>
                 <h1 className="hero__nombre">{hero.name}</h1>
                 <p className="hero__cargo">
                     <span
                         className="hero__rol"
                         style={{ opacity: visible ? 1 : 0 }}
                     >
-                        {hero.roles[indiceRol]}
+                        {roles[indiceRol]}
                     </span>
                     <span className="hero__cursor" aria-hidden="true"></span>
                 </p>
-                <p className="hero__descripcion">{hero.description}</p>
+                <p className="hero__descripcion">{t(hero.description)}</p>
 
                 <div className="hero__botones">
                     <a href={hero.cvUrl} download className="hero__btn hero__btn--primario">
                         <Download size={18} />
-                        Descargar CV
+                        {t("hero.downloadCv")}
                     </a>
 
                     <a href="#contact" className="hero__btn hero__btn--outline">
                         <Send size={18} />
-                        Contactarme
+                        {t("hero.contactMe")}
                     </a>
 
                     <a
@@ -78,7 +80,7 @@ function Hero() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hero__btn hero__btn--icono"
-                        aria-label="GitHub"
+                        aria-label={t("hero.githubAria")}
                     >
                         <FaGithub size={18} />
                     </a>
@@ -88,7 +90,7 @@ function Hero() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hero__btn hero__btn--icono"
-                        aria-label="LinkedIn"
+                        aria-label={t("hero.linkedinAria")}
                     >
                         <FaLinkedin size={18} />
                     </a>
@@ -121,7 +123,7 @@ function Hero() {
                 })}
             </div>
 
-            <a href="#about" className="hero__scroll-hint" aria-label="Bajar a la siguiente sección">
+            <a href="#about" className="hero__scroll-hint" aria-label={t("hero.scrollHintAria")}>
                 <ChevronDown size={20} />
             </a>
         </section>

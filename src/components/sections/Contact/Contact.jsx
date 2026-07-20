@@ -1,5 +1,6 @@
 // Contact.jsx
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Mail, Copy, Send } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import contact from "../../../data/contact";
@@ -7,30 +8,31 @@ import "./Contact.scss";
 
 const REGEX_CORREO = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function validarNombre(valor) {
+function validarNombre(valor, t) {
     const longitud = valor.trim().length;
 
-    if (longitud === 0) return "Por favor ingresa tu nombre.";
-    if (longitud < 2) return "El nombre es muy corto.";
-    if (longitud > 60) return "El nombre es demasiado largo.";
+    if (longitud === 0) return t("contact.form.errors.nameEmpty");
+    if (longitud < 2) return t("contact.form.errors.nameShort");
+    if (longitud > 60) return t("contact.form.errors.nameLong");
     return "";
 }
 
-function validarCorreo(valor) {
-    if (!REGEX_CORREO.test(valor.trim())) return "Ingresa un correo válido.";
+function validarCorreo(valor, t) {
+    if (!REGEX_CORREO.test(valor.trim())) return t("contact.form.errors.emailInvalid");
     return "";
 }
 
-function validarMensaje(valor) {
+function validarMensaje(valor, t) {
     const longitud = valor.trim().length;
 
-    if (longitud === 0) return "El mensaje no puede estar vacío.";
-    if (longitud < 10) return "El mensaje debe tener al menos 10 caracteres.";
-    if (longitud > 500) return "El mensaje no puede superar los 500 caracteres.";
+    if (longitud === 0) return t("contact.form.errors.messageEmpty");
+    if (longitud < 10) return t("contact.form.errors.messageShort");
+    if (longitud > 500) return t("contact.form.errors.messageLong");
     return "";
 }
 
 function Contact() {
+    const { t } = useTranslation();
     const [campos, setCampos] = useState({ nombre: "", correo: "", mensaje: "" });
     const [errores, setErrores] = useState({ nombre: "", correo: "", mensaje: "" });
     const [tocado, setTocado] = useState({ nombre: false, correo: false, mensaje: false });
@@ -49,9 +51,9 @@ function Contact() {
     }
 
     function validarCampo(name, value) {
-        if (name === "nombre") return validarNombre(value);
-        if (name === "correo") return validarCorreo(value);
-        if (name === "mensaje") return validarMensaje(value);
+        if (name === "nombre") return validarNombre(value, t);
+        if (name === "correo") return validarCorreo(value, t);
+        if (name === "mensaje") return validarMensaje(value, t);
         return "";
     }
 
@@ -66,9 +68,9 @@ function Contact() {
         setExito("");
 
         const erroresActuales = {
-            nombre: validarNombre(campos.nombre),
-            correo: validarCorreo(campos.correo),
-            mensaje: validarMensaje(campos.mensaje),
+            nombre: validarNombre(campos.nombre, t),
+            correo: validarCorreo(campos.correo, t),
+            mensaje: validarMensaje(campos.mensaje, t),
         };
 
         setErrores(erroresActuales);
@@ -82,7 +84,7 @@ function Contact() {
         setEnviando(true);
 
         setTimeout(() => {
-            setExito("✓ Mensaje enviado. ¡Te responderé lo antes posible!");
+            setExito(t("contact.form.success"));
             setCampos({ nombre: "", correo: "", mensaje: "" });
             setErrores({ nombre: "", correo: "", mensaje: "" });
             setTocado({ nombre: false, correo: false, mensaje: false });
@@ -107,21 +109,21 @@ function Contact() {
             <div className="contact__container">
 
                 <div className="contact__header">
-                    <span className="contact__eyebrow">Contacto</span>
-                    <h2 className="contact__title">{contact.heading}</h2>
-                    <p className="contact__description">{contact.description}</p>
+                    <span className="contact__eyebrow">{t("contact.eyebrow")}</span>
+                    <h2 className="contact__title">{t(contact.heading)}</h2>
+                    <p className="contact__description">{t(contact.description)}</p>
                 </div>
 
                 <div className="contact__grid">
 
                     <form className="contact__form" noValidate onSubmit={handleSubmit}>
                         <div className="contact__form-group">
-                            <label htmlFor="nombre">Nombre completo</label>
+                            <label htmlFor="nombre">{t("contact.form.nameLabel")}</label>
                             <input
                                 type="text"
                                 id="nombre"
                                 name="nombre"
-                                placeholder="Tu nombre completo"
+                                placeholder={t("contact.form.namePlaceholder")}
                                 autoComplete="name"
                                 value={campos.nombre}
                                 onChange={handleChange}
@@ -135,12 +137,12 @@ function Contact() {
                         </div>
 
                         <div className="contact__form-group">
-                            <label htmlFor="correo">Correo electrónico</label>
+                            <label htmlFor="correo">{t("contact.form.emailLabel")}</label>
                             <input
                                 type="email"
                                 id="correo"
                                 name="correo"
-                                placeholder="tu@correo.com"
+                                placeholder={t("contact.form.emailPlaceholder")}
                                 autoComplete="email"
                                 value={campos.correo}
                                 onChange={handleChange}
@@ -155,7 +157,7 @@ function Contact() {
 
                         <div className="contact__form-group">
                             <div className="contact__form-group-header">
-                                <label htmlFor="mensaje">Mensaje</label>
+                                <label htmlFor="mensaje">{t("contact.form.messageLabel")}</label>
                                 <span
                                     className={
                                         "contact__form-counter" +
@@ -170,7 +172,7 @@ function Contact() {
                                 name="mensaje"
                                 rows={5}
                                 maxLength={500}
-                                placeholder="Cuéntame sobre tu proyecto, oportunidad o consulta..."
+                                placeholder={t("contact.form.messagePlaceholder")}
                                 value={campos.mensaje}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
@@ -188,15 +190,15 @@ function Contact() {
                             disabled={enviando}
                         >
                             <Send size={18} />
-                            {enviando ? "Enviando..." : "Enviar mensaje"}
+                            {enviando ? t("contact.form.sending") : t("contact.form.send")}
                         </button>
 
                         <p className="contact__form-success">{exito}</p>
                     </form>
 
                     <aside className="contact__info">
-                        <h3 className="contact__info-title">También puedes encontrarme en</h3>
-                        <p className="contact__info-text">{contact.availability}</p>
+                        <h3 className="contact__info-title">{t("contact.alsoFindMe")}</h3>
+                        <p className="contact__info-text">{t(contact.availability)}</p>
 
                         <div className="contact__links">
                             <a
@@ -207,7 +209,7 @@ function Contact() {
                             >
                                 <FaGithub size={20} />
                                 <div>
-                                    <strong>GitHub</strong>
+                                    <strong>{t("contact.githubLabel")}</strong>
                                     <span>{contact.github.label}</span>
                                 </div>
                             </a>
@@ -220,7 +222,7 @@ function Contact() {
                             >
                                 <FaLinkedin size={20} />
                                 <div>
-                                    <strong>LinkedIn</strong>
+                                    <strong>{t("contact.linkedinLabel")}</strong>
                                     <span>{contact.linkedin.label}</span>
                                 </div>
                             </a>
@@ -235,7 +237,7 @@ function Contact() {
                             >
                                 <Mail size={20} />
                                 <div>
-                                    <strong>Correo electrónico</strong>
+                                    <strong>{t("contact.emailLabel")}</strong>
                                     <span>{contact.email}</span>
                                 </div>
                                 <Copy size={16} className="contact__link-copy" />

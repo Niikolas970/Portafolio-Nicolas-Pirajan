@@ -1,15 +1,18 @@
+import { useTranslation } from "react-i18next";
 import technologies from "../../../data/technologies";
 import techCategories from "../../../data/techCategories";
 import "./Skills.scss";
 
 function Skills() {
+    const { t } = useTranslation();
+
     return (
         <section className="skills" id="skills">
             <div className="skills__container">
 
                 <div className="skills__header">
-                    <span className="skills__eyebrow">Tecnologías</span>
-                    <h2 className="skills__title">Tecnologías</h2>
+                    <span className="skills__eyebrow">{t("skills.eyebrow")}</span>
+                    <h2 className="skills__title">{t("skills.title")}</h2>
                 </div>
 
                 <div className="skills__groups">
@@ -23,7 +26,7 @@ function Skills() {
                             <div className="skills__group" key={category.id}>
                                 <h3 className="skills__group-title">
                                     <CategoryIcon size={18} />
-                                    {category.title}
+                                    {t(category.title)}
                                 </h3>
 
                                 <div className="skills__carousel">
@@ -42,9 +45,9 @@ function Skills() {
                                                     >
                                                         <TechIcon size={22} />
                                                         <span>
-                                                            {tech.name}
+                                                            {tech.nameKey ? t(tech.name) : tech.name}
                                                             {tech.learning && (
-                                                                <small> (Aprendiendo)</small>
+                                                                <small> {t("skills.learning")}</small>
                                                             )}
                                                         </span>
                                                     </div>

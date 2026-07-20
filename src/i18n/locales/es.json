@@ -1,0 +1,187 @@
+{
+    "nav": {
+        "home": "Inicio",
+        "about": "Sobre mí",
+        "skills": "Tecnologías",
+        "projects": "Proyectos",
+        "experience": "Experiencia",
+        "education": "Educación",
+        "contact": "Contacto"
+    },
+    "navbar": {
+        "cv": "CV",
+        "openMenu": "Abrir menú",
+        "closeMenu": "Cerrar menú",
+        "langSwitch": "Cambiar idioma"
+    },
+    "theme": {
+        "toggle": "Cambiar tema"
+    },
+    "hero": {
+        "greeting": "Hola, soy",
+        "roles": [
+            "Desarrollador Full Stack Java",
+            "Desarrollador Backend Java",
+            "Estudiante de Ingeniería de Software",
+            "Entusiasta de código limpio"
+        ],
+        "description": "Estudiante de Ingeniería de Software y egresado del Bootcamp Generation Colombia. Construyo aplicaciones web con Java, Spring Boot y JavaScript, apasionado por el código limpio y las experiencias de usuario que realmente funcionan. Busco mi primera oportunidad profesional para aportar, crecer y seguir aprendiendo.",
+        "downloadCv": "Descargar CV",
+        "contactMe": "Contactarme",
+        "githubAria": "GitHub",
+        "linkedinAria": "LinkedIn",
+        "scrollHintAria": "Bajar a la siguiente sección"
+    },
+    "about": {
+        "eyebrow": "Sobre mí",
+        "title": "La idea corta, sin vueltas",
+        "cards": {
+            "who": {
+                "title": "¿Quién soy?",
+                "text": "Soy Nicolás Piraján, desarrollador Full Stack Java en formación y estudiante de Ingeniería de Software, radicado en Bogotá, Colombia. Me apasiona construir soluciones digitales útiles, rápidas y fáciles de usar."
+            },
+            "what": {
+                "title": "¿Qué hago?",
+                "text": "Diseño y desarrollo aplicaciones web completas: backend con Java y Spring Boot, frontend con React."
+            },
+            "looking": {
+                "title": "¿Qué busco?",
+                "text": "Mi primera oportunidad profesional como desarrollador Junior, ya sea en Backend con Java o como Full Stack, en un equipo donde pueda aportar valor, seguir aprendiendo y crecer técnica y profesionalmente."
+            },
+            "story": {
+                "title": "Mi historia",
+                "text": "Disfruto enfrentar nuevos desafíos y aprender constantemente: desarrollé una Pokédex consumiendo la PokéAPI, resolví conflictos de integración (merge conflicts) en repositorios colaborativos, y diseñé este portafolio con una experiencia interactiva inspirada en un videojuego RPG."
+            },
+            "bootcamp": {
+                "title": "Bootcamp Generation",
+                "text": "Completé el Bootcamp Full Stack Java de Generation Colombia, donde participé en proyectos individuales y colaborativos aplicando Git, GitHub y SCRUM, asumiendo roles de desarrollador, Scrum Master y administrador de repositorios."
+            },
+            "degree": {
+                "title": "Ingeniería de Software",
+                "text": "Curso actualmente Ingeniería de Software en Uniempresarial – Fundación Universitaria Empresarial de la Cámara de Comercio de Bogotá, fortaleciendo mis conocimientos en programación, estructuras de datos, bases de datos e ingeniería de software."
+            }
+        }
+    },
+    "stats": {
+        "bootcamp": "Bootcamp Full Stack Java completado",
+        "projects": "Proyectos desarrollados",
+        "learning": "Aprendizaje continuo"
+    },
+    "skills": {
+        "eyebrow": "Tecnologías",
+        "title": "Tecnologías",
+        "learning": "(Aprendiendo)"
+    },
+    "techCategories": {
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "tools": "Herramientas"
+    },
+    "technologies": {
+        "teamwork": "Trabajo en Equipo"
+    },
+    "projects": {
+        "eyebrow": "Proyectos",
+        "title": "Cosas que construí",
+        "codeLabel": "Código",
+        "demoLabel": "Demo",
+        "githubAria": "Repositorio de {{title}}",
+        "demoAria": "Demo de {{title}}",
+        "items": {
+            "pokedex": {
+                "title": "Pokédex Interactiva",
+                "description": "Aplicación web que consume la PokéAPI para mostrar información detallada de cada Pokémon, con búsqueda y versiones shiny."
+            },
+            "oralLuanm": {
+                "title": "Oral Luanm — Registro Dental",
+                "description": "Interfaz web para el registro de pacientes de una clínica dental, con formularios validados y enfoque en accesibilidad."
+            },
+            "blog": {
+                "title": "Blog Top 10 Colombia",
+                "description": "Proyecto colaborativo donde desempeñé el rol de Scrum Master, coordinando tareas y gestionando el repositorio del equipo."
+            },
+            "portfolio": {
+                "title": "Portafolio Personal",
+                "description": "Portafolio con arquitectura modular en HTML, CSS y JavaScript, con un modo profesional y un modo aventura tipo RPG."
+            }
+        }
+    },
+    "experience": {
+        "eyebrow": "Experiencia",
+        "title": "Experiencia y Formación",
+        "items": {
+            "bootcamp": {
+                "title": "Bootcamp Full Stack Java — Generation Colombia",
+                "description": "Formación intensiva orientada al desarrollo Full Stack con Java. Participé en proyectos individuales y colaborativos utilizando Git, GitHub y Scrum, desempeñando diferentes roles como desarrollador, Scrum Master y administrador de repositorios.",
+                "techs": ["Java", "HTML", "CSS", "JavaScript", "Git", "SCRUM"]
+            },
+            "degree": {
+                "title": "Ingeniería de Software",
+                "description": "Actualmente curso Ingeniería de Software en Uniempresarial – Fundación Universitaria Empresarial de la Cámara de Comercio de Bogotá, fortaleciendo mis conocimientos en programación, estructuras de datos, bases de datos, ingeniería de software y desarrollo de aplicaciones mediante un modelo de formación orientado al entorno empresarial."
+            },
+            "professional": {
+                "title": "Experiencia Profesional",
+                "description": "Mi experiencia laboral me ha permitido desarrollar habilidades altamente transferibles al desarrollo de software, como trabajo en equipo, comunicación efectiva, resolución de problemas, organización y adaptación a entornos dinámicos.",
+                "techs": ["Trabajo en equipo", "Comunicación", "Resolución de problemas", "Adaptabilidad"]
+            }
+        }
+    },
+    "education": {
+        "eyebrow": "Educación",
+        "title": "Educación",
+        "items": {
+            "current": {
+                "title": "Ingeniería de Software",
+                "description": "Actualmente curso Ingeniería de Software, fortaleciendo mis conocimientos en programación, estructuras de datos, bases de datos, ingeniería de software y desarrollo de aplicaciones."
+            },
+            "bootcamp": {
+                "title": "Bootcamp Full Stack Java — Generation Colombia",
+                "description": "Formación intensiva enfocada en desarrollo Full Stack con Java, trabajo colaborativo mediante Scrum, control de versiones con Git y construcción de proyectos utilizando HTML, CSS y JavaScript."
+            },
+            "selfTaught": {
+                "title": "Formación autodidacta",
+                "description": "Complemento mi aprendizaje mediante documentación oficial, cursos y proyectos personales, explorando nuevas tecnologías y fortaleciendo constantemente mis habilidades como desarrollador."
+            }
+        }
+    },
+    "common": {
+        "present": "Actualidad",
+        "continuousLearning": "Aprendizaje continuo"
+    },
+    "contact": {
+        "eyebrow": "Contacto",
+        "heading": "Contacto",
+        "description": "¿Tienes una oportunidad laboral, una propuesta de colaboración o simplemente quieres ponerte en contacto conmigo? Estaré encantado de leerte.",
+        "availability": "Actualmente me encuentro disponible para oportunidades como Desarrollador Full Stack Java Junior.",
+        "form": {
+            "nameLabel": "Nombre completo",
+            "namePlaceholder": "Tu nombre completo",
+            "emailLabel": "Correo electrónico",
+            "emailPlaceholder": "tu@correo.com",
+            "messageLabel": "Mensaje",
+            "messagePlaceholder": "Cuéntame sobre tu proyecto, oportunidad o consulta...",
+            "send": "Enviar mensaje",
+            "sending": "Enviando...",
+            "success": "✓ Mensaje enviado. ¡Te responderé lo antes posible!",
+            "errors": {
+                "nameEmpty": "Por favor ingresa tu nombre.",
+                "nameShort": "El nombre es muy corto.",
+                "nameLong": "El nombre es demasiado largo.",
+                "emailInvalid": "Ingresa un correo válido.",
+                "messageEmpty": "El mensaje no puede estar vacío.",
+                "messageShort": "El mensaje debe tener al menos 10 caracteres.",
+                "messageLong": "El mensaje no puede superar los 500 caracteres."
+            }
+        },
+        "alsoFindMe": "También puedes encontrarme en",
+        "githubLabel": "GitHub",
+        "linkedinLabel": "LinkedIn",
+        "emailLabel": "Correo electrónico"
+    },
+    "footer": {
+        "role": "Desarrollador Full Stack Java",
+        "githubAria": "GitHub de Nicolás",
+        "linkedinAria": "LinkedIn de Nicolás",
+        "emailAria": "Correo de Nicolás"
+    }
+}
