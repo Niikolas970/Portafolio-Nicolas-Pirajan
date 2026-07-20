@@ -2,6 +2,9 @@ import { Gamepad2, Stethoscope, Newspaper, Layers } from "lucide-react";
 import oralLuanmImg from "../assets/images/Oral-Luanm-Proyect.png";
 import blogScrumImg from "../assets/images/Blog-Scrum.png";
 import videoPokeApi from "../assets/videos/video-pokemon.mp4"
+import quienSoy from "../assets/images/quien-soy.png"
+import trendyShop from "../assets/images/Trendy-shop.png"
+
 
 const projects = [
     {
@@ -41,12 +44,23 @@ const projects = [
         id: 4,
         title: "projects.items.portfolio.title",
         description: "projects.items.portfolio.description",
-        image: null,
+        image: quienSoy,
         video: null,
         icon: Layers,
         techs: ["HTML", "CSS", "JavaScript"],
         github: "https://github.com/Niikolas970/Portafolio-Nicolas-Pirajan.git",
         demo: null,
+    },
+    {
+        id: 5,
+        title: "projects.items.trendyShop.title",
+        description: "projects.items.trendyShop.description",
+        image: trendyShop,
+        video: null,
+        icon: Layers,
+        techs: ["HTML", "CSS", "JavaScript"],
+        github: "https://github.com/Raydan08x/trendy-shop.git",
+        demo: "https://niikolas970.github.io/trendy-shop/",
     },
 ];
 

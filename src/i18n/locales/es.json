@@ -69,8 +69,7 @@
     },
     "skills": {
         "eyebrow": "Tecnologías",
-        "title": "Tecnologías",
-        "learning": "(Aprendiendo)"
+        "title": "Tecnologías"
     },
     "techCategories": {
         "frontend": "Frontend",
@@ -103,6 +102,10 @@
             "portfolio": {
                 "title": "Portafolio Personal",
                 "description": "Portafolio con arquitectura modular en HTML, CSS y JavaScript, con un modo profesional y un modo aventura tipo RPG."
+            },
+            "trendyShop": {
+                "title": "Trendy Shop",
+                "description": "E-commerce frontend desarrollado con HTML, CSS y JavaScript. Incluye catálogo de productos, carrito de compras, filtros, búsqueda y una interfaz responsiva, simulando la experiencia de una tienda en línea sin integración de backend."
             }
         }
     },
@@ -113,7 +116,14 @@
             "bootcamp": {
                 "title": "Bootcamp Full Stack Java — Generation Colombia",
                 "description": "Formación intensiva orientada al desarrollo Full Stack con Java. Participé en proyectos individuales y colaborativos utilizando Git, GitHub y Scrum, desempeñando diferentes roles como desarrollador, Scrum Master y administrador de repositorios.",
-                "techs": ["Java", "HTML", "CSS", "JavaScript", "Git", "SCRUM"]
+                "techs": [
+                    "Java",
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "Git",
+                    "SCRUM"
+                ]
             },
             "degree": {
                 "title": "Ingeniería de Software",
@@ -122,7 +132,12 @@
             "professional": {
                 "title": "Experiencia Profesional",
                 "description": "Mi experiencia laboral me ha permitido desarrollar habilidades altamente transferibles al desarrollo de software, como trabajo en equipo, comunicación efectiva, resolución de problemas, organización y adaptación a entornos dinámicos.",
-                "techs": ["Trabajo en equipo", "Comunicación", "Resolución de problemas", "Adaptabilidad"]
+                "techs": [
+                    "Trabajo en equipo",
+                    "Comunicación",
+                    "Resolución de problemas",
+                    "Adaptabilidad"
+                ]
             }
         }
     },

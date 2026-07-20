@@ -46,9 +46,6 @@ function Skills() {
                                                         <TechIcon size={22} />
                                                         <span>
                                                             {tech.nameKey ? t(tech.name) : tech.name}
-                                                            {tech.learning && (
-                                                                <small> {t("skills.learning")}</small>
-                                                            )}
                                                         </span>
                                                     </div>
                                                 );

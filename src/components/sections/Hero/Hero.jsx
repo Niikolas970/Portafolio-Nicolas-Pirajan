@@ -21,7 +21,7 @@ const TECH_ORBIT = [
 ];
 
 function Hero() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const roles = t(hero.roles, { returnObjects: true });
     const [indiceRol, setIndiceRol] = useState(0);
     const [visible, setVisible] = useState(true);
@@ -65,7 +65,7 @@ function Hero() {
                 <p className="hero__descripcion">{t(hero.description)}</p>
 
                 <div className="hero__botones">
-                    <a href={hero.cvUrl} download className="hero__btn hero__btn--primario">
+                    <a href={hero.getCvUrl(i18n.language)} download className="hero__btn hero__btn--primario">
                         <Download size={18} />
                         {t("hero.downloadCv")}
                     </a>

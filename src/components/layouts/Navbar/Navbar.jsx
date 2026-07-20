@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Menu, X, Download } from "lucide-react";
 import ThemeToggle from "../../ui/ThemeToggle/ThemeToggle";
 import logo from "../../../assets/images/logo-nicolas-pirajan.jpeg";
+import hero from "../../../data/hero";
 import "./Navbar.scss";
 
 const NAV_LINKS = [
@@ -82,7 +83,7 @@ function Navbar() {
 
             <div className="navbar__actions">
                 <a
-                    href={`${import.meta.env.BASE_URL}docs/cv-nicolas-pirajan.pdf`}
+                    href={hero.getCvUrl(i18n.language)}
                     download
                     className="navbar__cv-btn"
                 >

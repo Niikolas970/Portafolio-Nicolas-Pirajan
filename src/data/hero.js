@@ -5,7 +5,8 @@ const hero = {
     name: "Nicolás Piraján",
     roles: "hero.roles",
     description: "hero.description",
-    cvUrl: `${import.meta.env.BASE_URL}docs/cv-nicolas-pirajan.pdf`,
+    getCvUrl: (lang) =>
+        `${import.meta.env.BASE_URL}docs/cv-nicolas-pirajan${lang === "en" ? "-en" : ""}.pdf`,
     photo: heroPhoto,
     decorations: ["</>", "{ }", "Java"],
 };

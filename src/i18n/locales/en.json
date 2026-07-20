@@ -69,8 +69,7 @@
     },
     "skills": {
         "eyebrow": "Skills",
-        "title": "Technologies",
-        "learning": "(Learning)"
+        "title": "Technologies"
     },
     "techCategories": {
         "frontend": "Frontend",
@@ -103,6 +102,10 @@
             "portfolio": {
                 "title": "Personal Portfolio",
                 "description": "Portfolio with a modular architecture in HTML, CSS and JavaScript, featuring a professional mode and an RPG-style adventure mode."
+            },
+            "trendyShop": {
+                "title": "Trendy Shop",
+                "description": "Frontend e-commerce application built with HTML, CSS, and JavaScript. Features a product catalog, shopping cart, search, filters, and a responsive interface, simulating an online shopping experience without a backend."
             }
         }
     },
